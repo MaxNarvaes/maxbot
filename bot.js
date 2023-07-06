@@ -11,7 +11,7 @@ var AFKCooldown = 5;
 
 var goalDictionary = {};
 /* ROOM */
-const roomNumber = 1;
+const roomNumber = 2;
 const roomName = "JUEGAN TODOS CON ♿ (" + (roomNumber + 1) + ")";
 const maxPlayers = 19;
 const roomPublic = true;
@@ -38,7 +38,7 @@ const timeLimitBig = 10;
 //variables globales q agregue
 var commandTimeout = 0;
 var afkCounter = 0;
-var voiceChatLink = ['https://discord.com/channels/1122229514647371846/1122229516547412171', 'https://discord.com/channels/1122229514647371846/1122229516547412172'];
+var voiceChatLink = ['https://discord.com/channels/1122229514647371846/1122229516547412171', 'https://discord.com/channels/1122229514647371846/1122229516547412172', ''];
 
 var initializing = false;
 
@@ -87,7 +87,7 @@ var v10Map = '{"name":"Futsal 10v10 Feliz navidad [\u029c\u1d00x\u1d0d\u1d0f\u1d
 function roomUpNotification() {
     if (typeof window.HBInit === 'function') {
         var hrefs = document.querySelector("body iframe").contentDocument.querySelector("body div#roomlink a").text;
-        console.log(hrefs);
+        //console.log(hrefs);
         sendAnnouncementToDiscord("@everyone Esta arriba el server " + roomName + ": " + hrefs);
     }
 }
@@ -248,26 +248,26 @@ function pointDistance(p1, p2) {
 //asigna 1 o 2 specs x orden de llegada
 function topBtn() {
     if (teamS.length == 0) {
-        console.log("llego la lista vacia de specs")
+        //console.log("llego la lista vacia de specs")
         return;
     }
     else {
         var flipTeam = false;
-        console.log("top btn called")
+        //console.log("top btn called")
         for (var i = 0; i < teamS.length; i++) {
             if (flipTeam) {
                 var player = teamS[i];
                 var pid = player.id;
                 room.setPlayerTeam(pid, Team.RED);
                 teamR.push(player);
-                console.log("+1 red " + player.name);
+                //console.log("+1 red " + player.name);
                 flipTeam = false;
             } else {
                 var player = teamS[i];
                 var pid = player.id;
                 room.setPlayerTeam(pid, Team.BLUE);
                 teamB.push(player);
-                console.log("+1 blue " + player.name);
+                //console.log("+1 blue " + player.name);
                 flipTeam = true;
             }
         }
@@ -276,12 +276,12 @@ function topBtn() {
 
 function randomBtn() {
     if (teamS.length == 0) {
-        console.log("llego la lista vacia de specs")
+        //console.log("llego la lista vacia de specs")
         return;
     }
     else {
         var flipTeam = false;
-        console.log("random btn called")
+        //console.log("random btn called")
         var specLength = teamS.length;
         for (var i = 0; i < teamS.length; i++) {
             var player = teamS[getRandomInt(teamS.length)];
@@ -289,24 +289,24 @@ function randomBtn() {
             if (flipTeam) {
                 room.setPlayerTeam(pid, Team.RED);
                 teamR.push(player);
-                console.log("+1 red " + player.name);
+                //console.log("+1 red " + player.name);
                 flipTeam = false;
             } else {
                 room.setPlayerTeam(pid, Team.BLUE);
                 teamB.push(player);
-                console.log("+1 blue " + player.name);
+                //console.log("+1 blue " + player.name);
                 flipTeam = true;
             }
         }
         teamS.splice(0, specLength);
-        console.log("teamS");
-        console.log(teamS);
+        //console.log("teamS");
+        //console.log(teamS);
 
-        console.log("teamR");
-        console.log(teamR);
+        //console.log("teamR");
+        //console.log(teamR);
 
-        console.log("teamB");
-        console.log(teamB);
+        //console.log("teamB");
+        //console.log(teamB);
     }
     /* else {
         var playerdiff = Math.abs(teamR.length - teamB.length);
@@ -343,7 +343,7 @@ function redToSpecBtn() {
 
 function resetBtn() {
     resettingTeams = true;
-    console.log("resetting teams")
+    //console.log("resetting teams")
     setTimeout(() => { resettingTeams = false; }, 100);
     var teamRedLength = teamR.length;
     var teamBlueLength = teamB.length;
@@ -393,7 +393,7 @@ function checkTime() {
 
     //si el tiempo termino
     if (Math.abs(scores.time - scores.timeLimit) <= 0.01 && scores.timeLimit != 0) {
-        console.log("termino el tiempo")
+        //console.log("termino el tiempo")
         //si alguien gano
         normalEndGame(scores);
         //tiempo extra
@@ -409,7 +409,7 @@ function checkTime() {
     }// despues de cierto tiempo de gol de oro para el partido && players.length > 2 */
     if (Math.abs(scores.time - drawTimeLimit * 60) <= 0.01) {
         if (checkTimeVariable == false) {
-            console.log("paso el tiempo de empate")
+            //console.log("paso el tiempo de empate")
             checkTimeVariable = true;
             setTimeout(() => { checkTimeVariable = false; }, 10);
             endGame(Team.SPECTATORS);
@@ -494,10 +494,10 @@ function deactivateChooseMode() {
 }
 
 function loadMap(map, scoreLim, timeLim) {
-    console.log("cambiando mapa");
+    //console.log("cambiando mapa");
     if (currentMap == map) {
-        console.log(currentMap.substring(0, 20));
-        console.log(map.substring(0, 20));
+        //console.log(currentMap.substring(0, 20));
+        //console.log(map.substring(0, 20));
         return;
     }
     room.setCustomStadium(map);
@@ -518,7 +518,7 @@ function updateTeams() { // update the players' list and all the teams' list
 function handleInactivity() { // handles inactivity : players will be kicked after afkLimit
     // countAFK
     if (countAFK) {
-        //console.log("handling activity");
+        ////console.log("handling activity");
         for (var i = 0; i < teamR.length; i++) {
             setActivity(teamR[i], getActivity(teamR[i]) + 1);
         }
@@ -526,12 +526,12 @@ function handleInactivity() { // handles inactivity : players will be kicked aft
             setActivity(teamB[i], getActivity(teamB[i]) + 1);
         }
         var afkList = room.getPlayerList().filter((player) => player.id != 0 && isAFK(player));
-        //console.log("lista de afk" + afkList);
+        ////console.log("lista de afk" + afkList);
         for (var i = 0; i < afkList.length; i++) {
-            /* console.log("seteando" + afkList[i].name)
-            console.log(getActivity(afkList[i])); */
+            /* //console.log("seteando" + afkList[i].name)
+            //console.log(getActivity(afkList[i])); */
             setActivity(afkList[i], getActivity(afkList[i]) + 1);
-            /* console.log(getActivity(afkList[i])); */
+            /* //console.log(getActivity(afkList[i])); */
         }
         for (var i = 0; i < extendedP.length; i++) {
             if (extendedP[i][eP.ACT] == 45 && !extendedP[i][eP.AFK]) {
@@ -539,7 +539,7 @@ function handleInactivity() { // handles inactivity : players will be kicked aft
             }
             if (extendedP[i][eP.ACT] > 45 && !extendedP[i][eP.AFK]) {
                 extendedP[i][eP.ACT] = 0;
-                console.log("kicked " + extendedP[i][eP.ID]);
+                //console.log("kicked " + extendedP[i][eP.ID]);
                 room.kickPlayer(extendedP[i][eP.ID], "AFK", false);
             }
         }
@@ -560,8 +560,8 @@ function setAFK(player, value) {
 }
 
 function getActivity(player) {
-    //console.log("extendedp de player " + player.name);
-    //console.log(extendedP.filter((a) => a[0] == player.id));
+    ////console.log("extendedp de player " + player.name);
+    ////console.log(extendedP.filter((a) => a[0] == player.id));
 
     try {
         return extendedP.filter((a) => a[0] == player.id)[0][eP.ACT] != undefined ?
@@ -602,7 +602,7 @@ function updateRoleOnPlayerIn() {
         }
         printSpecList(teamR.length <= teamB.length ? teamR[0] : teamB[0]);
     } */
-    console.log("balance teams desde update role on plauer in")
+    //console.log("balance teams desde update role on plauer in")
     balanceTeams();
 }
 
@@ -650,7 +650,7 @@ function updateRoleOnPlayerOut() {
 }
 
 function balanceTeams() {
-    console.log("top btn desde balance teams");
+    //console.log("top btn desde balance teams");
     topBtn();
     // asigna al equipo q menos pj tiene los specs q falten para equilibrar
     /*if (teamR.length > teamB.length) {
@@ -710,7 +710,7 @@ function balanceTeams() {
 }
 
 function chooseField() {
-    console.log("choosing field");
+    //console.log("choosing field");
     var newMap = chooseMap();
     if (newMap != null) {
         room.stopGame();
@@ -723,38 +723,38 @@ function chooseField() {
 function chooseMap() {
     if (players.length < 5) {
         if (currentMap != v2Map) {
-            console.log("chose x2");
+            //console.log("chose x2");
             return v2Map;
         }
         return null;
     } else if (players.length <= 6) {
         if (currentMap != v3Map) {
-            console.log("chose x3");
+            //console.log("chose x3");
             return v3Map;
         }
         return null;
     } else if (players.length <= 10) {
         if (currentMap != v4Map) {
-            console.log("chose x4");
+            //console.log("chose x4");
             return v4Map;
         }
         return null;
     } else if (players.length <= 12) {
         if (currentMap != v6Map) {
-            console.log("chose x6");
+            //console.log("chose x6");
             return v6Map;
         }
         return null;
     } else if (players.length <= 14) {
         if (currentMap != v7Map) {
-            console.log("chose x7");
+            //console.log("chose x7");
             return v7Map;
         }
         return null;
 
     } else if (players.length <= 18) {
         if (currentMap != v10Map) {
-            console.log("chose x10");
+            //console.log("chose x10");
             return v10Map;
         }
         return null;
@@ -848,10 +848,10 @@ function getStats() { // gives possession, ball speed and GK of each team
 
 function updateStats() {
     //&& allReds.length >= maxTeamSize && allBlues.length >= maxTeamSize
-    console.log("update stats");
+    //console.log("update stats");
     if (players.length >= 2 && (game.scores.time >= (5 / 6) * game.scores.timeLimit || game.scores.red == game.scores.scoreLimit || game.scores.blue == game.scores.scoreLimit)) {
         var stats;
-        console.log("inside stats");
+        //console.log("inside stats");
         for (var i = 0; i < allReds.length; i++) {
             localStorage.getItem(getAuth(allReds[i])) ? stats = JSON.parse(localStorage.getItem(getAuth(allReds[i]))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", allReds[i].name];
             stats[StatColumns.GAMES]++;
@@ -971,12 +971,12 @@ function customBalancePlayer(player) {
         var pid = player.id;
         room.setPlayerTeam(pid, Team.RED);
         teamR.push(player);
-        console.log("+1 red on join")
+        //console.log("+1 red on join")
     } else {
         var pid = player.id;
         room.setPlayerTeam(pid, Team.BLUE);
         teamB.push(player);
-        console.log("+1 blue on join")
+        //console.log("+1 blue on join")
     }
 }
 
@@ -985,7 +985,7 @@ room.onPlayerJoin = function (player) {
         room.kickPlayer(player.id, "hablame al discord si queres jugar en paz", false);
     }
     extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false]);
-    console.log("entro " + player.name);
+    //console.log("entro " + player.name);
     updateTeams();
 
     //si entro un spec cambia a mapa de entrenamiento
@@ -1000,12 +1000,12 @@ room.onPlayerJoin = function (player) {
         loadMap(v2Map, scoreLimitClassic, timeLimitClassic);
     }
 
-    console.log("custom balance team on player join. id: " + player.id);
+    //console.log("custom balance team on player join. id: " + player.id);
     //custom balance
     customBalancePlayer(player);
 
     //balanceTeams();
-    //console.log("elegimos cancha on player join");
+    ////console.log("elegimos cancha on player join");
     //chooseField();
     //updateRoleOnPlayerIn();
     /*     sendAnnouncementToDiscord(
@@ -1030,7 +1030,7 @@ room.onPlayerJoin = function (player) {
 }
 
 room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
-    console.log("on player team change" + changedPlayer.name);
+    //console.log("on player team change" + changedPlayer.name);
     if (changedPlayer.id == 0) {
         room.setPlayerTeam(0, Team.SPECTATORS);
         return;
@@ -1056,15 +1056,15 @@ room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
     }
 
     updateTeams();
-    /*     console.log("update teams");
-        console.log("players");
-        console.log(players);
-        console.log("red");
-        console.log(teamR);
-        console.log("blue");
-        console.log(teamB);
-        console.log("specs");
-        console.log(teamS); */
+    /*     //console.log("update teams");
+        //console.log("players");
+        //console.log(players);
+        //console.log("red");
+        //console.log(teamR);
+        //console.log("blue");
+        //console.log(teamB);
+        //console.log("specs");
+        //console.log(teamS); */
     /* if (inChooseMode && resettingTeams == false && byPlayer.id == 0) {
         if (Math.abs(teamR.length - teamB.length) == teamS.length) {
             deactivateChooseMode();
@@ -1099,7 +1099,7 @@ room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
         }
     } */
     //balanceTeams();
-    /* console.log("elegimos cancha on player team change");
+    /* //console.log("elegimos cancha on player team change");
     chooseField(); */
 }
 
@@ -1143,11 +1143,11 @@ function afkCommand(player, message) {
                 'bold',
                 null
             );
-            console.log("Sacando de afk " + teamS);
+            //console.log("Sacando de afk " + teamS);
             setAFK(player, !isAFK(player));
             updateTeams();
             balanceTeams();
-            console.log("Sacando de afk updated " + teamS);
+            //console.log("Sacando de afk updated " + teamS);
             /* handlePlayersJoin(); */
         }
     } else {
@@ -1205,7 +1205,7 @@ function afkCommand(player, message) {
 }
 
 room.onPlayerLeave = function (player) {
-    console.log("salio " + player.name);
+    //console.log("salio " + player.name);
     /* 		if (teamR.findIndex((red) => red.id == player.id) == 0 && inChooseMode && teamR.length <= teamB.length) {
                 choosePlayer();
                 capLeft = true; setTimeout(() => { capLeft = false; }, 10);
@@ -1218,8 +1218,8 @@ room.onPlayerLeave = function (player) {
     function handlePlayerExit() {
         setActivity(player, 0);
         players = room.getPlayerList().filter((player) => player.id != 0 && !isAFK(player));
-        console.log("players on leave");
-        console.log(players);
+        //console.log("players on leave");
+        //console.log(players);
         var index = Array.prototype.findIndex.call(players, (x) => x.id === player.id);
         if (player.team == Team.RED) {
             teamR.splice(index, 1);
@@ -1231,7 +1231,7 @@ room.onPlayerLeave = function (player) {
         return index;
     }
     //updateRoleOnPlayerOut();
-    //console.log("elegimos cancha on player leave");
+    ////console.log("elegimos cancha on player leave");
     //chooseField();
 }
 
@@ -1254,7 +1254,7 @@ room.onPlayerChat = function (player, message) {
         return;
     }
     var adminTag = player.admin ? "ADMIN " : "";
-    console.log(adminTag + player.name + ": " + message);
+    //console.log(adminTag + player.name + ": " + message);
 
     if (message.match(regex)) {
         room.sendAnnouncement("No bardees mogolico", player.id);
@@ -1330,17 +1330,17 @@ room.onPlayerChat = function (player, message) {
         var ePlayer = extendedP.filter((p) => {
             p[eP.ID] == player.id
         });
-        console.log("!afk");
-        console.log("player id" + player.id);
-        console.log(extendedP);
-        console.log("activity" + getActivity(player));
+        //console.log("!afk");
+        //console.log("player id" + player.id);
+        //console.log(extendedP);
+        //console.log("activity" + getActivity(player));
         if (isAFK(player) && getActivity(player) < 20 && player.admin == false) {
             room.sendAnnouncement("Espera 20 segundos para salir de afk", player.id, 0xFF0000);
             return;
         }
         setAFK(player, !isAFK(player));
-        console.log("player en extended p?")
-        console.log(extendedP.filter((p) => p[eP.ID] == player.id));
+        //console.log("player en extended p?")
+        //console.log(extendedP.filter((p) => p[eP.ID] == player.id));
         room.sendAnnouncement(player.name + (isAFK(player) ? " esta AFK! 😴" : " dejo de estar AFK!"), null, (isAFK(player) ? 0xFF5E3B :
             0x26DF17));
         isAFK(player) ? updateRoleOnPlayerOut() : updateRoleOnPlayerIn(); */
@@ -1689,7 +1689,7 @@ room.onPlayerChat = function (player, message) {
         printDiscord();
     }
     else if ("!elo".includes(message[0].toLowerCase()) && localStorage.getItem(getAuth(player))) { // elo definido por vitórias
-        console.log("entro en comando elo " + player.name);
+        //console.log("entro en comando elo " + player.name);
         message.slice(0, 1);
         stats = JSON.parse(localStorage.getItem(getAuth(player)));
         if (stats[StatColumns.WINS] > 499) {
@@ -1855,7 +1855,7 @@ function hslToHex(h, s, l) {
 
 function pickBgColor(bgColor) {
     var color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
-    console.log("color" + color.toString(16));
+    //console.log("color" + color.toString(16));
     var r = parseInt(color.substring(0, 2), 16); // hexToR
     var g = parseInt(color.substring(2, 4), 16); // hexToG
     var b = parseInt(color.substring(4, 6), 16); // hexToB
@@ -1886,9 +1886,9 @@ function randomUniforms() {
     var redAngle = generateRandomInteger(0, 4) * 45;
     var blueAngle = generateRandomInteger(0, 4) * 45;
     var blueColor = hslToHex(blue, blueSat, blueL);
-    /* console.log("blue " + blueColor + " bluesat " + blueSat); 
+    /* //console.log("blue " + blueColor + " bluesat " + blueSat); 
     var redColor = hslToHex(red, redSat, redL);
-    /* console.log("red " + redColor + " redsat " + redSat); 
+    /* //console.log("red " + redColor + " redsat " + redSat); 
     room.setTeamColors(
         Team.BLUE,
         blueAngle,
@@ -1909,12 +1909,12 @@ function randomUniforms() {
     var t = [{ int: randomInts[0], teamID: 1 }, { int: randomInts[1], teamID: 2 }];
     t.forEach(x => {
         var index = teams[x.int];
-        console.log("index " + index);
-        console.log("x " + x);
+        //console.log("index " + index);
+        //console.log("x " + x);
         if (index !== -1) {
             //x.teamID - 1
             var team = teams[x.int];
-            console.log(team);
+            //console.log(team);
             room.setTeamColors(
                 x.teamID,
                 team.uniform[UNIFORME_OFICIAL].angle,
@@ -1992,31 +1992,31 @@ room.onGameStop = function (byPlayer) {
     if (endGameVariable) {
         inChooseMode = false;
         //pasa a todos a spec
-        console.log("team s " + teamS.length);
-        console.log("team b " + teamB.length);
-        console.log("team r " + teamR.length);
-        console.log("reseteamos equipos");
+        //console.log("team s " + teamS.length);
+        //console.log("team b " + teamB.length);
+        //console.log("team r " + teamR.length);
+        //console.log("reseteamos equipos");
         resetBtn();
         /* setTimeout(() => {
-            console.log("actualizamos equipos en game stop despues de")
+            //console.log("actualizamos equipos en game stop despues de")
             updateTeams();
         }, 50); */
-        console.log("team s " + teamS.length);
-        console.log("team b " + teamB.length);
-        console.log("team r " + teamR.length);
+        //console.log("team s " + teamS.length);
+        //console.log("team b " + teamB.length);
+        //console.log("team r " + teamR.length);
         //asigna de forma random los equipos
-        console.log("on game stop asigna equipos")
+        //console.log("on game stop asigna equipos")
 
         setTimeout(() => { 
             topBtn(); 
             updateTeams(); 
             randomUniforms();}
         , 3500);
-        console.log("choosing field on game stop")
+        //console.log("choosing field on game stop")
         chooseField();
-        console.log("team s " + teamS.length);
-        console.log("team b " + teamB.length);
-        console.log("team r " + teamR.length);
+        //console.log("team s " + teamS.length);
+        //console.log("team b " + teamB.length);
+        //console.log("team r " + teamR.length);
 
 
 
@@ -2102,7 +2102,7 @@ room.onGameUnpause = function (byPlayer) {
 
 function scoreGoal(goalScorer, team) {
     if (goalDictionary[goalScorer.id] == null) {
-        console.log("primera vez deberia entrar aca")
+        //console.log("primera vez deberia entrar aca")
         goalDictionary[goalScorer.id] = 0;
     }
     var scores = room.getScores();
@@ -2111,20 +2111,20 @@ function scoreGoal(goalScorer, team) {
     game.goals.push(new Goal(scores.time, team, lastPlayersTouched[0], null));
 
     goalDictionary[goalScorer.id] += 1;
-    console.log(goalDictionary);
+    //console.log(goalDictionary);
     if (goalDictionary[goalScorer.id] > 2) {
-        console.log("hat trick");
-        console.log(goalDictionary);
+        //console.log("hat trick");
+        //console.log(goalDictionary);
         room.setPlayerAvatar(goalScorer.id, "1!");
-        console.log("hat trick 1");
+        //console.log("hat trick 1");
         setTimeout(() => {
             room.setPlayerAvatar(goalScorer.id, "2!");
-            console.log("hat trick 2");
+            //console.log("hat trick 2");
             setTimeout(() => {
                 room.setPlayerAvatar(goalScorer.id, "3!");
-                console.log("hat trick 3");
+                //console.log("hat trick 3");
                 setTimeout(() => {
-                    console.log("hat trick 4");
+                    //console.log("hat trick 4");
                     room.setPlayerAvatar(goalScorer.id, "💣");
                     setTimeout(() => {
                         room.setPlayerAvatar(goalScorer.id, null);
@@ -2145,7 +2145,7 @@ function scoreGoal(goalScorer, team) {
 
 room.onTeamGoal = function (team) {
     let players = room.getPlayerList();
-    console.log("GOL DEL " + team);
+    //console.log("GOL DEL " + team);
     /* for (let i = 0; i < players.length; i++) {
         if (players[i].team == team) room.setPlayerAvatar(players[i].id, "⚽️");
     }
@@ -2165,7 +2165,7 @@ room.onTeamGoal = function (team) {
         return;
     }
     if (goalScorer.team == team) {
-        console.log("last touch id " + lastPlayersTouched[0].id);
+        //console.log("last touch id " + lastPlayersTouched[0].id);
         room.setPlayerAvatar(goalScorer.id, "⚽");
         setTimeout(() => {
             room.setPlayerAvatar(goalScorer.id, null);
@@ -2254,7 +2254,7 @@ function dataehora() {
 
 function customBalance() {
     if ((Math.abs(teamR.length - teamB.length) > 1)) {
-        console.log("custom balance team on positions reset");
+        //console.log("custom balance team on positions reset");
         if (teamR.length < teamB.length) {
             var index = teamB.length - 1;
             var player = teamB[index];
@@ -2262,8 +2262,8 @@ function customBalance() {
             room.setPlayerTeam(pid, Team.RED);
             teamR.push(player);
             teamB.splice(index, 1);
-            console.log("-1 blue (" + player.name + ") on postion reset")
-            console.log("+1 red on postion reset")
+            //console.log("-1 blue (" + player.name + ") on postion reset")
+            //console.log("+1 red on postion reset")
         } else {
             var index = teamR.length - 1;
             var player = teamR[index]
@@ -2271,14 +2271,14 @@ function customBalance() {
             room.setPlayerTeam(pid, Team.BLUE);
             teamR.push(player);
             teamB.splice(index, 1);
-            console.log("-1 blue on postion reset")
-            console.log("+1 red on postion reset")
+            //console.log("-1 blue on postion reset")
+            //console.log("+1 red on postion reset")
         }
     }
 }
 
 room.onPositionsReset = function () {
-    console.log("position reset last players cleaned")
+    //console.log("position reset last players cleaned")
     countAFK = true;
     lastPlayersTouched = [null, null];
 
