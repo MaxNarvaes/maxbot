@@ -1111,6 +1111,10 @@ setInterval(() => {
     printVc();
 }, 180000);
 
+setInterval(() => {
+    printRules();
+}, 240000);
+
 function printDiscord() {
     room.sendAnnouncement("                                        ▒█▀▀▄ ▀█▀ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▄ ", null, 0x9250FD)
     room.sendAnnouncement("                                        ▒█░▒█ ▒█░ ░▀▀▀▄▄ ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█░▒█ ", null, 0x8466FD)
@@ -1119,8 +1123,17 @@ function printDiscord() {
 }
 
 function printVc() {
-    var msg = "Entra al voice chat de la sala: " + voiceChatLink[roomNumber];
+    var msg = "TIP: ¿Querés hablar con los pibes? Entra al VC del discord: " + voiceChatLink[roomNumber];
     room.sendAnnouncement(msg, null, 0x00FF00);
+}
+
+function printRules() {
+    room.sendAnnouncement(" 😮‍💨 ╿ Reglas del host ⬅", null, 0x8466FD);
+    room.sendAnnouncement(" #1 Respetar a los jugadores ", null, null);
+    room.sendAnnouncement(" #2 Trollear, tosquear redes o tosquear a jugadores está prohibido! ", null, null);
+    room.sendAnnouncement(" #3 No usar el comando !admin de forma imbécil ", null, null);
+    room.sendAnnouncement(" #4 No suplantar identidades para molestar ", null, null);
+    room.sendAnnouncement(" #5 Bardear está permitido, pero no pasarse de la raya! ", null, null);    
 }
 
 
@@ -1295,6 +1308,11 @@ room.onPlayerChat = function (player, message) {
 
     else if (["!cancha"].includes(message[0].toLowerCase()) && player.admin) {
         chooseField();
+    }
+
+    else if (["!reglas"].includes(message[0].toLowerCase())) {
+        printRules(player);
+        return;
     }
 
     else if (["!vc"].includes(message[0].toLowerCase())) {
