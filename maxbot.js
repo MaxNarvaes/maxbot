@@ -1336,6 +1336,10 @@ setInterval(() => {
     printVc();
 }, 180000);
 
+setInterval(() => {
+    printRules();
+}, 240000);
+
 function printDiscord() {
     room.sendAnnouncement("                                        ▒█▀▀▄ ▀█▀ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▄ ", null, 0x9250FD)
     room.sendAnnouncement("                                        ▒█░▒█ ▒█░ ░▀▀▀▄▄ ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█░▒█ ", null, 0x8466FD)
@@ -1344,8 +1348,17 @@ function printDiscord() {
 }
 
 function printVc() {
-    var msg = "Entra al voice chat de la sala: " + voiceChatLink[roomNumber];
+    var msg = "TIP: ¿Querés hablar con los pibes? Entra al VC del discord: " + voiceChatLink[roomNumber];
     room.sendAnnouncement(msg, null, 0x00FF00);
+}
+
+function printRules() {
+    room.sendAnnouncement(" 😮‍💨 ╿ Reglas del host ⬅", null, 0x8466FD);
+    room.sendAnnouncement(" #1 Respetar a los jugadores ", null, null);
+    room.sendAnnouncement(" #2 Trollear, tosquear redes o tosquear a jugadores está prohibido! ", null, null);
+    room.sendAnnouncement(" #3 No usar el comando !admin de forma imbécil ", null, null);
+    room.sendAnnouncement(" #4 No suplantar identidades para molestar ", null, null);
+    room.sendAnnouncement(" #5 Bardear está permitido, pero no pasarse de la raya! ", null, null);    
 }
 
 
@@ -1536,7 +1549,7 @@ function printMeMideCommand(player) {
 }
 
 var humiliateCommandTimeout = new Set();
-const humilliatingVerbs = [" le robo el novio a ", " le meo la cara a ", " le hizo aplaudir las nalgas a ", " le hizo un brrr en la cola a ", " le toco el culo a ", " le ficho el bulto a ", " se caso con ", " embarazo a ", " fue embarazado por ", " le dio unos besitos a ", " se cago a trompadas con ", " chapo con ", " mecho uno con ", " reforzo amistad con ", " sale con el papa de ", " rechazo los avances sexuales no solicitados de ", " le pidio plata y nunca se la devolvio a ", " le dio un arrimon a ", " sale con la prima de ", " se unto en aceite y se le tiro encima a ", " se puso en tanga y le bailo a ", " y el admin salieron de travas y lo encontraron a ", " es un comilon como ", " piensa que el mejor jugador es ", " dice que el mas burro es ", " le dio play a la peli xno de enanos y la actriz principal era "];
+const humilliatingVerbs = [" le robo el novio a ", " le meo la cara a ", " le hizo aplaudir las nalgas a ", " le hizo un brrr en la cola a ", " le toco el culo a ", " le ficho el bulto a ", " se caso con ", " embarazo a ", " fue embarazado por ", " le dio unos besitos a ", " se cago a trompadas con ", " chapo con ", " mecho uno con ", " reforzo amistad con ", " sale con el papa de ", " rechazo los avances sexuales no solicitados de ", " le pidio plata y nunca se la devolvio a ", " le dio un arrimon a ", " sale con la prima de ", " se unto en aceite y se le tiro encima a ", " se puso en tanga y le bailo a ", " y el admin salieron de travas y lo encontraron a ", " es un comilon como ", " piensa que el mejor jugador es ", " dice que el mas burro es ", " le dio play a la peli xno de enanos y la actriz principal era ", " piensa que el mas puto es ", " entró a su casa y vio a su hermana con ", " ya vio el video porno de ", " se creo una cuenta en brazzers con el gmail de ", " esta pidiendo que lo solicite a ", " rompio en llanto cuando vio a su prima con "];
 function printHumiliateCommand(player) {
     if (!humiliateCommandTimeout.has(player.id)) {
         var verbIndex = getRandomInt(humilliatingVerbs.length);
@@ -1601,7 +1614,7 @@ function getTop5ForStat(column) {
 }
 
 let
-    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "violado", "http"], //swearing filter
+    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "violado", "http", "cp", "porno", "cancer"], //swearing filter
 
     regex = new RegExp(palavras.join("|"), 'gi');
 
@@ -1757,6 +1770,11 @@ room.onPlayerChat = function (player, message) {
 
     else if (["!cancha"].includes(message[0].toLowerCase()) && player.admin) {
         chooseField();
+    }
+
+    else if (["!reglas"].includes(message[0].toLowerCase())) {
+        printRules(player);
+        return;
     }
 
     else if (["!vc"].includes(message[0].toLowerCase())) {
