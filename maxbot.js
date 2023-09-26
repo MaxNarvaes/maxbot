@@ -204,6 +204,7 @@ var currentMap = null;
 var game;
 var GKList = [null, null];
 var manualGKList = [null, null];
+var noGkAnnouncement = true;
 var Rposs = 0;
 var Bposs = 0;
 var point = [{ "x": 0, "y": 0 }, { "x": 0, "y": 0 }]; // created to get ball speed
@@ -987,7 +988,6 @@ function colorBallSpeed(ballSpeed) {
     room.setDiscProperties(0, { color: colorInt });
 }
 
-var noGkAnnouncement = true;
 function getStats() { // gives possession, ball speed and GK of each team
     if (activePlay) {
         lastTeamTouched == Team.RED ? Rposs++ : Bposs++;
@@ -1004,7 +1004,7 @@ function getStats() { // gives possession, ball speed and GK of each team
             noGkNotification();
             setTimeout(() => {
                 noGkAnnouncement = true;
-            }, 2000);
+            }, 10000);
         }
         
         /* calculateGk();
@@ -1482,6 +1482,7 @@ function afkCommand(player, message) {
             if (index != -1) {
                 setPlayerAvatar(index, "");
                 manualGKList[index] = null;
+                noGkAnnouncement = true;
             }
             
             console.log("gk manual list: " + manualGKList[0] + " " + manualGKList[1]);
@@ -1503,15 +1504,6 @@ function sendMessageToAdminsCommand(player, originalMessage) {
 }
 
 room.onPlayerLeave = function (player) {
-    //console.logg("salio " + player.name);
-    /* 		if (teamR.findIndex((red) => red.id == player.id) == 0 && inChooseMode && teamR.length <= teamB.length) {
-                choosePlayer();
-                capLeft = true; setTimeout(() => { capLeft = false; }, 10);
-            }
-            if (teamB.findIndex((blue) => blue.id == player.id) == 0 && inChooseMode && teamB.length < teamR.length) {
-                choosePlayer();
-                capLeft = true; setTimeout(() => { capLeft = false; }, 10);
-            } */
     var index = handlePlayerExit();
     function handlePlayerExit() {
         setActivity(player, 0);
@@ -1519,17 +1511,20 @@ room.onPlayerLeave = function (player) {
 
         var index = Array.prototype.findIndex.call(players, (x) => x.id === player.id);
         if (player.team == Team.RED) {
-            manualGKList[0] = null;
+            if(manualGKList[0]?.id == player.id) {
+                manualGKList[0] = null;
+            }
             teamR.splice(index, 1);
         } else if (player.team == Team.BLUE) {
-            manualGKList[1] = null;
+            if(manualGKList[1]?.id == player.id) {
+                manualGKList[1] = null;
+            }
             teamB.splice(index, 1);
         } else {
             teamS.splice(index, 1);
         }
         return index;
     }
-    //updateRoleOnPlayerOut();
 }
 
 function notifyBanToDiscord(player, ep, byPlayer, reason) {
@@ -1650,20 +1645,43 @@ function getTop5ForStat(column) {
 }
 
 function gkCommand(player){
-    if(player.team == Team.BLUE && manualGKList[1] == null) {
-        manualGKList[1] = player;
-        GKList[1] = player;
-    } else if (player.team == Team.RED && manualGKList[0] == null) {
-        
-        manualGKList[0] = player;
-        GKList[0] = player;
-    } else {
-        room.sendAnnouncement("「🤖」MAXBOT: tu equipo ya tiene arquero", player.id, 0xEAC274, "bold", 1);
-    }
+    var ePlayer = room.getPlayer(player.id);
+    if(player.team == Team.BLUE ) {
+        if (manualGKList[1] == null) {
+            manualGKList[1] = player;
+            GKList[1] = player;
+            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[1] +". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
+        } else if (manualGKList[1].id == player.id){
+            manualGKList[1] = null;
+            noGkAnnouncement = true;
+            room.setPlayerAvatar(player.id, null);
+        } else {
+            var gk = room.getPlayer(manualGKList[1].id);
+            console.log(ePlayer);
+            room.sendAnnouncement("「🤖」MAXBOT: " + gk.name +
+             " es el arquero de tu equipo. Pedile que escriba !gk de nuevo para liberar el puesto", player.id, 0xEAC274, "bold", 1);
+        }
+    } else if (player.team == Team.RED) {
+        if (manualGKList[0] == null) {
+            manualGKList[0] = player;
+            GKList[0] = player;
+            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[1] +". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
+        } else if (manualGKList[0].id == player.id){
+            manualGKList[0] = null;
+            noGkAnnouncement = true;
+            room.setPlayerAvatar(player.id, null);
+        } else {
+            var gk = room.getPlayer(manualGKList[0].id);
+            console.log(ePlayer);
+            room.sendAnnouncement("「🤖」MAXBOT: " + gk.name +
+             " es el arquero de tu equipo. Pedile que escriba !gk de nuevo para liberar el puesto", player.id, 0xEAC274, "bold", 1);
+        }  
+    } 
+    console.log("arqueros: " + manualGKList[0] + " " + manualGKList[1]);
 }
 
 let
-    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "violado", "http", "cp", "porno", "cancer"], //swearing filter
+    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "violado", "http", "cp", "cancer"], //swearing filter
 
     regex = new RegExp(palavras.join("|"), 'gi');
 
@@ -2635,7 +2653,6 @@ room.onPlayerBallKick = function (player) {
 /* GAME MANAGEMENT */
 
 room.onGameStart = function (byPlayer) {
-    manualGKList = [null, null];
     if (!initializing) {
         initializing = true;
         game = new Game(Date.now(), room.getScores(), []);
@@ -2649,6 +2666,7 @@ room.onGameStart = function (byPlayer) {
         Rposs = 0;
         Bposs = 0;
         GKList = [];
+        manualGKList = [null, null];
         allReds = [];
         allBlues = [];
         room.sendAnnouncement("「🤖」: Recorda que con !gk sos el arquero de tu equipo!", null, 0xEAC274, "bold", 1);
