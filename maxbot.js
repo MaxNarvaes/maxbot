@@ -2,7 +2,7 @@ const Team = { SPECTATORS: 0, RED: 1, BLUE: 2 };
 var argTeams = [
     { ID: Team.BLUE, shortName: "boca", longName: "Club Atlético Boca Juniors", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x103F79, 0xF3B229, 0x103F79], avatarColor: 0xFFFFFF }, { angle: 0, mainColor: [0xFFFFFF], avatarColor: 0x103F79 }] },
     { ID: Team.RED, shortName: "rvp", longName: "Club Atlético River Plate", country: "Argentina", uniform: [{ angle: 30, mainColor: [0xFFFFFF, 0xFF0000, 0xFFFFFF], avatarColor: 0x000000 }, { angle: 0, mainColor: [0x000000, 0x404040, 0x000000], avatarColor: 0xFF5000 }] },
-    { ID: Team.RED, shortName: "ind", longName: "Club Atlético Independiente", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000], avatarColor: 0x000000 }] },
+    { ID: Team.RED, shortName: "ind", longName: "Club Atlético Independiente", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "elp", longName: "Estudiantes de La Plata", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000, 0xFFFFFF, 0xFF0008], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "casla", longName: "Club Atletico San Lorenzo de Almagro", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xC20000, 0x151575, 0xA10005], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "hur", longName: "Huracan", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0xFFFFFF, 0xF2F2F2], avatarColor: 0x000000 }] },
@@ -202,7 +202,8 @@ var currentMap = null;
 /* STATS */
 
 var game;
-var GKList = ["", ""];
+var GKList = [null, null];
+var manualGKList = [null, null];
 var Rposs = 0;
 var Bposs = 0;
 var point = [{ "x": 0, "y": 0 }, { "x": 0, "y": 0 }]; // created to get ball speed
@@ -964,9 +965,9 @@ function getLastTouchOfTheBall() {
                     }
 
 
-                    if (ballSpeed > 10) {
+                    /* if (ballSpeed > 10) {
                         animateGkSave(players[i]);
-                    }
+                    } */
                     lastPlayersTouched[1] = lastPlayersTouched[0];
                     lastPlayersTouched[0] = players[i];
                 }
@@ -986,6 +987,7 @@ function colorBallSpeed(ballSpeed) {
     room.setDiscProperties(0, { color: colorInt });
 }
 
+var noGkAnnouncement = true;
 function getStats() { // gives possession, ball speed and GK of each team
     if (activePlay) {
         lastTeamTouched == Team.RED ? Rposs++ : Bposs++;
@@ -995,7 +997,39 @@ function getStats() { // gives possession, ball speed and GK of each team
         ballSpeed = (pointDistance(point[0], point[1]) * 60 * 60 * 60) / 15000;
 
         colorBallSpeed(ballSpeed);
+    }
+    if(manualGKList[0] == null || manualGKList[1] == null) {
+        if(noGkAnnouncement) {
+            noGkAnnouncement = false;
+            noGkNotification();
+            setTimeout(() => {
+                noGkAnnouncement = true;
+            }, 2000);
+        }
+        
+        /* calculateGk();
+        findGK(); */
+    } 
+    
+    setGkAvatar(manualGKList[0]?.id, manualGKList[1]?.id);
 
+    function noGkNotification() {
+        for (let i = 0; i < manualGKList.length; i++) {
+            if (manualGKList[i] == null) {
+                var msg = 'Tu equipo no tiene arquero!! ofrecete de arquero con !gk !!';
+                var correctedTeamIndex = i + 1;
+                var emoji = correctedTeamIndex == Team.RED ? '🟥' : '🟦';
+                var message = `[${emoji}] [🤖]: ${msg}`;
+                var team = getTeamArray(correctedTeamIndex, true);
+                var color = correctedTeamIndex == Team.RED ? Colors.Vermelho : Colors.Azul;
+                var style = 'bold';
+                var mention = HaxNotification.CHAT;
+                sendAnnouncementTeam(message, team, color, style, mention);
+            }
+        }
+    }
+
+    function calculateGk() {
         var k = [-1, Infinity];
         for (var i = 0; i < teamR.length; i++) {
             if (teamR[i].position == null || teamR[i].position == undefined) {
@@ -1018,7 +1052,6 @@ function getStats() { // gives possession, ball speed and GK of each team
             }
         }
         k[0] != -1 ? setGK(k[0], getGK(k[0]) + 1) : null;
-        findGK();
     }
 }
 
@@ -1059,14 +1092,14 @@ function updateStats() {
                 }
             }
         }
-        if (allReds.findIndex((player) => player.id == GKList[0].id) != -1) {
+        if (allReds.findIndex((player) => player.id == GKList[0]?.id) != -1) {
             stats = JSON.parse(localStorage.getItem(getAuth(GKList[0])));
             stats[StatColumns.GK]++;
             game.scores.blue == 0 ? stats[StatColumns.VI]++ : null;
             stats[StatColumns.CP] = (100 * stats[StatColumns.VI] / stats[StatColumns.GK]).toPrecision(3);
             localStorage.setItem(getAuth(GKList[0]), JSON.stringify(stats));
         }
-        if (allBlues.findIndex((player) => player.id == GKList[1].id) != -1) {
+        if (allBlues.findIndex((player) => player.id == GKList[1]?.id) != -1) {
             stats = JSON.parse(localStorage.getItem(getAuth(GKList[1])));
             stats[StatColumns.GK]++;
             game.scores.red == 0 ? stats[StatColumns.VI]++ : null;
@@ -1083,12 +1116,12 @@ var gkEmojiSet = false;
 function setGkAvatar(redGkId, blueGkId) {
     if (gkFlag) {
         if (gkEmojiSet) {
-            room.setPlayerAvatar(redGkId, null);
-            room.setPlayerAvatar(blueGkId, null);
+            redGkId ? room.setPlayerAvatar(redGkId, null) : null;
+            blueGkId ? room.setPlayerAvatar(blueGkId, null) : null;
             gkEmojiSet = false;
         } else {
-            room.setPlayerAvatar(redGkId, "🧤");
-            room.setPlayerAvatar(blueGkId, "🧤");
+            redGkId ? room.setPlayerAvatar(redGkId, "🧤") : null;
+            blueGkId ? room.setPlayerAvatar(blueGkId, "🧤") : null;
             gkEmojiSet = true;
         }
 
@@ -1118,9 +1151,6 @@ function findGK() {
 
             }
         }
-    }
-    if (!animatingGk) {
-        setGkAvatar(tab[0][1].id, tab[1][1].id);
     }
 
     GKList = [tab[0][1], tab[1][1]];
@@ -1448,6 +1478,13 @@ function afkCommand(player, message) {
             updateTeams();
             //balanceTeams(); aca capaz es mejor custom balance
             customBalancePlayer(player.id);
+            index = manualGKList.findIndex(p => p?.id == player.id);
+            if (index != -1) {
+                setPlayerAvatar(index, "");
+                manualGKList[index] = null;
+            }
+            
+            console.log("gk manual list: " + manualGKList[0] + " " + manualGKList[1]);
             room.sendAnnouncement(
                 `😴 ${player.name} esta AFK!`,
                 null,
@@ -1479,12 +1516,13 @@ room.onPlayerLeave = function (player) {
     function handlePlayerExit() {
         setActivity(player, 0);
         players = room.getPlayerList().filter((player) => player.id != 0 && !isAFK(player));
-        //console.logg("players on leave");
-        //console.logg(players);
+
         var index = Array.prototype.findIndex.call(players, (x) => x.id === player.id);
         if (player.team == Team.RED) {
+            manualGKList[0] = null;
             teamR.splice(index, 1);
         } else if (player.team == Team.BLUE) {
+            manualGKList[1] = null;
             teamB.splice(index, 1);
         } else {
             teamS.splice(index, 1);
@@ -1492,8 +1530,6 @@ room.onPlayerLeave = function (player) {
         return index;
     }
     //updateRoleOnPlayerOut();
-    ////console.logg("elegimos cancha on player leave");
-    //chooseField();
 }
 
 function notifyBanToDiscord(player, ep, byPlayer, reason) {
@@ -1581,8 +1617,8 @@ function sendAnnouncementTeam(message, team, color, style, mention) {
 
 function teamChat(player, message) {
     var msgArray = message.split(/ +/).slice(1);
-    var emoji = player.team == Team.RED ? '🔴' : player.team == Team.BLUE ? '🔵' : '⚪';
-    var message = `${emoji} [TEAM] ${player.name}: ${msgArray.join(' ')}`;
+    var emoji = player.team == Team.RED ? '🟥' : player.team == Team.BLUE ? '🟦' : '⬜';
+    var message = `[${emoji}] ${player.name}: ${msgArray.join(' ')}`;
     var team = getTeamArray(player.team, true);
     var color = player.team == Team.RED ? Colors.Vermelho : player.team == Team.BLUE ? Colors.Azul : null;
     var style = 'bold';
@@ -1611,6 +1647,19 @@ function getTop5ForStat(column) {
 
     tableau.sort(function (a, b) { return b[1] - a[1]; });
     return tableau.slice(0, 5);
+}
+
+function gkCommand(player){
+    if(player.team == Team.BLUE && manualGKList[1] == null) {
+        manualGKList[1] = player;
+        GKList[1] = player;
+    } else if (player.team == Team.RED && manualGKList[0] == null) {
+        
+        manualGKList[0] = player;
+        GKList[0] = player;
+    } else {
+        room.sendAnnouncement("「🤖」MAXBOT: tu equipo ya tiene arquero", player.id, 0xEAC274, "bold", 1);
+    }
 }
 
 let
@@ -1759,6 +1808,9 @@ room.onPlayerChat = function (player, message) {
             room.sendAnnouncement("", null);
             i--
         }
+    }
+    else if (["!gk"].includes(message[0].toLowerCase()) ) {
+        gkCommand(player);
     }
     else if (["!rr"].includes(message[0].toLowerCase()) && player.admin) {
         quickRestart();
@@ -2583,6 +2635,7 @@ room.onPlayerBallKick = function (player) {
 /* GAME MANAGEMENT */
 
 room.onGameStart = function (byPlayer) {
+    manualGKList = [null, null];
     if (!initializing) {
         initializing = true;
         game = new Game(Date.now(), room.getScores(), []);
@@ -2598,6 +2651,7 @@ room.onGameStart = function (byPlayer) {
         GKList = [];
         allReds = [];
         allBlues = [];
+        room.sendAnnouncement("「🤖」: Recorda que con !gk sos el arquero de tu equipo!", null, 0xEAC274, "bold", 1);
         /* room.sendAnnouncement("[💬] Use 't' to chat with your team!", null, 0x5EE7FF);
         room.sendAnnouncement("The match is being recorded."); */
         if (teamR.length == maxTeamSize && teamB.length == maxTeamSize) {
