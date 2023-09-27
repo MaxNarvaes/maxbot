@@ -525,9 +525,9 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     }
     //room.sendAnnouncement("📊 Ball possession: 🔴 " + (Rposs * 100).toPrecision(3).toString() + "% | " + (Bposs * 100).toPrecision(3).toString() + "% 🔵", null, 0xFDC43A);
     if (GKList.length > 1) {
-        if (scores.red == 0) {
+        if (scores.red == 0 && GKList[1]) {
             room.sendAnnouncement("🧤🧤🧤 gg valla invicta soy el " + GKList[1].name + "! 🧤🧤🧤", null, 0xFDC43A, 'bold');
-        } else if (scores.blue == 0) {
+        } else if (scores.blue == 0 && GKList[0]) {
             room.sendAnnouncement("🧤🧤🧤 gg valla invicta soy el " + GKList[0].name + "! 🧤🧤🧤", null, 0xFDC43A, 'bold');
         }
     }
@@ -1650,7 +1650,7 @@ function gkCommand(player){
         if (manualGKList[1] == null) {
             manualGKList[1] = player;
             GKList[1] = player;
-            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[1] +". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
+            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[1].longName +". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
         } else if (manualGKList[1].id == player.id){
             manualGKList[1] = null;
             noGkAnnouncement = true;
@@ -1665,7 +1665,7 @@ function gkCommand(player){
         if (manualGKList[0] == null) {
             manualGKList[0] = player;
             GKList[0] = player;
-            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[1] +". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
+            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[0].longName +". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
         } else if (manualGKList[0].id == player.id){
             manualGKList[0] = null;
             noGkAnnouncement = true;
