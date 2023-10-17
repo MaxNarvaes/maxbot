@@ -273,7 +273,8 @@ function Game(date, scores, goals) {
     this.goals = goals;
 }
 
-const frasesGOL = [" Golardo de  ", " Golazo de ", " rompio el arco el trolo de "]; // Goal phrases
+const frasesCELEB = [" Topo Giggio!! ", " Perreo!! ", " Baile a lo brazuca!! ", " Ras Tas Tas!! ", " Baile Griddy!! ", " SIUUU!! "]; // Phrases of Celebraciones
+const frasesGOL = [" Que clavo el hdp de  ", " Golazo de ", " rompio el arco el trolo de "]; // Goal phrases
 const frasesASS = [" Con gran asistencia de ", " Con pase del trolo de "]; // Phrases of assists
 const golcontra = [" Gol en contra del payaso ", " En contra del barrilete cosmico de "]; // Goal against phrases
 
@@ -551,9 +552,9 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     //room.sendAnnouncement("📊 Ball possession: 🔴 " + (Rposs * 100).toPrecision(3).toString() + "% | " + (Bposs * 100).toPrecision(3).toString() + "% 🔵", null, 0xFDC43A);
     if (GKList.length > 1) {
         if (scores.red == 0 && GKList[1]) {
-            room.sendAnnouncement("🧤🧤🧤 gg valla invicta soy el " + GKList[1].name + "! 🧤🧤🧤", null, 0xFDC43A, 'bold');
+            room.sendAnnouncement("🧤 gg valla invicta soy el " + GKList[1].name + "! 🧤", null, 0xccc904, 'bold');
         } else if (scores.blue == 0 && GKList[0]) {
-            room.sendAnnouncement("🧤🧤🧤 gg valla invicta soy el " + GKList[0].name + "! 🧤🧤🧤", null, 0xFDC43A, 'bold');
+            room.sendAnnouncement("🧤 gg valla invicta soy el " + GKList[0].name + "! 🧤", null, 0xccc904, 'bold');
         }
     }
 
@@ -565,7 +566,7 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     var topGoalScorer = room.getPlayerList().filter((player) => player.id == topGoalScorerId)[0];
     //⚽
     if (topGoalScorer != undefined && topGoalScorer.name != undefined && scores.red + scores.blue > 0) {
-        room.sendAnnouncement("🥇🥇🥇 " + topGoalScorer.name + " fue el maximo goleador con " + topGoals + " goles!🥇🥇🥇", null, 0xFDC43A, 'bold');
+        room.sendAnnouncement("🥇 " + topGoalScorer.name + " Fué el goleador del partido con " + topGoals + " goles! ⚽", null, 0xffffff, 'bold');
     }
 
     updateStats();
@@ -661,7 +662,7 @@ function handleInactivity() { // handles inactivity : players will be kicked aft
                 if (isMaster) {
                     extendedP[i][eP.ACT] = 0;
                 }
-                room.sendAnnouncement("[ROBOT]⛔⛔ @" + room.getPlayer(extendedP[i][eP.ID]).name + ", si no te moves en  " + 5 + " segundos sale kick!⛔⛔", extendedP[i][eP.ID]);
+                room.sendAnnouncement("⚠️ CUIDADO! ⚠️ @" + room.getPlayer(extendedP[i][eP.ID]).name + ", si no te moves en  " + 5 + " segundos sale kick!", extendedP[i][eP.ID]);
             }
             if (extendedP[i][eP.ACT] > 45 && !extendedP[i][eP.AFK]) {
                 extendedP[i][eP.ACT] = 0;
@@ -1043,13 +1044,13 @@ function getStats() { // gives possession, ball speed and GK of each team
     function noGkNotification() {
         for (let i = 0; i < manualGKList.length; i++) {
             if (manualGKList[i] == null) {
-                var msg = 'Tu equipo no tiene arquero!! ofrecete de arquero con !gk !!';
+                var msg = 'Tu equipo no tiene arquero, utiliza !gk para serlo!';
                 var correctedTeamIndex = i + 1;
                 var emoji = correctedTeamIndex == Team.RED ? '🟥' : '🟦';
-                var message = `[${emoji}] [🤖]: ${msg}`;
+                var message = `[${emoji}] [⚠️🧤]: ${msg}`;
                 var team = getTeamArray(correctedTeamIndex, true);
                 var color = correctedTeamIndex == Team.RED ? Colors.Vermelho : Colors.Azul;
-                var style = 'bold';
+                var style = 'italic';
                 var mention = HaxNotification.CHAT;
                 sendAnnouncementTeam(message, team, color, style, mention);
             }
@@ -1289,7 +1290,7 @@ function randomUniforms() {
             teamData.uniform[UNIFORME_OFICIAL].mainColor);
 
     });
-    room.sendAnnouncement("Comienza la final paralimpica y los equipos salen a la cancha!", null, 0x05C5FF, 'bold');
+    room.sendAnnouncement("¡El partido comenzó y los equipos salen a dar la vida por los colores!", null, 0xffffff, 'bold');
     room.sendAnnouncement(currentTeams[0].longName, null, Colors.Vermelho, 'bold');
     room.sendAnnouncement("🆚", null, 0xFF0000, null);
     room.sendAnnouncement(currentTeams[1].longName, null, Colors.Azul, 'bold');
@@ -1336,7 +1337,7 @@ room.onPlayerBallKick = function (player) {
         lastTeamTouched = player.team;
         lastPlayersTouched[1] = lastPlayersTouched[0];
         lastPlayersTouched[0] = player;
-        const caritas = ["😤", "😏", "🥴", "🤬", "🤪", "😠", "😃", "🧐", "🤷‍♀️", "🤦‍♂️", "🧙‍♂️", "😗", "😙", "😛", "🥱"]
+        const caritas = ["🧱", "🪄", "🗿", "🚬", "💣", "🏳️‍🌈", "😃", "🧐", "🎯", "🤦‍♂️", "🧙‍♂️", "😗", "👎", "🪨", "😤"]
         room.setPlayerAvatar(player.id, caritas[getRandomInt(caritas.length - 1)]);
         setTimeout(() => {
             room.setPlayerAvatar(player.id, null);
@@ -1419,9 +1420,9 @@ room.onPlayerJoin = function (player) {
         "\n" + "auth: " + player.auth + " 💻" + "\n" +
         "Fecha: " + `${getDateInfo()}` + "```", webhook);
     room.sendAnnouncement(
-        `👋🏼 Hola ${player.name}! Bienvenido capo!\nJuga sin trollear y mantengamos el bardo al minimo!`,
+        `♿ ¡Bienvenido ${player.name}, al Sindicato! ♿\n🔸Leé las reglas y juga sin trollear!\n🔹Ingresa a nuestro discord para enterarte nuevas noticias!`,
         player.id,
-        0xFFFF00,
+        0x00fff2,
         'bold',
     );
 }
@@ -1806,7 +1807,7 @@ function gkCommand(player) {
         if (manualGKList[1] == null) {
             manualGKList[1] = player;
             GKList[1] = player;
-            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[1].longName + ". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
+            room.sendAnnouncement("「🤖」MaxBot: " + ePlayer.name + " Ahora es el GK del " + currentTeams[1].longName + ". Para liberar el puesto escribe !gk nuevamente.", null, 0xffffff, "italic", 1);
         } else if (manualGKList[1].id == player.id) {
             manualGKList[1] = null;
             noGkAnnouncement = true;
@@ -1814,14 +1815,14 @@ function gkCommand(player) {
         } else {
             var gk = room.getPlayer(manualGKList[1].id);
             console.log(ePlayer);
-            room.sendAnnouncement("「🤖」MAXBOT: " + gk.name +
-                " es el arquero de tu equipo. Pedile que escriba !gk de nuevo para liberar el puesto", player.id, 0xEAC274, "bold", 1);
+            room.sendAnnouncement("「🤖」MaxBot: " + gk.name +
+                " es el GK de tu equipo. Para que libere su puesto debe escribir !gk nuevamente.", player.id, 0xffffff, "italic", 1);
         }
     } else if (player.team == Team.RED) {
         if (manualGKList[0] == null) {
             manualGKList[0] = player;
             GKList[0] = player;
-            room.sendAnnouncement("「🤖」MAXBOT: " + ePlayer.name + " Se ofrecio como gk de " + currentTeams[0].longName + ". Pedile que escriba !gk de nuevo para liberar el puesto", null, 0xEAC274, "bold", 1);
+            room.sendAnnouncement("「🤖」MaxBot: " + ePlayer.name + " Ahora es el GK del " + currentTeams[0].longName + ". Para liberar el puesto escribe !gk nuevamente.", null, 0xffffff, "italic", 1);
         } else if (manualGKList[0].id == player.id) {
             manualGKList[0] = null;
             noGkAnnouncement = true;
@@ -1830,7 +1831,7 @@ function gkCommand(player) {
             var gk = room.getPlayer(manualGKList[0].id);
             console.log(ePlayer);
             room.sendAnnouncement("「🤖」MAXBOT: " + gk.name +
-                " es el arquero de tu equipo. Pedile que escriba !gk de nuevo para liberar el puesto", player.id, 0xEAC274, "bold", 1);
+                " es el GK de tu equipo. Para que libere su puesto debe escribir !gk nuevamente.", player.id, 0xffffff, "italic", 1);
         }
     }
 }
@@ -2678,7 +2679,8 @@ room.onGameStart = function (byPlayer) {
         manualGKList = [null, null];
         allReds = [];
         allBlues = [];
-        room.sendAnnouncement("「🤖」MAXBOT: Recorda que con !gk sos el arquero de tu equipo!", null, 0xEAC274, "bold", 1);
+        room.sendAnnouncement("「📌」Utiliza !gk para ser el arquero de el equipo!", null, 0xeeff00, "bold", 1);
+        room.sendAnnouncement("「📌」¡Escribe la 't' al principio de tu mensaje para enviar un mensaje al equipo!", null, 0x5EE7FF, "bold", 1);
         /* room.sendAnnouncement("[💬] Use 't' to chat with your team!", null, 0x5EE7FF);
         room.sendAnnouncement("The match is being recorded."); */
         if (teamR.length == maxTeamSize && teamB.length == maxTeamSize) {
@@ -2820,7 +2822,7 @@ function scoreGoal(goalScorer, team) {
         goalDictionary[goalScorer.id] = 0;
     }
     var scores = room.getScores();
-    var frasegol = frasesGOL[(Math.random() * frasesGOL.length) | 0]
+    var frasegol = frasesGOL[(Math.random() * frasesGOL.length) | 0];
     room.sendAnnouncement("⚽ " + getTime(scores) + frasegol + goalScorer.name + "! | Velocidad: " + ballSpeed.toPrecision(4).toString() + "km/h " + (team == Team.RED ? "🔴" : "🔵"), null, (team == Team.RED ? Colors.Vermelho : Colors.Azul), 'bold');
     game.goals.push(new Goal(scores.time, team, lastPlayersTouched[0], null));
 
@@ -3014,7 +3016,7 @@ room.onPositionsReset = function () {
     const scores = room.getScores();
     game.scores = scores;
     if (game.scores.blue == game.scores.red) {
-        room.sendAnnouncement("「🤖」MAXBOT: Gol gana y se cambia la cancha!!", null, 0xEAC274, "bold", 1);
+        room.sendAnnouncement("「🎙️」Max el Relator: ¿Qué equipo marcara la diferencia? ¡Esto se pone lindo!", null, 0x00d9ff, "bold", 1);
     }
     if (Math.abs(scores.red - scores.blue) > 1) {//primer gol
         //o un timeout para ver cuando resetear
