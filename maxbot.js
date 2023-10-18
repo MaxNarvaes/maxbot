@@ -1513,11 +1513,21 @@ setInterval(() => {
     printRules();
 }, 240000);
 
+setInterval(() => {
+    printYoutube();
+}, 320000);
+
+setInterval(() => {
+    printTiktok();
+}, 380000);
+
 function printDiscord() {
-    room.sendAnnouncement("                                        ▒█▀▀▄ ▀█▀ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▄ ", null, 0x9250FD)
-    room.sendAnnouncement("                                        ▒█░▒█ ▒█░ ░▀▀▀▄▄ ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█░▒█ ", null, 0x8466FD)
-    room.sendAnnouncement("                                        ▒█▄▄▀ ▄█▄ ▒█▄▄▄█ ▒█▄▄█ ▒█▄▄▄█ ▒█░▒█ ▒█▄▄▀ ", null, 0x7B73FD);
-    room.sendAnnouncement("https://discord.gg/KvfgRc7sfG ⬅", null, null);
+    room.sendAnnouncement("                                         ████████████████████████████████████████ ", null, 0x7B73FD);
+    room.sendAnnouncement("                                         █▄─▄▄▀█▄─▄█─▄▄▄▄█─▄▄▄─█─▄▄─█▄─▄▄▀█▄─▄▄▀█ ", null, 0x9250FD);
+    room.sendAnnouncement("                                         ██─██─██─██▄▄▄▄─█─███▀█─██─██─▄─▄██─██─█ ", null, 0x8466FD);
+    room.sendAnnouncement("                                         █▄▄▄▄██▄▄▄█▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄█▄▄█▄▄█▄▄▄▄██ ", null, 0x7B73FD);
+    room.sendAnnouncement("                                         ████████████████████████████████████████ ", null, 0x9250FD);
+    room.sendAnnouncement("                                              📍 Link: ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
 }
 
 function printVc() {
@@ -1532,6 +1542,24 @@ function printRules() {
     room.sendAnnouncement(" #3 No usar el comando !admin de forma imbécil ", null, null);
     room.sendAnnouncement(" #4 No suplantar identidades para molestar ", null, null);
     room.sendAnnouncement(" #5 Bardear está permitido, pero no pasarse de la raya! ", null, null);
+}
+
+function printYoutube() {
+    room.sendAnnouncement("                                         ████████████████████████████████████████████ ", null, 0xfc0303);
+    room.sendAnnouncement("                                         █▄─█─▄█─▄▄─█▄─██─▄█─▄─▄─█▄─██─▄█▄─▄─▀█▄─▄▄─█ ", null, 0xffffff);
+    room.sendAnnouncement("                                         ██▄─▄██─██─██─██─████─████─██─███─▄─▀██─▄█▀█ ", null, 0xffffff);
+    room.sendAnnouncement("                                         ██▄▄▄██▄▄▄▄██▄▄▄▄███▄▄▄███▄▄▄▄██▄▄▄▄██▄▄▄▄▄█ ", null, 0xffffff);
+    room.sendAnnouncement("                                         ████████████████████████████████████████████ ", null, 0xfc0303);
+    room.sendAnnouncement("                                             📍 Link: ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
+}
+
+function printTiktok() {
+    room.sendAnnouncement("                                         ██████████████████████████████████ ", null, 0x6d089c);
+    room.sendAnnouncement("                                         █─▄─▄─█▄─▄█▄─█─▄█─▄─▄─█─▄▄─█▄─█─▄█ ", null, 0x5b0882);
+    room.sendAnnouncement("                                         ███─████─███─▄▀████─███─██─██─▄▀██ ", null, 0x5a0e7d);
+    room.sendAnnouncement("                                         ██▄▄▄██▄▄▄█▄▄█▄▄██▄▄▄██▄▄▄▄█▄▄█▄▄█ ", null, 0x5b187a);
+    room.sendAnnouncement("                                         ██████████████████████████████████ ", null, 0x53206b);
+    room.sendAnnouncement("                                             📍 Link: ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
 }
 
 
@@ -1729,7 +1757,7 @@ function printHumiliateCommand(player) {
         var verbIndex = getRandomInt(humilliatingVerbs.length);
         updateTeams();
         victim = players[getRandomInt(players.length)];
-        room.sendAnnouncement("「🤖」MAXBOT: " + player.name + humilliatingVerbs[verbIndex] + victim.name, null, 0xEAC274);
+        room.sendAnnouncement("「🤖」MaxBot: " + player.name + humilliatingVerbs[verbIndex] + victim.name, null, 0xEAC274);
         humiliateCommandTimeout.add(player.id)
         setTimeout(() => {
             humiliateCommandTimeout.delete(player.id)
@@ -1807,7 +1835,7 @@ function gkCommand(player) {
         if (manualGKList[1] == null) {
             manualGKList[1] = player;
             GKList[1] = player;
-            room.sendAnnouncement("「🤖」MaxBot: " + ePlayer.name + " Ahora es el GK del " + currentTeams[1].longName + ". Para liberar el puesto escribe !gk nuevamente.", null, 0xffffff, "italic", 1);
+            room.sendAnnouncement("「🤖」MaxBot: " + ePlayer.name + " Ahora es el GK del " + currentTeams[1].longName + ". Para liberar el puesto escribe !gk nuevamente.", null, 0xfcf803, "italic", 1);
         } else if (manualGKList[1].id == player.id) {
             manualGKList[1] = null;
             noGkAnnouncement = true;
@@ -1816,13 +1844,13 @@ function gkCommand(player) {
             var gk = room.getPlayer(manualGKList[1].id);
             console.log(ePlayer);
             room.sendAnnouncement("「🤖」MaxBot: " + gk.name +
-                " es el GK de tu equipo. Para que libere su puesto debe escribir !gk nuevamente.", player.id, 0xffffff, "italic", 1);
+                " es el GK de tu equipo. Para que libere su puesto debe escribir !gk nuevamente.", player.id, 0xfcf803, "italic", 1);
         }
     } else if (player.team == Team.RED) {
         if (manualGKList[0] == null) {
             manualGKList[0] = player;
             GKList[0] = player;
-            room.sendAnnouncement("「🤖」MaxBot: " + ePlayer.name + " Ahora es el GK del " + currentTeams[0].longName + ". Para liberar el puesto escribe !gk nuevamente.", null, 0xffffff, "italic", 1);
+            room.sendAnnouncement("「🤖」MaxBot: " + ePlayer.name + " Ahora es el GK del " + currentTeams[0].longName + ". Para liberar el puesto escribe !gk nuevamente.", null, 0xfcf803, "italic", 1);
         } else if (manualGKList[0].id == player.id) {
             manualGKList[0] = null;
             noGkAnnouncement = true;
@@ -1830,8 +1858,8 @@ function gkCommand(player) {
         } else {
             var gk = room.getPlayer(manualGKList[0].id);
             console.log(ePlayer);
-            room.sendAnnouncement("「🤖」MAXBOT: " + gk.name +
-                " es el GK de tu equipo. Para que libere su puesto debe escribir !gk nuevamente.", player.id, 0xffffff, "italic", 1);
+            room.sendAnnouncement("「🤖」MaxBot: " + gk.name +
+                " es el GK de tu equipo. Para que libere su puesto debe escribir !gk nuevamente.", player.id, 0xfcf803, "italic", 1);
         }
     }
 }
@@ -1852,7 +1880,7 @@ room.onPlayerChat = function (player, message) {
     if (message.match(regex) && !isMaster) {
         if (message.match(regex) && player.admin) {
             //cambiar cosito del gk
-            room.sendAnnouncement("「🟨」" + player.name + ": " + message + "", player.id, 0xEAC274, 'bold');
+            room.sendAnnouncement("「👮」" + player.name + ": " + message + "", player.id, 0xEAC274, 'bold');
             return false;
         }
         //cambiar cosito del gk
@@ -1861,7 +1889,7 @@ room.onPlayerChat = function (player, message) {
         } else if (player.team == Team.RED) {
             room.sendAnnouncement("「🟥」" + player.name + ": " + message, player.id, 0xe38d7d);
         } else {
-            room.sendAnnouncement("「⬜」" + player.name + ": " + message, player.id, 0xFFFFFF);
+            room.sendAnnouncement("「👤」" + player.name + ": " + message, player.id, 0xFFFFFF);
         }
         return false;
     }
@@ -2003,6 +2031,16 @@ room.onPlayerChat = function (player, message) {
 
     else if (["!reglas"].includes(message[0].toLowerCase())) {
         printRules(player);
+        return;
+    }
+
+    else if (["!youtube"].includes(message[0].toLowerCase())) {
+        printYoutube(player);
+        return;
+    }
+
+    else if (["!tiktok", "!tt"].includes(message[0].toLowerCase())) {
+        printTiktok(player);
         return;
     }
 
