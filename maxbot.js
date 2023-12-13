@@ -42,8 +42,9 @@ var argTeams = [
     { ID: Team.BLUE, shortName: "rm", longName: "Real Madrid", country: "España", uniform: [{ angle: 60, mainColor: [0xFFFFFF, 0X000DC7, 0xFFFFFF], avatarColor: 0XFFEE00 }] },
     { ID: Team.BLUE, shortName: "get", longName: "Getafe", country: "España", uniform: [{ angle: 180, mainColor: [0x000BA6, 0X5DFC72, 0x000BA6], avatarColor: 0XFFFFFF }] },
     { ID: Team.RED, shortName: "ath", longName: "Athletic Club", country: "España", uniform: [{ angle: 180, mainColor: [0xFF0022, 0XFCFCFC, 0xFF0022], avatarColor: 0X000000 }] },
-    { ID: Team.RED, shortName: "sev", longName: "Sevilla", country: "España", uniform: [{ angle: 60, mainColor: [0XFFFFFF, 0XFFFFFF, 0XFFFFFF], avatarColor: 0XFF0000 }] },
+    { ID: Team.RED, shortName: "sev", longName: "Sevilla", country: "España", uniform: [{ angle: 90, mainColor: [0XFFFFFF], avatarColor: 0XFF0000 }] },
     { ID: Team.RED, shortName: "bar", longName: "Barcelona", country: "España", uniform: [{ angle: 0, mainColor: [0XC90000, 0X00437D, 0XC90000], avatarColor: 0XFFFFFF }] },
+    { ID: Team.RED, shortName: "val", longName: "Valencia", country: "Italia", uniform: [{ angle: 90, mainColor: [0xFFFFFF], avatarColor: 0x000000 }] },
     /*ksks premier league*/
     { ID: Team.RED, shortName: "mutd", longName: "Manchester United", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xEB1515, 0XBA031C, 0xEB1515], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "mci", longName: "Manchester City", country: "Inglaterra", uniform: [{ angle: 180, mainColor: [0x5CB8E0, 0XFFFFFF, 0x5CB8E0], avatarColor: 0xF2F2F2 }] },
@@ -54,17 +55,17 @@ var argTeams = [
     { ID: Team.BLUE, shortName: "brg", longName: "Brighton", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0x1D3EE0, 0XEBEBEB, 0x1D3EE0], avatarColor: 0x321FDB }] },
     { ID: Team.RED, shortName: "ast", longName: "Aston Villa", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xA13C4C, 0X2BB5F0, 0xA13C4C], avatarColor: 0xFFFFFF }] },
     /*ksks selecciones*/
-    { ID: Team.RED, shortName: "ale", longName: "Alemania", country: "Alemania", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0x000000, 0xFFFFFF], avatarColor: 0XD19D0F }] },
+    { ID: Team.BLUE, shortName: "ale", longName: "Alemania", country: "Alemania", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0x000000, 0xFFFFFF], avatarColor: 0XD19D0F }] },
     { ID: Team.RED, shortName: "bra", longName: "Brasil", country: "Brasil", uniform: [{ angle: 60, mainColor: [0xC5FF26, 0x1C1CEB, 0xC5FF26], avatarColor: 0X2CC93C }] },
     { ID: Team.BLUE, shortName: "arg", longName: "Argentina", country: "Argentina", uniform: [{ angle: 90, mainColor: [0X75AADB, 0XFFFFFF, 0x75AADB], avatarColor: 0X000000 }] },
     { ID: Team.RED, shortName: "esp", longName: "España", country: "España", uniform: [{ angle: 90, mainColor: [0XFF0000, 0XEEC900, 0xFF0000], avatarColor: 0X000000 }] },
     { ID: Team.RED, shortName: "por", longName: "Portugal", country: "Portugal", uniform: [{ angle: 300, mainColor: [0x006400, 0X8B0000, 0x8B0000], avatarColor: 0xFFD700 }] },
     { ID: Team.RED, shortName: "hol", longName: "Paises Bajos", country: "Holanda", uniform: [{ angle: 0, mainColor: [0xED6313], avatarColor: 0x000000 }] },
-    { ID: Team.BLUE, shortName: "fr", longName: "Francia", country: "Francia", uniform: [{ angle: 45, mainColor: [0x0F1378, 0x0C0E5C, 0x090B47], avatarColor: 0x73730F }] },
+    { ID: Team.RED, shortName: "fr", longName: "Francia", country: "Francia", uniform: [{ angle: 45, mainColor: [0x0F1378, 0x0C0E5C, 0x090B47], avatarColor: 0x73730F }] },
     { ID: Team.BLUE, shortName: "ing", longName: "Inglaterra", country: "Inglaterra", uniform: [{ angle: 45, mainColor: [0xFFFFFF, 0xFFFFFF, 0x34A1E0], avatarColor: 0x1F1F54 }] },
     { ID: Team.BLUE, shortName: "ita", longName: "Italia", country: "Italia", uniform: [{ angle: 223, mainColor: [0x152ECF, 0x1221A8, 0x0D0DD6], avatarColor: 0xEDEBEB }] },
     { ID: Team.BLUE, shortName: "uru", longName: "Uruguay", country: "Uruguay", uniform: [{ angle: 45, mainColor: [0x4392ED, 0x3A7ECC, 0x316CAD], avatarColor: 0x000000 }] },
-    { ID: Team.BLUE, shortName: "mex", longName: "México", country: "Mexico", uniform: [{ angle: 0, mainColor: [0x134F07, 0xFFFFFF, 0xD90000], avatarColor: 0x573131 }] },
+    { ID: Team.RED, shortName: "mex", longName: "México", country: "Mexico", uniform: [{ angle: 0, mainColor: [0x134F07, 0xFFFFFF, 0xD90000], avatarColor: 0x573131 }] },
     { ID: Team.RED, shortName: "chi", longName: "Chile", country: "Chile", uniform: [{ angle: 0, mainColor: [0XF50000], avatarColor: 0XFFFFFF }] },
     { ID: Team.RED, shortName: "per", longName: "Perú", country: "Peru", uniform: [{ angle: 35, mainColor: [0xFFFFFF, 0xFF0000, 0xFFFFFF], avatarColor: 0X000000 }] },
     /*special ksks*/
@@ -72,6 +73,14 @@ var argTeams = [
     { ID: Team.RED, shortName: "int", longName: "Inter de Miami", country: "Estados Unidos", uniform: [{ angle: 60, mainColor: [0x000000, 0x121212, 0x000000], avatarColor: 0xFF00F7 }] },
     { ID: Team.BLUE, shortName: "ints", longName: "Inter de Milán", country: "Italia", uniform: [{ angle: 0, mainColor: [0x2519CF, 0x000000, 0x2519CF], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "acmi", longName: "A. C. Milan", country: "Italia", uniform: [{ angle: 0, mainColor: [0xEB0000, 0x000000, 0xEB0000], avatarColor: 0x989C27 }] },
+    { ID: Team.BLUE, shortName: "fio", longName: "Fiorentina", country: "Italia", uniform: [{ angle: 45, mainColor: [0x8F28B5, 0x671E82, 0x8F28B5], avatarColor: 0xFFFFFF }] },
+    { ID: Team.RED, shortName: "rom", longName: "Roma", country: "Italia", uniform: [{ angle: 0, mainColor: [0xC10B31], avatarColor: 0xf5b602 }] },
+    { ID: Team.RED, shortName: "lep", longName: "Leipzig", country: "Alemania", uniform: [{ angle: 90, mainColor: [0XFAF9FF, 0xDC002C, 0XFAF9FF], avatarColor: 0xFFFFFF }] },
+    { ID: Team.RED, shortName: "lev", longName: "Bayern Leverkusen", country: "Alemania", uniform: [{ angle: 0, mainColor: [0x000000, 0xFD0808, 0x000000], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "bor", longName: "Borussia Dortmund", country: "Alemania", uniform: [{ angle: 0, mainColor: [0xF5FD00, 0x000000, 0xF5FD00], avatarColor: 0x2E2E2E }] },
+    { ID: Team.RED, shortName: "bay", longName: "Bayern Munich", country: "Alemania", uniform: [{ angle: 90, mainColor: [0xFF0800, 0xC20003, 0xFF0800], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "juv", longName: "Juventus", country: "Italia", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0x000000, 0xFFFFFF], avatarColor: 0xD6D2D3 }] },
+    { ID: Team.RED, shortName: "nap", longName: "Napoli", country: "Italia", uniform: [{ angle: 0, mainColor: [0x429AE8], avatarColor: 0xFFFFFF }] },
 
 ];
 
@@ -2103,16 +2112,6 @@ room.onPlayerChat = function (player, message) {
     else if (["!hc"].includes(message[0].toLowerCase())) {
         printHumiliateCommand(player);
     }
-
-    else if (["!ksk"].includes(message[0].toLowerCase())) {
-        if (!player.admin && commandTimeout < 121) {
-            room.sendAnnouncement("Espera un rato antes de usar otra vez !ksk ", player.id, Colors.Vermelho);
-            return;
-        }
-        console.log("entra a ksk")
-        randomUniforms();
-        commandTimeout = 0;
-    }
     else if (["!mtm", "mtm", "meteme"].includes(message[0].toLowerCase())) {
         if (!AFKSet.has(player.id) && player.team == Team.SPECTATORS && activePlay) {
             customBalancePlayer(player);
@@ -2263,7 +2262,7 @@ room.onPlayerChat = function (player, message) {
                     var stats;
                     localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
                     if (stats[StatColumns.ROLE] == "player") {
-                        stats[StatColumns.ROLE] = "admin";
+                        stats[StatColumns.ROLE] = "mod";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "mod";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
                         room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, true);
@@ -2281,7 +2280,7 @@ room.onPlayerChat = function (player, message) {
                     var stats;
                     localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
                     if (stats[StatColumns.ROLE] == "player") {
-                        stats[StatColumns.ROLE] = "admin";
+                        stats[StatColumns.ROLE] = "head";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "head";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
                         room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, true);
@@ -2299,7 +2298,7 @@ room.onPlayerChat = function (player, message) {
                     var stats;
                     localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
                     if (stats[StatColumns.ROLE] == "player") {
-                        stats[StatColumns.ROLE] = "admin";
+                        stats[StatColumns.ROLE] = "community";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "community";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
                         room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, true);
@@ -2310,7 +2309,7 @@ room.onPlayerChat = function (player, message) {
         }
     }
     else if (["!setvip"].includes(message[0].toLowerCase())) {
-        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "vip") {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
             if (message.length >= 2 && message[1][0] == "#") {
                 message[1] = message[1].substring(1, message[1].length);
                 if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
@@ -2335,9 +2334,81 @@ room.onPlayerChat = function (player, message) {
                     var stats;
                     localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
                     if (stats[StatColumns.ROLE] == "admin") {
-                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es Admin de la sala! 👮");
+                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es STAFF de la sala! 👮");
                         stats[StatColumns.ROLE] = "player";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "admin";
+                        localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                    }
+                }
+            }
+        }
+    }
+    else if (["!removemod"].includes(message[0].toLowerCase())) {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
+            if (message.length >= 2 && message[1][0] == "#") {
+                message[1] = message[1].substring(1, message[1].length);
+                if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
+                    var stats;
+                    localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
+                    if (stats[StatColumns.ROLE] == "mod") {
+                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es STAFF de la sala! 👮");
+                        stats[StatColumns.ROLE] = "player";
+                        getPlayerById(parseInt(message[1]))[eP.ROLE] = "mod";
+                        localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                    }
+                }
+            }
+        }
+    }
+    else if (["!removecommunity"].includes(message[0].toLowerCase())) {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
+            if (message.length >= 2 && message[1][0] == "#") {
+                message[1] = message[1].substring(1, message[1].length);
+                if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
+                    var stats;
+                    localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
+                    if (stats[StatColumns.ROLE] == "community") {
+                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es STAFF de la sala! 👮");
+                        stats[StatColumns.ROLE] = "player";
+                        getPlayerById(parseInt(message[1]))[eP.ROLE] = "community";
+                        localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                    }
+                }
+            }
+        }
+    }
+    else if (["!removevip"].includes(message[0].toLowerCase())) {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
+            if (message.length >= 2 && message[1][0] == "#") {
+                message[1] = message[1].substring(1, message[1].length);
+                if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
+                    var stats;
+                    localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
+                    if (stats[StatColumns.ROLE] == "vip") {
+                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es USUARIO VIP de la sala! 👮");
+                        stats[StatColumns.ROLE] = "player";
+                        getPlayerById(parseInt(message[1]))[eP.ROLE] = "vip";
+                        localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                    }
+                }
+            }
+        }
+    }
+    else if (["!removehead"].includes(message[0].toLowerCase())) {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
+            if (message.length >= 2 && message[1][0] == "#") {
+                message[1] = message[1].substring(1, message[1].length);
+                if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
+                    var stats;
+                    localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
+                    if (stats[StatColumns.ROLE] == "head") {
+                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es STAFF de la sala! 👮");
+                        stats[StatColumns.ROLE] = "player";
+                        getPlayerById(parseInt(message[1]))[eP.ROLE] = "head";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
                         room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
                     }
@@ -2442,6 +2513,16 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
+
+    else if (["!ksk"].includes(message[0].toLowerCase())){
+        if (!player.admin) {
+            room.sendAnnouncement(" ", player.id, Colors.Verde);
+            return;
+        }
+        console.log("entra a ksk")
+        randomUniforms();
+        commandTimeout = 0;
+    }
     else if (["!endslow"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             slowMode != 0 ? room.sendChat("Slow mode has ended.") : null;
@@ -2469,7 +2550,7 @@ room.onPlayerChat = function (player, message) {
         if (player.admin) {
             if (message.length == 1) {
                 room.clearBans();
-                room.sendChat("[📜] La lista de bans fué limpiada!");
+                room.sendAnnouncement("[📜] La lista de bans fué limpiada!");
                 banList = [];
             }
             if (message.length == 2) {
