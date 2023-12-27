@@ -328,12 +328,11 @@ function Game(date, scores, goals) {
     this.goals = goals;
 }
 
-const frasesCELEB = [" Topo Giggio!! ", " Perreo!! ", " Baile a lo brazuca!! ", " Ras Tas Tas!! ", " Baile Griddy!! ", " SIUUU!! "]; // Phrases of Celebraciones
 const frasesGOL = [" 🔥 ¡PERO QUÉ GOLAZO CLAVO EL HDP DE ", " 💥 ¡LE PEGO A FUNDIR Y GOLAZO DE ", " ⚽ ¡GOL GOL GOL CANTALO, TENIA QUE APARECER ", " 🤩 ¿QUIEN SINO? GOLON DE ", " 👟 ¡LE PEGO DE PUNTIN Y GOLAZO DE ", " 🎯 ¡A NO PERO QUE DISTINGUIDO! GOLCITO DE "]; // Goal phrases
-const frasesASS = [" 🤝 ¡Con asistencia de ", " 👌 ¡Con hermosa asistencia de ", " 💫 ¡Con preciso pase de ", " 👏 ¡Con excelente pase de "]; // Phrases of assists
+const frasesASS = [" 🤝 ¡CON ASISTENCIA DE ", " 👌 ¡CON HERMOSA ASISTENCIA DE ", " 💫 ¡CON PRECISO PASE DE ", " 👏 ¡CON EXCELENTE PASE DE "]; // Phrases of assists
 const golcontra = [" 🚫 MOMMY, GOL EN CONTRA DEL PAYASO DE ", " ❌ SOS BOLUDO HERMANO? GOL EN CONTRA DE ", " 😖 AUTOGOL DEL TROLO DE ... ", " 😵 UFF! GOLAZO!! EN CONTRA DEL BOLUDO DE "]; // Goal against phrases
 
-const goleiro = [" mantiene la VALLA INVICTA! ", " es mejor que el DIBU! ", " NO DEJA QUE LA BOCHA ENTRE! ", " ESTA EN SU PRIME DE GK! "]; // Goalkeeper phrases
+const goleiro = [" MANTIENE LA VALLA INVICTA! ", " ES MEJOR QUE EL DIBU! ", " NO DEJA QUE LA BOCHA ENTRE! ", " ESTA EN SU PRIME DE GK! "]; // Goalkeeper phrases
 
 const replaysdiscord = "https://discord.com/api/webhooks/1180089741471911936/Q1vc3ax5AScc38nuxQzqmuWKEvIWqi_hY2xzqTZjjuxeUQXwlLQ_VfX0DS5PChMg4gTO";
 const nextgames = "https://discord.com/api/webhooks/1180095216791867454/qJ8TKSaWVSLS0xR19gvKrOhUxPa0dFiCxHlGZAoooRU8wpH1EiELvzZdmAGgcDNRDF6P";
@@ -354,7 +353,7 @@ function sendDiscordWebhook(scores) {
     form.append(
         "file",
         new File([room.stopRecording()],
-            `${getDate()}-${roomNumber + 1}.hbr2`,
+            `SINDICATOREPLAY-${getDate()}-${roomNumber + 1}.hbr2`,
             { type: "text/plain" }
         )
     );
@@ -595,11 +594,11 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     if (winner == Team.RED) {
         streak++;
         //| Winning streak: " + streak + " 🏆"
-        room.sendAnnouncement("🏆 " + currentTeams[0].longName + " gana! [" + scores.red + " - " + scores.blue + "]", null, 0xFDC43A, 'bold');
+        room.sendAnnouncement("🏆 " + currentTeams[0].longName + " 𝔾𝔸ℕ𝔸 𝔼𝕃 ℙ𝔸ℝ𝕋𝕀𝔻𝕆! [" + scores.red + " - " + scores.blue + "]", null, 0xFDC43A, 'bold');
     }
     else if (winner == Team.BLUE) {
         streak = 1;
-        room.sendAnnouncement("🏆 " + currentTeams[1].longName + "gana! [" + scores.blue + " - " + scores.red + "]", null, 0xFDC43A, 'bold');
+        room.sendAnnouncement("🏆 " + currentTeams[1].longName + " 𝔾𝔸ℕ𝔸 𝔼𝕃 ℙ𝔸ℝ𝕋𝕀𝔻𝕆! [" + scores.blue + " - " + scores.red + "]", null, 0xFDC43A, 'bold');
     }
     else {
         streak = 0;
@@ -608,9 +607,9 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     //room.sendAnnouncement("📊 Ball possession: 🔴 " + (Rposs * 100).toPrecision(3).toString() + "% | " + (Bposs * 100).toPrecision(3).toString() + "% 🔵", null, 0xFDC43A);
     if (GKList.length > 1) {
         if (scores.red == 0 && GKList[1]) {
-            room.sendAnnouncement("🧤 gg valla invicta soy el " + GKList[1].name + "! 🧤", null, 0xccc904, 'bold');
+            room.sendAnnouncement("🧤 VALLA INVICTA PARA soy el " + GKList[1].name + "! 🧤", null, 0xccc904, 'semi-bold');
         } else if (scores.blue == 0 && GKList[0]) {
-            room.sendAnnouncement("🧤 gg valla invicta soy el " + GKList[0].name + "! 🧤", null, 0xccc904, 'bold');
+            room.sendAnnouncement("🧤 VALLA INVICTA PARA soy el " + GKList[0].name + "! 🧤", null, 0xccc904, 'semi-bold');
         }
     }
 
@@ -622,12 +621,12 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     var topGoalScorer = room.getPlayerList().filter((player) => player.id == topGoalScorerId)[0];
     //⚽
     if (topGoalScorer != undefined && topGoalScorer.name != undefined && scores.red + scores.blue > 0) {
-        room.sendAnnouncement("🥇 " + topGoalScorer.name + " fué el goleador del partido con " + topGoals + " goles! ⚽", null, 0xffffff, 'bold');
+        room.sendAnnouncement("🥇 " + topGoalScorer.name + " FUE EL GOLEADOR DEL PARTIDO CON " + topGoals + " GOLES! ⚽", null, 0xFDC43A, 'semi-bold');
     }
 
     updateStats();
     sendDiscordWebhook(scores);
-    room.sendAnnouncement("🎥 ¡EL PARTIDO FUÉ GRABADO Y SE ENVIÓ A NUESTRO DISCORD!: " + `${getDate()}-${roomNumber + 1}.hbr2`, null, Colors.Amrelo, 'bold');
+    room.sendAnnouncement("🎥 ¡EL PARTIDO FUÉ GRABADO Y SE ENVIÓ A NUESTRO DISCORD!: " + `SINDICATOREPLAY-${getDate()}-${roomNumber + 1}.hbr2`, null, Colors.Amrelo, 'bold');
 
 }
 
@@ -1088,7 +1087,7 @@ function getStats() { // gives possession, ball speed and GK of each team
             noGkNotification();
             setTimeout(() => {
                 noGkAnnouncement = true;
-            }, 10000);
+            }, 90000);
         }
 
         /* calculateGk();
@@ -1429,10 +1428,18 @@ room.onPlayerJoin = function (player) {
     if (localStorage.getItem(player.auth) != null) {
         var playerRole = JSON.parse(localStorage.getItem(player.auth))[StatColumns.ROLE];
         extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false, playerRole]);
-        if (playerRole != "vip") {
+        if (playerRole != "player") {
             room.setPlayerAdmin(player.id, true);
-            room.sendAnnouncement(" EL VIP " + player.name + " ENTRO A LA SALA!", null, 0x05C5FF, "bold");
-            /* room.sendAnnouncement((JSON.parse(localStorage.getItem(player.auth))[StatColumns.ROLE] == "master" ? "The Administrator " : "The Administrator ") + player.name + " connected!", null, 0xD81826); */
+    if (localStorage.getItem(player.auth) != null)
+        var playerRole = JSON.parse(localStorage.getItem(player.auth))[StatColumns.ROLE];
+        extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false, playerRole]);
+        if (playerRole != "vip") 
+            room.setPlayerAdmin(player.id, true);
+    if (localStorage.getItem(player.auth) != null)
+        var playerRole = JSON.parse(localStorage.getItem(player.auth))[StatColumns.ROLE];
+        extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false, playerRole]);
+        if (playerRole != "vipsupremo") 
+            room.setPlayerAdmin(player.id, true);
         } else {
             var adminCount = room.getPlayerList().filter((player) => player.id != 0 && player.admin).length;
             slotsAvailable = maxPlayers - (3 - Math.min(3, adminCount));
@@ -1579,12 +1586,7 @@ setInterval(() => {
 }, 380000);
 
 function printDiscord() {
-    room.sendAnnouncement("                                         ████████████████████████████████████████ ", null, 0x7B73FD);
-    room.sendAnnouncement("                                         █▄─▄▄▀█▄─▄█─▄▄▄▄█─▄▄▄─█─▄▄─█▄─▄▄▀█▄─▄▄▀█ ", null, 0x9250FD);
-    room.sendAnnouncement("                                         ██─██─██─██▄▄▄▄─█─███▀█─██─██─▄─▄██─██─█ ", null, 0x8466FD);
-    room.sendAnnouncement("                                         █▄▄▄▄██▄▄▄█▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄█▄▄█▄▄█▄▄▄▄██ ", null, 0x7B73FD);
-    room.sendAnnouncement("                                         ████████████████████████████████████████ ", null, 0x9250FD);
-    room.sendAnnouncement("                                              📍 Link: ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
+    room.sendAnnouncement("                                         📍 𝔼𝕟𝕥𝕣𝕒 𝕒 𝕟𝕦𝕖𝕤𝕥𝕣𝕠 𝔻𝕚𝕤𝕔𝕠𝕣𝕕! ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
 }
 
 function printVc() {
@@ -1602,11 +1604,11 @@ function printRules() {
 }
 
 function printYoutube() {
-    room.sendAnnouncement("                                             📍 Síguenos en Youtube! ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
+    room.sendAnnouncement("                                            📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕐𝕠𝕦𝕥𝕦𝕓𝕖! ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
 }
 
 function printTiktok() {
-    room.sendAnnouncement("                                             📍 Síguenos en TikTok! ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
+    room.sendAnnouncement("                                            📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕋𝕚𝕜𝕋𝕠𝕜! ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
 }
 
 
@@ -1912,7 +1914,7 @@ function gkCommand(player) {
 }
 
 let
-    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "violado", "http", "cp", "cancer"], //swearing filter
+    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "violado", "http", "cp", "cancer", "ips", "ip", "10.0.0.0", "10.255.255.255", "172.16.0.0", "172.31.255.255", "192.168.0.11", "192.168.1.177", "192.168.0.177", "255.255.255.0", "192.168.0.1"], //swearing filter
 
     regex = new RegExp(palavras.join("|"), 'gi');
 
@@ -2051,7 +2053,7 @@ room.onPlayerChat = function (player, message) {
     }
 
     else if (["!clean"].includes(message[0].toLowerCase()) && player.admin) {
-        setTimeout(_ => { room.sendAnnouncement(`${player.name} ha limpiado el chat.`, null, 0xe50029, 'semi-bold') }, 1000)
+        setTimeout(_ => { room.sendAnnouncement(`${player.name} HA LIMPIADO EL CHAT.`, null, 0xe50029, 'semi-bold') }, 1000)
         i = 50
         while (i >= 0) {
             room.sendAnnouncement("", null);
@@ -2309,19 +2311,37 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!setvip"].includes(message[0].toLowerCase())) {
-        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "vip") {
+    else if (["!vip"].includes(message[0].toLowerCase())) {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
             if (message.length >= 2 && message[1][0] == "#") {
                 message[1] = message[1].substring(1, message[1].length);
                 if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
                     var stats;
                     localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
-                    if (stats[StatColumns.ROLE] == "vip") {
+                    if (stats[StatColumns.ROLE] == "player") {
                         stats[StatColumns.ROLE] = "vip";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "vip";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
-                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, true);
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
                         room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ahora es USUARIO VIP de la sala!");
+                    }
+                }
+            }
+        }
+    }
+    else if (["!vipsupremo"].includes(message[0].toLowerCase())) {
+        if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
+            if (message.length >= 2 && message[1][0] == "#") {
+                message[1] = message[1].substring(1, message[1].length);
+                if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
+                    var stats;
+                    localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
+                    if (stats[StatColumns.ROLE] == "player") {
+                        stats[StatColumns.ROLE] = "vipsupremo";
+                        getPlayerById(parseInt(message[1]))[eP.ROLE] = "vipsupremo";
+                        localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ahora es USUARIO VIP SUPREMO de la sala!");
                     }
                 }
             }
@@ -2337,7 +2357,6 @@ room.onPlayerChat = function (player, message) {
                     if (stats[StatColumns.ROLE] == "admin") {
                         room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ya no es Admin de la sala! 👮");
                         stats[StatColumns.ROLE] = "player";
-                        getPlayerById(parseInt(message[1]))[eP.ROLE] = "admin";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
                         room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
                     }
@@ -2402,27 +2421,6 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!unmute"].includes(message[0].toLowerCase())) {
-        if (player.admin && message.length >= 2) {
-            if (message[1] == "all") {
-                extendedP.forEach((ePlayer) => { ePlayer[eP.MUTE] = false; });
-                room.sendChat("All demutated.");
-            }
-            else if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null && getMute(room.getPlayer(Number.parseInt(message[1])))) {
-                setMute(room.getPlayer(Number.parseInt(message[1])), false);
-                room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " was demutated!");
-            }
-            else if (Number.isNaN(Number.parseInt(message[1]))) {
-                if (message[1].length > 1 && message[1][0] == "#") {
-                    message[1] = message[1].substring(1, message[1].length);
-                    if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null && getMute(room.getPlayer(Number.parseInt(message[1])))) {
-                        setMute(room.getPlayer(Number.parseInt(message[1])), false);
-                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " was demutated!");
-                    }
-                }
-            }
-        }
-    }
     else if (["!slow"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             if (message.length == 1) {
@@ -2465,11 +2463,11 @@ room.onPlayerChat = function (player, message) {
         cstm += ".";
         room.sendChat(cstm, player.id);
     }
-    else if (["!clearbans"].includes(message[0].toLowerCase())) {
+    else if (["!clearbans", "!cb"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             if (message.length == 1) {
                 room.clearBans();
-                room.sendChat("[📜] La lista de bans fué limpiada!");
+                room.sendChat("❌ SE REINICIARON LAS SANCIONES!");
                 banList = [];
             }
             if (message.length == 2) {
@@ -2478,7 +2476,7 @@ room.onPlayerChat = function (player, message) {
                         ID = Number.parseInt(message[1]);
                         room.clearBan(ID);
                         if (banList.length != banList.filter((array) => array[1] != ID)) {
-                            room.sendChat(banList.filter((array) => array[1] == ID)[0][0] + " was unbanned from the room!");
+                            room.sendChat(banList.filter((array) => array[1] == ID)[0][0] + " AHORA ESTA UNBAN DE LA SALA!");
                         }
                         setTimeout(() => { banList = banList.filter((array) => array[1] != ID); }, 20);
                     }
@@ -2540,7 +2538,7 @@ room.onPlayerChat = function (player, message) {
     } else {
         if (message.length > 1 && message[0].toLowerCase() == 't' && message[1] == ' ') {
             if (player.team != 0) {
-                room.getPlayerList().forEach((element) => { if (element.team == player.team) room.sendAnnouncement("[TEAM CHAT] " + player.name + ": " + message.substr(2), element.id, (player.team == Team.RED ? 16725591 : 3261685), "bold", 0) })
+                room.getPlayerList().forEach((element) => { if (element.team == player.team) room.sendAnnouncement("〔TEAM〕" + player.name + ": " + message.substr(2), element.id, (player.team == Team.RED ? 16725591 : 3261685), "bold", 0) })
                 return false;
             }
             else {
@@ -2556,23 +2554,30 @@ room.onPlayerChat = function (player, message) {
     if (role != "player") {
         //console.log("no es player?" + role);
         if (role == "master") {
-            room.sendAnnouncement("「👨🏽‍💻 Manager」" + player.name + ": " + msg + "", null, 0x00FF00);
+            room.sendAnnouncement("「👨🏽‍💻 Manager」" + player.name + ": " + msg + "", null, 0x00FF00, "bold");
             return false;
-        } else if (role == "head") {
-            room.sendAnnouncement("「💂🏽‍♂️ Head-Admin」" + player.name + ": " + msg + "", null, 0xEAC274);
+        } 
+        if (role == "head") {
+            room.sendAnnouncement("「💂🏽‍♂️ Jefe-Admin」" + player.name + ": " + msg + "", null, 0xEAC274, "bold");
             return false;
-        } else if (role == "community") {
-            room.sendAnnouncement("「🦸🏽‍♂️ Community-Manager」" + player.name + ": " + msg + "", null, 0xFF9100);
+        } 
+        if (role == "community") {
+            room.sendAnnouncement("「🦸🏽‍♂️ Community-Manager」" + player.name + ": " + msg + "", null, 0xFF9100, "bold");
             return false;
-        } else if (role == "vip") {
-            room.sendAnnouncement(" [👑 VIP] " + player.name + ": " + msg + "", null, 0xd733ff);
+        } 
+        if (role == "vipsupremo") {
+            room.sendAnnouncement(" [👑 VIP-SUPREMO] " + player.name + ": " + msg + "", null, 0xd733ff);
+            return false;
+        } 
+        if (role == "vip") {
+            room.sendAnnouncement(" [💎 VIP] " + player.name + ": " + msg + "", null, 0x89cff0);
             return false;
         }
-        else if (role == "admin") {
+        if (role == "admin") {
             room.sendAnnouncement("「👨🏽‍✈️ Admin」" + player.name + ": " + msg + "", null, 0xFFFF00);
             return false;
         }
-        else if (role == "mod") {
+        if (role == "mod") {
             room.sendAnnouncement("「🔰 Mod」" + player.name + ": " + msg + "", null, 0x6BFFB5);
             return false;
         }
