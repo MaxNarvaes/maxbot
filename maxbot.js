@@ -1566,27 +1566,21 @@ room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
 }
 
 setInterval(() => {
-    printDiscord();
+    printRedes();
 }, 120000);
 
 setInterval(() => {
     printVc();
-}, 180000);
+}, 550000);
 
 setInterval(() => {
     printRules();
-}, 240000);
+}, 770000);
 
-setInterval(() => {
-    printYoutube();
-}, 320000);
-
-setInterval(() => {
-    printTiktok();
-}, 380000);
-
-function printDiscord() {
+function printRedes() {
     room.sendAnnouncement("                                         📍 𝔼𝕟𝕥𝕣𝕒 𝕒 𝕟𝕦𝕖𝕤𝕥𝕣𝕠 𝔻𝕚𝕤𝕔𝕠𝕣𝕕! ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
+    room.sendAnnouncement("                                         📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕐𝕠𝕦𝕥𝕦𝕓𝕖! ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
+    room.sendAnnouncement("                                         📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕋𝕚𝕜𝕋𝕠𝕜! ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
 }
 
 function printVc() {
@@ -1595,20 +1589,7 @@ function printVc() {
 }
 
 function printRules() {
-    room.sendAnnouncement(" 😮‍💨 ╿ Reglas del host ⬅", null, 0x8466FD);
-    room.sendAnnouncement(" #1 Respetar a los jugadores ", null, null);
-    room.sendAnnouncement(" #2 Trollear, tosquear redes o tosquear a jugadores está prohibido! ", null, null);
-    room.sendAnnouncement(" #3 No usar el comando !admin de forma imbécil ", null, null);
-    room.sendAnnouncement(" #4 No suplantar identidades para molestar ", null, null);
-    room.sendAnnouncement(" #5 Bardear está permitido, pero no pasarse de la raya! ", null, null);
-}
-
-function printYoutube() {
-    room.sendAnnouncement("                                            📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕐𝕠𝕦𝕥𝕦𝕓𝕖! ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
-}
-
-function printTiktok() {
-    room.sendAnnouncement("                                            📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕋𝕚𝕜𝕋𝕠𝕜! ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
+    room.sendAnnouncement(" 😮‍💨 Ingresa a nuestro discord para ver las reglas de la sala!", null, 0x8466FD);
 }
 
 
@@ -2069,47 +2050,28 @@ room.onPlayerChat = function (player, message) {
     else if (["!rr"].includes(message[0].toLowerCase()) && player.admin) {
         quickRestart();
     }
-
     else if (["!rt"].includes(message[0].toLowerCase()) && player.admin) {
         rebalanceTeams();
     }
-
     else if (["!cancha"].includes(message[0].toLowerCase()) && player.admin) {
         chooseField();
     }
-
     else if (["!reglas"].includes(message[0].toLowerCase())) {
         printRules(player);
         return;
     }
-
-    else if (["!youtube", "!yt"].includes(message[0].toLowerCase())) {
-        printYoutube(player);
-        return;
-    }
-
-    else if (["!tiktok", "!tt"].includes(message[0].toLowerCase())) {
-        printTiktok(player);
-        return;
-    }
-
     else if (["!vc"].includes(message[0].toLowerCase())) {
         printVc(player);
         return;
     }
-
     else if (["!memide"].includes(message[0].toLowerCase())) {
         printMeMideCommand(player);
     }
-
     else if (["!hc"].includes(message[0].toLowerCase())) {
         printHumiliateCommand(player);
     }
-
-    else if (["!ksk"].includes(message[0].toLowerCase())) {
+    else if (["!ksk"].includes(message[0].toLowerCase()) && player.admin) {
         if (!player.admin && commandTimeout < 121) {
-            room.sendAnnouncement("Espera un rato antes de usar otra vez !ksk ", player.id, Colors.Vermelho);
-            return;
         }
         console.log("entra a ksk")
         randomUniforms();
@@ -2311,7 +2273,7 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!vip"].includes(message[0].toLowerCase())) {
+    else if (["!setvip"].includes(message[0].toLowerCase())) {
         if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
             if (message.length >= 2 && message[1][0] == "#") {
                 message[1] = message[1].substring(1, message[1].length);
@@ -2322,14 +2284,14 @@ room.onPlayerChat = function (player, message) {
                         stats[StatColumns.ROLE] = "vip";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "vip";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
-                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, true);
                         room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ahora es USUARIO VIP de la sala!");
                     }
                 }
             }
         }
     }
-    else if (["!vipsupremo"].includes(message[0].toLowerCase())) {
+    else if (["!setvipsupremo"].includes(message[0].toLowerCase())) {
         if (localStorage.getItem(getAuth(player)) && JSON.parse(localStorage.getItem(getAuth(player)))[StatColumns.ROLE] == "master") {
             if (message.length >= 2 && message[1][0] == "#") {
                 message[1] = message[1].substring(1, message[1].length);
@@ -2337,10 +2299,10 @@ room.onPlayerChat = function (player, message) {
                     var stats;
                     localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1])))) ? stats = JSON.parse(localStorage.getItem(getAuth(room.getPlayer(Number.parseInt(message[1]))))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", room.getPlayer(Number.parseInt(message[1])).name];
                     if (stats[StatColumns.ROLE] == "player") {
-                        stats[StatColumns.ROLE] = "vipsupremo";
+                        stats[StatColumns.ROLE] = "vip";
                         getPlayerById(parseInt(message[1]))[eP.ROLE] = "vipsupremo";
                         localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(message[1]))), JSON.stringify(stats));
-                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, false);
+                        room.setPlayerAdmin(room.getPlayer(Number.parseInt(message[1])).id, true);
                         room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " ahora es USUARIO VIP SUPREMO de la sala!");
                     }
                 }
@@ -2487,8 +2449,8 @@ room.onPlayerChat = function (player, message) {
     else if (["!bb", "!bye", "!cya", "!gn", "!nv"].includes(message[0].toLowerCase())) {
         room.kickPlayer(player.id, "nos re vimos amigo!", false);
     }
-    else if (["!dc", "!disc", "!discord"].includes(message[0].toLowerCase())) {
-        printDiscord();
+    else if (["!redes", "!discord", "!dc"].includes(message[0].toLowerCase())) {
+        printRedes();
     }
     else if (["!elo"].includes(message[0].toLowerCase()) && localStorage.getItem(getAuth(player))) { // elo definido por vitórias
         //console.logg("entro en comando elo " + player.name);
@@ -2549,39 +2511,41 @@ room.onPlayerChat = function (player, message) {
     }
     //cambiar cosito del gk
     var role = getPlayerById(player.id) != null ? getPlayerById(player.id)[eP.ROLE] : "player";
-
+    var role = getPlayerById(player.id) != null ? getPlayerById(player.id)[eP.ROLE] : "vip";
 
     if (role != "player") {
         //console.log("no es player?" + role);
         if (role == "master") {
-            room.sendAnnouncement("「👨🏽‍💻 Manager」" + player.name + ": " + msg + "", null, 0x00FF00, "bold");
+            room.sendAnnouncement("「𝐌𝐀𝐍𝐀𝐆𝐄𝐑」" + player.name + ": " + msg + "", null, 0x00FF00, "bold");
             return false;
         } 
         if (role == "head") {
-            room.sendAnnouncement("「💂🏽‍♂️ Jefe-Admin」" + player.name + ": " + msg + "", null, 0xEAC274, "bold");
+            room.sendAnnouncement("「𝐉𝐄𝐅𝐄-𝐀𝐃𝐌𝐈𝐍」" + player.name + ": " + msg + "", null, 0xEAC274, "bold");
             return false;
         } 
         if (role == "community") {
-            room.sendAnnouncement("「🦸🏽‍♂️ Community-Manager」" + player.name + ": " + msg + "", null, 0xFF9100, "bold");
-            return false;
-        } 
-        if (role == "vipsupremo") {
-            room.sendAnnouncement(" [👑 VIP-SUPREMO] " + player.name + ": " + msg + "", null, 0xd733ff);
-            return false;
-        } 
-        if (role == "vip") {
-            room.sendAnnouncement(" [💎 VIP] " + player.name + ": " + msg + "", null, 0x89cff0);
+            room.sendAnnouncement("「𝐂-𝐌𝐀𝐍𝐀𝐆𝐄𝐑」" + player.name + ": " + msg + "", null, 0xFF9100, "bold");
             return false;
         }
         if (role == "admin") {
-            room.sendAnnouncement("「👨🏽‍✈️ Admin」" + player.name + ": " + msg + "", null, 0xFFFF00);
+            room.sendAnnouncement("「𝐀𝐃𝐌」" + player.name + ": " + msg + "", null, 0xFFFF00);
             return false;
         }
         if (role == "mod") {
-            room.sendAnnouncement("「🔰 Mod」" + player.name + ": " + msg + "", null, 0x6BFFB5);
+            room.sendAnnouncement("「𝐌𝐎𝐃」" + player.name + ": " + msg + "", null, 0x6BFFB5);
+            return false;
+        }
+    if (role != "vip") { 
+        if (role == "vip") {
+            room.sendAnnouncement(" [💎 𝐕𝐈𝐏] " + player.name + ": " + msg + "", null, 0x89cff0);
+            return false;
+        }
+        if (role == "vipsupremo") {
+            room.sendAnnouncement(" [👑 𝐕𝐈𝐏-𝐒𝐔𝐏𝐑𝐄𝐌𝐎] " + player.name + ": " + msg + "", null, 0xd733ff);
             return false;
         }
     }
+}
 
     if (player.team == Team.BLUE) {
         room.sendAnnouncement(" [🔵] " + player.name + ": " + originalMessage, null, 0x89cff0);
