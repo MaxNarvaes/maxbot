@@ -4,22 +4,22 @@ var argTeams = [
     /* KSKS ADMINS VS USUARIOS EVENTO */
     //{ ID: Team.BLUE, shortName: "usrs", longName: "Usuarios", country: "Argentina", uniform: [{ angle: 135, mainColor: [0xE6FCFF, 0XE8E8E8, 0xD4D4D4], avatarColor: 0XFFB300 }] },
     /*ksks futbol argentino*/
-    { ID: Team.BLUE, shortName: "boca", longName: "Club Atlético Boca Juniors", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x103F79, 0xF3B229, 0x103F79], avatarColor: 0xFFFFFF }, { angle: 0, mainColor: [0xFFFFFF], avatarColor: 0x103F79 }] },
-    { ID: Team.BLUE, shortName: "rosario", longName: "Rosario Central", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x0007D9, 0xD4CD00, 0x0007D9], avatarColor: 0xFFFFFF }] },
-    { ID: Team.RED, shortName: "rvp", longName: "Club Atlético River Plate", country: "Argentina", uniform: [{ angle: 30, mainColor: [0xFFFFFF, 0xFF0000, 0xFFFFFF], avatarColor: 0x000000 }, { angle: 0, mainColor: [0x000000, 0x404040, 0x000000], avatarColor: 0xFF5000 }] },
-    { ID: Team.RED, shortName: "ind", longName: "Club Atlético Independiente", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "boca", longName: "Boca Juniors", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x00366B, 0xF7FF00, 0x003352], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "rosario", longName: "Rosario Central", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xD4CD00, 0x000F57, 0xD4CD00], avatarColor: 0xFFFFFF }] },
+    { ID: Team.RED, shortName: "rvp", longName: "River Plate", country: "Argentina", uniform: [{ angle: 40, mainColor: [0xF2F2F2, 0xDE0000, 0xF2F2F2], avatarColor: 0x000000 }] },
+    { ID: Team.RED, shortName: "ind", longName: "Independiente", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "elp", longName: "Estudiantes de La Plata", country: "Argentina", uniform: [{ angle: 180, mainColor: [0xD40B0B, 0xFFFFFF, 0xD40B0B], avatarColor: 0x878787 }] },
-    { ID: Team.BLUE, shortName: "casla", longName: "Club Atletico San Lorenzo de Almagro", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xC20000, 0x151575, 0xA10005], avatarColor: 0x000000 }] },
+    { ID: Team.BLUE, shortName: "casla", longName: "San Lorenzo de Almagro", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xC20000, 0x151575, 0xA10005], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "hur", longName: "Huracan", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0xFFFFFF, 0xF2F2F2], avatarColor: 0xFF0000 }] },
-    { ID: Team.BLUE, shortName: "tall", longName: "Talleres", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x030354, 0xFFFFFF, 0x030354], avatarColor: 0x000000 }] },
-    { ID: Team.RED, shortName: "bel", longName: "Belgrano", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x3D8BFF], avatarColor: 0x000000 }] },
+    { ID: Team.RED, shortName: "tall", longName: "Talleres", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x030354, 0xFFFFFF, 0x030354], avatarColor: 0x000000 }] },
+    { ID: Team.BLUE, shortName: "bel", longName: "Belgrano", country: "Argentina", uniform: [{ angle: 0, mainColor: [0X335ACA, 0x85A6FF, 0x85A6FF], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "new", longName: "Newell's old boys", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000, 0x000000], avatarColor: 0xF0F0F0 }] },
-    { ID: Team.RED, shortName: "col", longName: "Colon", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x9C0000, 0x000000], avatarColor: 0xF0F0F0 }] },
+    { ID: Team.BLUE, shortName: "col", longName: "Colon", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x9C0000, 0x000000], avatarColor: 0xF0F0F0 }] },
     { ID: Team.RED, shortName: "un", longName: "Union", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0xFF0000, 0xFFFFFF], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "vel", longName: "Club Atletico Velez Sarsfield", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0x1228B8, 0xFFFFFF], avatarColor: 0x080606 }] },
     { ID: Team.BLUE, shortName: "god", longName: "Godoy Cruz", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x0000AB, 0xFFFFFF, 0x0000AB], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "def", longName: "Defensa y Justicia", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xF7FF00, 0xF7FF00, 0xF7FF00], avatarColor: 0x19F700 }] },
-    { ID: Team.BLUE, shortName: "ajr", longName: "Argentinos Jr", country: "Argentina", uniform: [{ angle: 45, mainColor: [0xD40B0B, 0xFFFFFF, 0xD40B0B], avatarColor: 0xAB0000 }] },
+    { ID: Team.RED, shortName: "ajr", longName: "Argentinos Jr", country: "Argentina", uniform: [{ angle: 180, mainColor: [0xBA271C, 0xF03224, 0xBA271C], avatarColor: 0x2121FF }] },
     { ID: Team.RED, shortName: "lan", longName: "Lanus", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x8A0707, 0x8A0707, 0x8A0707], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "cc", longName: "Central Cordoba", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x000000, 0xFAF5F5, 0x000000], avatarColor: 0x8A0707 }] },
     { ID: Team.BLUE, shortName: "rac", longName: "Racing", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x077FE8, 0xE8E8E8, 0x077FE8], avatarColor: 0x000000 }] },
@@ -27,26 +27,30 @@ var argTeams = [
     { ID: Team.RED, shortName: "barr", longName: "Barracas Central", country: "Argentina", uniform: [{ angle: 180, mainColor: [0xD40B0B, 0xFFFFFF], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "inst", longName: "Instituto", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xCC1212, 0xFFFFFF, 0xCC1212], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "sar", longName: "Sarmiento", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x004A0C, 0x004A0C, 0x004A0C], avatarColor: 0xFFBFC3 }] },
-    { ID: Team.RED, shortName: "plat", longName: "Platense", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0x382420, 0xFFFFFF], avatarColor: 0x7A4F46 }] },
+    { ID: Team.RED, shortName: "plat", longName: "Platense", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0x562E24, 0xFFFFFF], avatarColor: 0xF1590D }] },
     { ID: Team.BLUE, shortName: "tig", longName: "Tigre", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x0841FF, 0xFF0000, 0x0841FF], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "ban", longName: "Banfield", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x06300F, 0xFFFFFF, 0x06300F], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "glp", longName: "Gimnasia de la Plata", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0x00253B, 0xFFFFFF], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "ars", longName: "Arsenal", country: "Argentina", uniform: [{ angle: 40, mainColor: [0x006FFF, 0xFF0000, 0x006FFF], avatarColor: 0xFFFFFF }] },
-    { ID: Team.BLUE, shortName: "rie", longName: "Deportivo Riestra", country: "Argentina", uniform: [{ angle: 45, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0x1C1C1C }] },
+    { ID: Team.RED, shortName: "rie", longName: "Deportivo Riestra", country: "Argentina", uniform: [{ angle: 45, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0x1C1C1C }] },
+    { ID: Team.RED, shortName: "cha", longName: "Chaco Forever", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0xFF6524 }] },
+    { ID: Team.BLUE, shortName: "alma", longName: "Almagro", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x0841FF, 0x000000, 0x0841FF], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "alm", longName: "Almagro Visitante", country: "Argentina", uniform: [{ angle: 75, mainColor: [0x000000, 0x17D1FF, 0xFCFCFC], avatarColor: 0x080808 }] },
+
     /*ksks liga española*/
     { ID: Team.RED, shortName: "atm", longName: "Atlético de Madrid", country: "España", uniform: [{ angle: 180, mainColor: [0xFF0F1F, 0XFFFFFF, 0xFF0F1F], avatarColor: 0X150B75 }] },
     { ID: Team.BLUE, shortName: "cdv", longName: "Celta de Vigo", country: "España", uniform: [{ angle: 90, mainColor: [0x75AFFA, 0X54A8CC, 0x75AFFA], avatarColor: 0XF5F6FF  }] },
     { ID: Team.RED, shortName: "osa", longName: "Osasuna", country: "España", uniform: [{ angle: 180, mainColor: [0xB5142F, 0X150A7A, 0xB5142F], avatarColor: 0XF5F6FF }] },
     { ID: Team.BLUE, shortName: "bet", longName: "Betis", country: "España", uniform: [{ angle: 180, mainColor: [0x1C8009, 0XFFFFFF, 0x1C8009], avatarColor: 0X000000 }] },
     { ID: Team.BLUE, shortName: "vill", longName: "Villareal", country: "España", uniform: [{ angle: 0, mainColor: [0xD6EB1C], avatarColor: 0X0D2F8C }] },
-    { ID: Team.BLUE, shortName: "rm", longName: "Real Madrid", country: "España", uniform: [{ angle: 60, mainColor: [0xFFFFFF, 0X000DC7, 0xFFFFFF], avatarColor: 0XFFEE00 }] },
+    { ID: Team.BLUE, shortName: "rm", longName: "Real Madrid", country: "España", uniform: [{ angle: 0, mainColor: [0xFFFFFF], avatarColor: 0X121D3B }] },
     { ID: Team.BLUE, shortName: "get", longName: "Getafe", country: "España", uniform: [{ angle: 180, mainColor: [0x000BA6, 0X5DFC72, 0x000BA6], avatarColor: 0XFFFFFF }] },
     { ID: Team.RED, shortName: "ath", longName: "Athletic Club", country: "España", uniform: [{ angle: 180, mainColor: [0xFF0022, 0XFCFCFC, 0xFF0022], avatarColor: 0X000000 }] },
     { ID: Team.RED, shortName: "sev", longName: "Sevilla", country: "España", uniform: [{ angle: 60, mainColor: [0XFFFFFF, 0XFFFFFF, 0XFFFFFF], avatarColor: 0XFF0000 }] },
-    { ID: Team.RED, shortName: "bar", longName: "Barcelona", country: "España", uniform: [{ angle: 0, mainColor: [0XC90000, 0X00437D, 0XC90000], avatarColor: 0XFFFFFF }] },
+    { ID: Team.RED, shortName: "bar", longName: "Barcelona", country: "España", uniform: [{ angle: 0, mainColor: [0X013C7E, 0XAA0136, 0X013C7E], avatarColor: 0XFFFFFF }] },
     /*ksks premier league*/
     { ID: Team.RED, shortName: "mutd", longName: "Manchester United", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xEB1515, 0XBA031C, 0xEB1515], avatarColor: 0xFFFFFF }] },
-    { ID: Team.BLUE, shortName: "mci", longName: "Manchester City", country: "Inglaterra", uniform: [{ angle: 180, mainColor: [0x5CB8E0, 0XFFFFFF, 0x5CB8E0], avatarColor: 0xF2F2F2 }] },
+    { ID: Team.BLUE, shortName: "mci", longName: "Manchester City", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xAAE3FC, 0X5FBFED, 0XAAE3FC], avatarColor: 0x23233B }] },
     { ID: Team.BLUE, shortName: "che", longName: "Chelsea", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0x3423CC], avatarColor: 0xF2F2F2 }] },
     { ID: Team.BLUE, shortName: "tot", longName: "Tottenham", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0XFFFFFF], avatarColor: 0x0D1069 }] },
     { ID: Team.RED, shortName: "liv", longName: "Liverpool", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xD92531], avatarColor: 0xE8E8E8 }] },
@@ -76,12 +80,14 @@ var argTeams = [
     { ID: Team.RED, shortName: "lev", longName: "Bayern Leverkusen", country: "Alemania", uniform: [{ angle: 0, mainColor: [0x000000, 0XFD0808, 0x000000], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "lep", longName: "Leipzig", country: "Alemania", uniform: [{ angle: 90, mainColor: [0xFAF9FF, 0XDC002C, 0xFAF9FF], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "bor", longName: "Borussia Dortmund", country: "Alemania", uniform: [{ angle: 0, mainColor: [0xF5FD00, 0X000000, 0xF5FD00], avatarColor: 0x2E2E2E }] },
-    { ID: Team.RED, shortName: "bay", longName: "Bayern Munich", country: "Alemania", uniform: [{ angle: 90, mainColor: [0xFF0800, 0XC20003, 0xFF0800], avatarColor: 0xFFFFFF }] },
-    { ID: Team.RED, shortName: "juv", longName: "Juventus", country: "Italia", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0X000000, 0xFFFFFF], avatarColor: 0xD6D2D3 }] },
+    { ID: Team.RED, shortName: "bay", longName: "Bayern Munich", country: "Alemania", uniform: [{ angle: 135, mainColor: [0xF70521, 0XFFFFFF, 0xFFFFFF], avatarColor: 0xAB1227 }] },
+    { ID: Team.RED, shortName: "juv", longName: "Juventus", country: "Italia", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0X000000, 0xFFFFFF], avatarColor: 0xFFC71F }] },
     { ID: Team.BLUE, shortName: "fio", longName: "Fiorentina", country: "Italia", uniform: [{ angle: 45, mainColor: [0x8F28B5, 0x671E82, 0x8F28B5], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "naz", longName: "Inter de Milan", country: "Italia", uniform: [{ angle: 0, mainColor: [0x2519CF, 0x000000, 0x2519CF], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "mil", longName: "Milan", country: "Italia", uniform: [{ angle: 0, mainColor: [0xEB0000, 0x000000, 0xEB0000], avatarColor: 0x989C27 }] },
-
+    { ID: Team.RED, shortName: "peñ", longName: "Peñarol", country: "Uruguay", uniform: [{ angle: 0, mainColor: [0xF3FF45, 0x000000, 0XFFFF38], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "nac", longName: "Nacional", country: "Uruguay", uniform: [{ angle: 75, mainColor: [0x091A8F, 0x071575, 0X130D69], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "juvv", longName: "Juventus Alternativa", country: "Italia", uniform: [{ angle: 50, mainColor: [0x1C1C1C, 0x292929, 0X1C1C1C], avatarColor: 0xFFFFFF }] },
 ];
 
 
@@ -952,30 +958,8 @@ function chooseMap() {
     return null;
 }
 
-function choosePlayer() {
-    clearTimeout(timeOutCap);
-    if (teamR.length <= teamB.length && teamR.length != 0) {
-        room.sendChat("[PV] To choose a player, enter his number from the provided list or use'top', 'random' or 'bottom'.", teamR[0].id);
-        timeOutCap = setTimeout(
-            function (player) {
-                room.sendChat("[PV] Hurry up @" + player.name + ", you have only " + Number.parseInt(chooseTime / 2) + " seconds left to choose!", player.id);
-                timeOutCap = setTimeout(
-                    function (player) {
-                        room.kickPlayer(player.id, "You didn't choose in time!", false);
-                    },
-                    chooseTime * 500, teamR[0]);
-            },
-            chooseTime * 1000, teamR[0]);
-    }
-    else if (teamB.length < teamR.length && teamB.length != 0) {
-        room.sendChat("[PV] To choose a player, enter his number from the provided list or use'top', 'random' or 'bottom'.", teamB[0].id);
-        timeOutCap = setTimeout(function (player) { room.sendChat("[PV] Hurry up @" + player.name + ", you have only " + Number.parseInt(chooseTime / 2) + " seconds left to choose!", player.id); timeOutCap = setTimeout(function (player) { room.kickPlayer(player.id, "You didn't choose in time!", false); }, chooseTime * 500, teamB[0]); }, chooseTime * 1000, teamB[0]);
-    }
-    if (teamR.length != 0 && teamB.length != 0) printSpecList(teamR.length <= teamB.length ? teamR[0] : teamB[0]);
-}
-
 function printSpecList(player) {
-    var cstm = "[PV] Players: ";
+    var cstm = "[PV] Jugadores: ";
     for (var i = 0; i < teamS.length; i++) {
         if (140 - cstm.length < (teamS[i].name + "[" + (i + 1) + "], ").length) {
             room.sendChat(cstm, player.id);
@@ -1345,7 +1329,7 @@ function randomUniforms() {
             teamData.uniform[UNIFORME_OFICIAL].mainColor);
 
     });
-    room.sendAnnouncement("¡El partido comenzó y los equipos salen a dar la vida por los colores!", null, 0xffffff, 'bold');
+    room.sendAnnouncement("¡COMIENZA EL PARTIDO Y SE ENFRENTAN!", null, 0xffffff, 'bold');
     room.sendAnnouncement(currentTeams[0].longName, null, Colors.Vermelho, 'bold');
     room.sendAnnouncement("🆚", null, 0xFF0000, null);
     room.sendAnnouncement(currentTeams[1].longName, null, Colors.Azul, 'bold');
@@ -1578,9 +1562,11 @@ setInterval(() => {
 }, 770000);
 
 function printRedes() {
+    room.sendAnnouncement("                                                                                                       ", null);
     room.sendAnnouncement("                                         📍 𝔼𝕟𝕥𝕣𝕒 𝕒 𝕟𝕦𝕖𝕤𝕥𝕣𝕠 𝔻𝕚𝕤𝕔𝕠𝕣𝕕! ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
     room.sendAnnouncement("                                         📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕐𝕠𝕦𝕥𝕦𝕓𝕖! ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
     room.sendAnnouncement("                                         📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕋𝕚𝕜𝕋𝕠𝕜! ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
+    room.sendAnnouncement("                                                                                                       ", null);
 }
 
 function printVc() {
@@ -1772,7 +1758,7 @@ room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
 var meMideCommandTimeout = new Set();
 function printMeMideCommand(player) {
     if (!meMideCommandTimeout.has(player.id)) {
-        room.sendAnnouncement("「🤖」MAXBOT: A " + player.name + " le mide " + getRandomInt(50) + " CM.", null, 0xEAC274);
+        room.sendAnnouncement("「🤖」MaxBot: A " + player.name + " le mide " + getRandomInt(50) + " CM.", null, 0xEAC274);
         meMideCommandTimeout.add(player.id);
         setTimeout(() => {
             meMideCommandTimeout.delete(player.id);
@@ -1906,6 +1892,7 @@ room.onPlayerChat = function (player, message) {
     }
 
     isMaster = extendedP.filter((p) => p[eP.ID] == player.id)[eP.ROLE] == "master";
+    isVip = extendedP.filter((p) => p[eP.ID] == player.id)[eP.ROLE] == "vip";
 
     if (message.match(regex) && !isMaster) {
         if (message.match(regex) && player.admin) {
@@ -1931,7 +1918,6 @@ room.onPlayerChat = function (player, message) {
     player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
     if (["!help"].includes(message[0].toLowerCase())) {
         room.sendChat("[PV] Player commands: !me, !games, !wins, !goals, !assists, !cs", player.id);
-        player.admin ? room.sendChat("[PV] Admin : !mute <duration = 3> #<id>, !unmute all/#<id>, !clearbans <number = all>, !slow <duration>, !endslow", player.id) : null;
     }
     if (["!vote"].includes(message[0].toLowerCase()) && message.length > 1) {
         if (room.getPlayerList().length < 4) {
@@ -2149,43 +2135,44 @@ room.onPlayerChat = function (player, message) {
     else if (["!me"].includes(message[0].toLowerCase())) {
         var stats;
         localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
-        room.sendAnnouncement("[🏆] Tus estadisticas: 🎮 Partidos: " + stats[StatColumns.GAMES] + ", ✅ Ganados: " + stats[StatColumns.WINS] + ", ❌ Perdidos: " + stats[StatColumns.LOSES] + ", % de ganados: " + stats[StatColumns.WINRATE] + "%, ⚽️ Goles: " + stats[StatColumns.GOALS] + ", 👟 Asistencias: " + stats[StatColumns.ASSISTS] + ", 🧤 GK: " + stats[StatColumns.GK] + ", 🥅 Valla invicta: " + stats[StatColumns.VI] + ", 🥅 % VI: " + stats[StatColumns.CP] + "%", player.id, 0x73EC59, "bold");
+        room.sendAnnouncement("📊 ¡TUS STATS!", player.id, 0xF7FF00, "bold");
+        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", player.id, 0x73EC59, "bold");
     }
 
     else if (["!showme"].includes(message[0].toLowerCase())) {
         var stats;
         localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
-
-        room.sendAnnouncement("[🏆] Estadisticas de : " + player.name + "🎮 Partidos: " + stats[StatColumns.GAMES] + ", ✅ Ganados: " + stats[StatColumns.WINS] + ", ❌ Perdidos: " + stats[StatColumns.LOSES] + ", % de ganados: " + stats[StatColumns.WINRATE] + "%, ⚽️ Goles: " + stats[StatColumns.GOALS] + ", 👟 Asistencias: " + stats[StatColumns.ASSISTS] + ", 🧤 GK: " + stats[StatColumns.GK] + ", 🥅 Valla invicta: " + stats[StatColumns.VI] + ", 🥅 % VI: " + stats[StatColumns.CP] + "%", null, 0x73EC59, "bold");
+        room.sendAnnouncement("📊 ESTAS SON LAS STATS DE " + player.name + ": ", null, 0xF7FF00, "bold");
+        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", null, 0x73EC59, "bold");
     }
 
     else if (["!jugados"].includes(message[0].toLowerCase())) { // mostra o ranking de partidas jogadas
         var tableau = getTop5ForStat(StatColumns.GAMES);
-        var text = "🎮 Partidos jugados:";
+        var text = "TOP5️⃣ Mas jugados:";
         printTop5(text, tableau);
     }
 
     else if (["!ganados"].includes(message[0].toLowerCase())) { // mostra o ranking de vitórias jogadas
         var tableau = getTop5ForStat(StatColumns.WINS);
-        var text = "🎮 Partidos ganados:";
+        var text = "TOP5️⃣ Mas ganados:";
         printTop5(text, tableau);
     }
 
     else if (["!goles"].includes(message[0].toLowerCase())) {
         var tableau = getTop5ForStat(StatColumns.GOALS);
-        var text = "⚽️ Goleadores:";
+        var text = "TOP5️⃣ Goleadores:";
         printTop5(text, tableau);
     }
 
     else if (["!asis"].includes(message[0].toLowerCase())) { // mostra o ranking de assistencias
         var tableau = getTop5ForStat(StatColumns.ASSISTS);
-        var text = "👟 Asistencias:";
+        var text = "TOP5️⃣ Asistidores:";
         printTop5(text, tableau);
     }
 
     else if (["!arq"].includes(message[0].toLowerCase())) { // mostra o ranking de defesas [GK]
         var tableau = getTop5ForStat(StatColumns.VI);
-        var text = "🥅 Valla invicta:";
+        var text = "TOP5️⃣ Mas VI:";
         printTop5(text, tableau);
     }
 
@@ -2359,7 +2346,7 @@ room.onPlayerChat = function (player, message) {
                 if (message[2].length > 1 && message[2][0] == "#") {
                     message[2] = message[2].substring(1, message[2].length);
                     if (!Number.isNaN(Number.parseInt(message[2])) && room.getPlayer(Number.parseInt(message[2])) != null) {
-                        if (room.getPlayer(Number.parseInt(message[2])).admin || getMute(room.getPlayer(Number.parseInt(message[2])))) {
+                        if (room.getPlayer(Number.parseInt(message[2])).admi| getMute(room.getPlayer(Number.parseInt(message[2])))) {
                             return false;
                         }
                         setTimeout(function (player) { setMute(player, false); }, timeOut, room.getPlayer(Number.parseInt(message[2])));
@@ -2541,7 +2528,7 @@ room.onPlayerChat = function (player, message) {
             return false;
         }
         if (role == "vipsupremo") {
-            room.sendAnnouncement(" [👑 𝐕𝐈𝐏-𝐒𝐔𝐏𝐑𝐄𝐌𝐎] " + player.name + ": " + msg + "", null, 0xd733ff);
+            room.sendAnnouncement(" [👑 𝐕𝐈𝐏-𝐒𝐔𝐏𝐑𝐄𝐌𝐎] " + player.name + ": " + msg + "", null, 0xd733ff, "bold");
             return false;
         }
     }
