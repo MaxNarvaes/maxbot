@@ -247,6 +247,23 @@ function roomUpNotification() {
         sendAnnouncementToDiscord("El host está ON ¡Entra ya!" + roomName + ": " + hrefs, roomDcWebhook);
     }
 }
+function chatDiscord(message) {
+	var request = new XMLHttpRequest();
+	request.open("POST", webhook,);
+
+	request.setRequestHeader('Content-type', 'application/json');
+
+	var params = {
+		username: 'Maxbot - CHAT',
+		avatar_url: '',
+		content: message,
+		allowed_mentions: {
+			parse: []
+		}
+	}
+
+	request.send(JSON.stringify(params))
+}
 /* setTimeout(() => {
     roomUpNotification();
 }, 20000); */
@@ -614,9 +631,9 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     //room.sendAnnouncement("📊 Ball possession: 🔴 " + (Rposs * 100).toPrecision(3).toString() + "% | " + (Bposs * 100).toPrecision(3).toString() + "% 🔵", null, 0xFDC43A);
     if (GKList.length > 1) {
         if (scores.red == 0 && GKList[1]) {
-            room.sendAnnouncement("🧤 VALLA INVICTA PARA soy el " + GKList[1].name + "! 🧤", null, 0xccc904, 'semi-bold');
+            room.sendAnnouncement("🧤 VALLA INVICTA PARA " + GKList[1].name + "! 🧤", null, 0xccc904, 'semi-bold');
         } else if (scores.blue == 0 && GKList[0]) {
-            room.sendAnnouncement("🧤 VALLA INVICTA PARA soy el " + GKList[0].name + "! 🧤", null, 0xccc904, 'semi-bold');
+            room.sendAnnouncement("🧤 VALLA INVICTA PARA " + GKList[0].name + "! 🧤", null, 0xccc904, 'semi-bold');
         }
     }
 
@@ -1456,6 +1473,8 @@ room.onPlayerJoin = function (player) {
         "conn: " + player.conn + " 🌎" +
         "\n" + "auth: " + player.auth + " 💻" + "\n" +
         "Fecha: " + `${getDateInfo()}` + "```", webhook);
+    var webhook = "https://discord.com/api/webhooks/1197081529726271579/ABI1IRedsZ529xmvUokoMqhi8fWghJP7LQdf2tKUS107Z0c__JnCHuZ7jrKsqShkRRLx";
+    
     room.sendAnnouncement(
         `♿ ¡Bienvenido ${player.name}, al Sindicato! ♿\n🔸Leé las reglas y juga sin trollear!\n🔹Ingresa a nuestro discord para enterarte nuevas noticias!`,
         player.id,
@@ -1552,9 +1571,8 @@ setInterval(() => {
 
 function printRedes() {
     room.sendAnnouncement("                                                                                                       ", null);
-    room.sendAnnouncement("                                         📍 𝔼𝕟𝕥𝕣𝕒 𝕒 𝕟𝕦𝕖𝕤𝕥𝕣𝕠 𝔻𝕚𝕤𝕔𝕠𝕣𝕕! ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
-    room.sendAnnouncement("                                         📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕐𝕠𝕦𝕥𝕦𝕓𝕖! ➡ https://www.youtube.com/@JueganTodosCon ", null, 0xF6FF43);
-    room.sendAnnouncement("                                         📍 ℕ𝕦𝕖𝕤𝕥𝕣𝕠 𝕋𝕚𝕜𝕋𝕠𝕜! ➡ https://www.tiktok.com/@juegantodoscon ", null, 0xF6FF43);
+    room.sendAnnouncement("                                         📍 Discord Oficial! ➡ https://discord.gg/KvfgRc7sfG ", null, 0xF6FF43);
+    room.sendAnnouncement("                                         📍 Nuestras Redes! ➡ https://linktr.ee/sindicatodelhax ", null, 0xF6FF43);
     room.sendAnnouncement("                                                                                                       ", null);
 }
 
@@ -1904,8 +1922,8 @@ room.onPlayerChat = function (player, message) {
     message = message.split(/ +/);
 
     player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
-    if (["!help"].includes(message[0].toLowerCase())) {
-        room.sendChat("[PV] Player commands: !me, !games, !wins, !goals, !assists, !cs", player.id);
+    if (["!ayuda"].includes(message[0].toLowerCase())) {
+        room.sendAnnouncement("[📍] Comandos: !me, !showme, !goles, !asis, !arq, !jugados, !ganados, !redes, !vc, !memide, !hc, !reglas, !afk, !mtm", player.id, 0x366BFF, "bold", 0);
     }
     if (["!vote"].includes(message[0].toLowerCase()) && message.length > 1) {
         if (room.getPlayerList().length < 4) {
@@ -2307,28 +2325,28 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!slow"].includes(message[0].toLowerCase())) {
+    else if (["!slowmode"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             if (message.length == 1) {
                 slowMode = 3;
-                room.sendChat("3 seconds of slow mode on!");
+                room.sendAnnouncement("3 segundos de modo lento en el chat!");
             }
             else if (message.length == 3) {
                 if (!Number.isNaN(Number.parseInt(message[1]))) {
                     if (Number.parseInt(message[1]) > 0) {
                         slowMode = Number.parseInt(message[1]);
-                        room.sendChat(slowMode + " seconds slow mode on!");
+                        room.sendChat(slowMode + " segundos de modo lento!");
                         return false;
                     }
                 }
                 slowMode = 2;
-                room.sendChat("3 seconds of slow mode on!");
+                room.sendChat("3 segundos de modo lento!");
             }
         }
     }
     else if (["!endslow"].includes(message[0].toLowerCase())) {
         if (player.admin) {
-            slowMode != 0 ? room.sendChat("Slow mode has ended.") : null;
+            slowMode != 0 ? room.sendAnnouncement("El modo lento se ha deshabilitado.") : null;
             slowMode = 0;
         }
     }
