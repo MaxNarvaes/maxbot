@@ -60,6 +60,7 @@ var argTeams = [
     /*ksks selecciones*/
     { ID: Team.RED, shortName: "ale", longName: "Alemania", country: "Alemania", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0x000000, 0xFFFFFF], avatarColor: 0XD19D0F }] },
     { ID: Team.RED, shortName: "bra", longName: "Brasil", country: "Brasil", uniform: [{ angle: 180, mainColor: [0xCCCC33, 0X006600, 0xCCCC33], avatarColor: 0XFFFFFF }] },
+    { ID: Team.RED, shortName: "bra2", longName: "Brasil Suplente", country: "Brasil", uniform: [{ angle: 60, mainColor: [0x2930FF, 0X1F24BF, 0x171B91], avatarColor: 0X30FF29 }] },
     { ID: Team.BLUE, shortName: "arg", longName: "Argentina", country: "Argentina", uniform: [{ angle: 90, mainColor: [0X75AADB, 0XFFFFFF, 0x75AADB], avatarColor: 0X000000 }] },
     { ID: Team.RED, shortName: "esp", longName: "España", country: "España", uniform: [{ angle: 90, mainColor: [0XFF0000, 0XEEC900, 0xFF0000], avatarColor: 0X000000 }] },
     { ID: Team.RED, shortName: "por", longName: "Portugal", country: "Portugal", uniform: [{ angle: 300, mainColor: [0x006400, 0X8B0000, 0x8B0000], avatarColor: 0xFFD700 }] },
@@ -86,7 +87,7 @@ var argTeams = [
     { ID: Team.BLUE, shortName: "naz", longName: "Inter de Milan", country: "Italia", uniform: [{ angle: 0, mainColor: [0x2519CF, 0x000000, 0x2519CF], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "mil", longName: "Milan", country: "Italia", uniform: [{ angle: 0, mainColor: [0xEB0000, 0x000000, 0xEB0000], avatarColor: 0x989C27 }] },
     { ID: Team.RED, shortName: "peñ", longName: "Peñarol", country: "Uruguay", uniform: [{ angle: 0, mainColor: [0xF3FF45, 0x000000, 0XFFFF38], avatarColor: 0xFFFFFF }] },
-    { ID: Team.BLUE, shortName: "nac", longName: "Nacional", country: "Uruguay", uniform: [{ angle: 75, mainColor: [0x091A8F, 0x071575, 0X130D69], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "nac", longName: "Nacional", country: "Uruguay", uniform: [{ angle: 60, mainColor: [0x190AF0, 0xFFFFFF, 0X190AF0], avatarColor: 0xFF0000 }] },
     { ID: Team.BLUE, shortName: "juvv", longName: "Juventus Alternativa", country: "Italia", uniform: [{ angle: 50, mainColor: [0x1C1C1C, 0x292929, 0X1C1C1C], avatarColor: 0xFFFFFF }] },
 ];
 
@@ -110,7 +111,7 @@ var bgColor = "2a3a40";
 var AFKSet = new Set();
 var AFKMinSet = new Set();
 var AFKCooldownSet = new Set();
-var minAFKDuration = 10;
+var minAFKDuration = 20;
 var maxAFKDuration = 10;
 var AFKCooldown = 5;
 var adminCommandTimeout = true;
@@ -119,11 +120,11 @@ var goalDictionary = {};
 /* ROOM */
 const roomNumber = 0;
 //const roomName = "Prueba";
-const roomName = "⭐ SINDICATO DEL HAX ⭐ | #JueganTodosCon♿";
+const roomName = "Prueba";
 const maxPlayers = 25;
 const roomPublic = true;
 const geo = [{ "lat": -31.4135, "lon": -64.18105, "code": "ar" }];
-const roomPassword = '';
+const roomPassword = '789345';
 
 const excludedRows = ["player_name", "view_mode", "geo", "avatar", "player_auth_key", "extrapolation", "_grecaptcha", "chat_height", "banList", "chat_bg_mode"];
 //const room = HBInit({ roomName: roomName, maxPlayers: maxPlayers, public: roomPublic, geo: geo[0] });
@@ -247,14 +248,16 @@ function roomUpNotification() {
         sendAnnouncementToDiscord("El host está ON ¡Entra ya!" + roomName + ": " + hrefs, roomDcWebhook);
     }
 }
-function chatDiscord(message) {
+//LOGS CHATS (WEBHOOK)
+
+function DiscordLogs(message) {
 	var request = new XMLHttpRequest();
-	request.open("POST", webhook,);
+	request.open("POST", "https://discord.com/api/webhooks/1198621247941128282/2UrrN2cVsWTTEmJ9Dv1ZTBd44qEC7g0QVqWRIQkC2p7OZjy3CrvQRQAEhwZLYkwp10Wg")
 
 	request.setRequestHeader('Content-type', 'application/json');
 
 	var params = {
-		username: 'Maxbot - CHAT',
+		username: 'Maxbot - CHAT & LOGS',
 		avatar_url: '',
 		content: message,
 		allowed_mentions: {
@@ -1101,10 +1104,10 @@ function getStats() { // gives possession, ball speed and GK of each team
     function noGkNotification() {
         for (let i = 0; i < manualGKList.length; i++) {
             if (manualGKList[i] == null) {
-                var msg = 'Tu equipo no tiene arquero, utiliza !gk para serlo!';
+                var msg = 'Al equipo le falta un arquero! Usa el comando !gk para ofrecerte!';
                 var correctedTeamIndex = i + 1;
                 var emoji = correctedTeamIndex == Team.RED ? '🟥' : '🟦';
-                var message = `[${emoji}] [⚠️🧤]: ${msg}`;
+                var message = `[${emoji}] [🧤]: ${msg}`;
                 var team = getTeamArray(correctedTeamIndex, true);
                 var color = correctedTeamIndex == Team.RED ? Colors.Vermelho : Colors.Azul;
                 var style = 'italic';
@@ -1191,7 +1194,7 @@ function updateStats() {
             stats[StatColumns.CP] = (100 * stats[StatColumns.VI] / stats[StatColumns.GK]).toPrecision(3);
             localStorage.setItem(getAuth(GKList[1]), JSON.stringify(stats));
         }
-        room.sendAnnouncement("Estadisticas guardadas", null, Colors.Amrelo, 'bold');
+        room.sendAnnouncement("Estadisticas guardadas", null, Colors.Amrelo, 'italic');
     }
 }
 
@@ -1414,6 +1417,7 @@ function customBalancePlayer(player) {
 }
 
 room.onPlayerJoin = function (player) {
+    DiscordLogs(`**${player.name} ingreso a la sala!**`);
     var list = JSON.parse(localStorage.getItem("ban_list"));
     if (list) {
         banList = list;
@@ -1470,15 +1474,16 @@ room.onPlayerJoin = function (player) {
         "```" + "[📝] Informacion del jugador ⏰" + "\n" +
 
         "El jugador **" + player.name + "** entro a la sala: **" + roomName + "**\n" +
-        "conn: " + player.conn + " 🌎" +
-        "\n" + "auth: " + player.auth + " 💻" + "\n" +
-        "Fecha: " + `${getDateInfo()}` + "```", webhook);
+        "ID: " + player.id + " 🪪" + "\n" +
+        "IP: " + player.conn + " 🌎" + "\n" +
+        "AUTH: " + player.auth + " 💻" + "\n" +
+        "FECHA: " + `${getDateInfo()}` + "```", webhook);
     var webhook = "https://discord.com/api/webhooks/1197081529726271579/ABI1IRedsZ529xmvUokoMqhi8fWghJP7LQdf2tKUS107Z0c__JnCHuZ7jrKsqShkRRLx";
-    
+
     room.sendAnnouncement(
         `♿ ¡Bienvenido ${player.name}, al Sindicato! ♿\n🔸Leé las reglas y juga sin trollear!\n🔹Ingresa a nuestro discord para enterarte nuevas noticias!`,
         player.id,
-        0x00fff2,
+        0x6BFFB5,
         'bold',
     );
 }
@@ -1590,32 +1595,32 @@ function afkCommand(player, message) {
     if (AFKSet.has(player.id)) {
         if (AFKMinSet.has(player.id)) {
             room.sendAnnouncement(
-                `Espera un minimo de ${minAFKDuration} segundos para volver al partido!`,
+                `Espera un minimo de ${minAFKDuration} segundos para usar nuevamente el comando!`,
                 player.id,
                 Colors.Vermelho,
                 'bold',
                 null
             );
         } else {
-            AFKSet.delete(player, message)
+            AFKSet.delete(player.id);
             room.sendAnnouncement(
-                `🌅 ${player.name} ya no está AFK!`,
+                `🌅 ${player.name} no esta mass AFK!`,
                 null,
                 Colors.Laranja,
                 'bold',
                 null
             );
-            //console.logg("Sacando de afk " + teamS);
-            setAFK(player, false);
+            //console.log("Sacando de afk " + teamS);
+            setAFK(player, !isAFK(player));
             updateTeams();
             balanceTeams();
-            //console.logg("Sacando de afk updated " + teamS);
+            //console.log("Sacando de afk updated " + teamS);
             /* handlePlayersJoin(); */
         }
     } else {
         if (AFKCooldownSet.has(player.id)) {
             room.sendAnnouncement(
-                `Podes irte 𝐀𝐅𝐊 una vez cada ${AFKCooldown} minutos!`,
+                `Podes irte AFK una vez cada ${AFKCooldown} minutos!`,
                 player.id,
                 Colors.Vermelho,
                 'bold',
@@ -1698,6 +1703,7 @@ function sendMessageToAdminsCommand(player, originalMessage) {
 }
 
 room.onPlayerLeave = function (player) {
+    DiscordLogs(`**${player.name} se fue de la sala!**`);
     var index = handlePlayerExit();
     function handlePlayerExit() {
         setActivity(player, 0);
@@ -1893,6 +1899,8 @@ let
     regex = new RegExp(palavras.join("|"), 'gi');
 
 room.onPlayerChat = function (player, message) {
+    console.log(player.name + ": " + message);
+	DiscordLogs(player.name + ": " + message);
     message = message.trim();
     if (message == '') {
         return false;
@@ -1912,7 +1920,7 @@ room.onPlayerChat = function (player, message) {
         } else if (player.team == Team.RED) {
             room.sendAnnouncement("「🔴」" + player.name + ": " + message, player.id, 0xe38d7d);
         } else {
-            room.sendAnnouncement("「👤」" + player.name + ": " + message, player.id, 0xFFFFFF);
+            room.sendAnnouncement("「👤」" + player.name + ": " + message, player.id, 0x8F8F8F);
         }
         return false;
     }
@@ -2268,68 +2276,11 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!mutes", "!mutelist"].includes(message[0].toLowerCase())) {
-        var cstm = "[PV] list of muted: "; //cuando este muteado q se hable a si mismo
-        for (var i = 0; i < extendedP.length; i++) {
-            if (room.getPlayer(extendedP[i][eP.ID]) != null && getMute(room.getPlayer(extendedP[i][eP.ID]))) {
-                if (140 - cstm.length < (room.getPlayer(extendedP[i][eP.ID]).name + "[" + (extendedP[i][eP.ID]) + "], ").length) {
-                    room.sendChat(cstm, player.id);
-                    cstm = "... ";
-                }
-                cstm += room.getPlayer(extendedP[i][eP.ID]).name + "[" + (extendedP[i][eP.ID]) + "], ";
-            }
-        }
-        if (cstm == "[PV] list of muted: ") {
-            room.sendChat("[PV] There is no one on the Muted list!", player.id);
-            return false;
-        }
-        cstm = cstm.substring(0, cstm.length - 2);
-        cstm += ".";
-        room.sendChat(cstm, player.id);
-    }
-    else if (["!mute"].includes(message[0].toLowerCase())) {
-        if (player.admin) {
-            updateTeams();
-            var timeOut;
-            if (!Number.isNaN(Number.parseInt(message[1])) && message.length > 1) {
-                if (Number.parseInt(message[1]) > 0) {
-                    timeOut = Number.parseInt(message[1]) * 60 * 1000;
-                }
-                else {
-                    timeOut = 3 * 60 * 1000;
-                }
-                if (message[2].length > 1 && message[2][0] == "#") {
-                    message[2] = message[2].substring(1, message[2].length);
-                    if (!Number.isNaN(Number.parseInt(message[2])) && room.getPlayer(Number.parseInt(message[2])) != null) {
-                        if (room.getPlayer(Number.parseInt(message[2])).admi | getMute(room.getPlayer(Number.parseInt(message[2])))) {
-                            return false;
-                        }
-                        setTimeout(function (player) { setMute(player, false); }, timeOut, room.getPlayer(Number.parseInt(message[2])));
-                        setMute(room.getPlayer(Number.parseInt(message[2])), true);
-                        room.sendChat(room.getPlayer(Number.parseInt(message[2])).name + " fue muteado por " + (timeOut / 60000) + " minutos!");
-                    }
-                }
-            }
-            else if (Number.isNaN(Number.parseInt(message[1]))) {
-                if (message[1].length > 1 && message[1][0] == "#") {
-                    message[1] = message[1].substring(1, message[1].length);
-                    if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
-                        if (room.getPlayer(Number.parseInt(message[1])).admin || getMute(room.getPlayer(Number.parseInt(message[1])))) {
-                            return false;
-                        }
-                        setTimeout(function (player) { setMute(player, false); }, 3 * 60 * 1000, room.getPlayer(Number.parseInt(message[1])));
-                        setMute(room.getPlayer(Number.parseInt(message[1])), true);
-                        room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " Fue muteado por 3 minutos!");
-                    }
-                }
-            }
-        }
-    }
     else if (["!slowmode"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             if (message.length == 1) {
-                slowMode = 3;
-                room.sendAnnouncement("3 segundos de modo lento en el chat!");
+                slowMode = 2;
+                room.sendAnnouncement("2 segundos de modo lento en el chat!");
             }
             else if (message.length == 3) {
                 if (!Number.isNaN(Number.parseInt(message[1]))) {
@@ -2340,14 +2291,14 @@ room.onPlayerChat = function (player, message) {
                     }
                 }
                 slowMode = 2;
-                room.sendChat("3 segundos de modo lento!");
+                room.sendChat("2 segundos de modo lento!");
             }
         }
     }
     else if (["!endslow"].includes(message[0].toLowerCase())) {
         if (player.admin) {
-            slowMode != 0 ? room.sendAnnouncement("El modo lento se ha deshabilitado.") : null;
-            slowMode = 0;
+            slowMode != 2 ? room.sendAnnouncement("El modo lento se ha deshabilitado.") : null;
+            slowMode = 2;
         }
     }
     else if (["!banlist", "!bans"].includes(message[0].toLowerCase())) {
@@ -2367,11 +2318,11 @@ room.onPlayerChat = function (player, message) {
         cstm += ".";
         room.sendChat(cstm, player.id);
     }
-    else if (["!clearbans", "!cb"].includes(message[0].toLowerCase())) {
+    else if (["!clearbans"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             if (message.length == 1) {
                 room.clearBans();
-                room.sendChat("❌ SE REINICIARON LAS SANCIONES!");
+                room.sendAnnouncement("SANCIONES LIMPIADAS POR EL STAFF: " + player.name, null, Colors.Amrelo);
                 banList = [];
             }
             if (message.length == 2) {
@@ -2478,7 +2429,7 @@ room.onPlayerChat = function (player, message) {
             return false;
         }
         if (role == "vip") {
-            room.sendAnnouncement(" [💎 𝐕𝐈𝐏] " + player.name + ": " + msg + "", null, 0xd35050);
+            room.sendAnnouncement(" [💎 𝐕𝐈𝐏] " + player.name + ": " + msg + "", null, 0x3DA7FF);
             return false;
         }
         if (role == "svip") {
@@ -2492,7 +2443,7 @@ room.onPlayerChat = function (player, message) {
     } else if (player.team == Team.RED) {
         room.sendAnnouncement(" [🔴] " + player.name + ": " + originalMessage, null, 0xe38d7d);
     } else {
-        room.sendAnnouncement(" [SPEC] " + player.name + ": " + originalMessage, null, 0xFFFFFF);
+        room.sendAnnouncement(" [SPECT] " + player.name + ": " + originalMessage, null, 0x8F8F8F);
     }
 
     if (message[0][0] == "!") {
@@ -3101,7 +3052,7 @@ room.onPositionsReset = function () {
     const scores = room.getScores();
     game.scores = scores;
     if (game.scores.blue == game.scores.red) {
-        room.sendAnnouncement("「🎙️」Max el Relator: ¿Qué equipo marcara la diferencia? ¡Esto se pone lindo!", null, 0x00d9ff, "bold", 1);
+        room.sendAnnouncement("Max el Relator🎙: ¿Qué equipo marcara la diferencia? ¡Esto se pone lindo!", null, 0x00d9ff, "bold", 1);
     }
     if (Math.abs(scores.red - scores.blue) > 1) {//primer gol
         //o un timeout para ver cuando resetear
