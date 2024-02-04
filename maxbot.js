@@ -1,8 +1,7 @@
 const Team = { SPECTATORS: 0, RED: 1, BLUE: 2 };
 var argTeams = [
-    //{ ID: Team.RED, shortName: "adm", longName: "Admins", country: "Argentina", uniform: [{ angle: 135, mainColor: [0x4187F2, 0X416EE8, 0x314EDE], avatarColor: 0xFFFFFF }] },
-    /* KSKS ADMINS VS USUARIOS EVENTO */
-    //{ ID: Team.BLUE, shortName: "usrs", longName: "Usuarios", country: "Argentina", uniform: [{ angle: 135, mainColor: [0xE6FCFF, 0XE8E8E8, 0xD4D4D4], avatarColor: 0XFFB300 }] },
+    /* KSK ACTUAL CAMPEONES TORNEO DEL SINDICATO V1 */
+    { ID: Team.BLUE, shortName: "axol", longName: "Axolotl Arboleda FC", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x333333, 0X333333, 0x333333], avatarColor: 0X000000 }] },
     /*ksks futbol argentino*/
     { ID: Team.BLUE, shortName: "boca", longName: "Boca Juniors", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x00366B, 0xF7FF00, 0x003352], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "rosario", longName: "Rosario Central", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xD4CD00, 0x000F57, 0xD4CD00], avatarColor: 0xFFFFFF }] },
@@ -35,8 +34,6 @@ var argTeams = [
     { ID: Team.RED, shortName: "rie", longName: "Deportivo Riestra", country: "Argentina", uniform: [{ angle: 45, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0x1C1C1C }] },
     { ID: Team.RED, shortName: "cha", longName: "Chaco Forever", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0xFF6524 }] },
     { ID: Team.BLUE, shortName: "alma", longName: "Almagro", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x0841FF, 0x000000, 0x0841FF], avatarColor: 0xFFFFFF }] },
-    { ID: Team.BLUE, shortName: "alm", longName: "Almagro Visitante", country: "Argentina", uniform: [{ angle: 75, mainColor: [0x000000, 0x17D1FF, 0xFCFCFC], avatarColor: 0x080808 }] },
-
     /*ksks liga española*/
     { ID: Team.RED, shortName: "atm", longName: "Atlético de Madrid", country: "España", uniform: [{ angle: 180, mainColor: [0xFF0F1F, 0XFFFFFF, 0xFF0F1F], avatarColor: 0X150B75 }] },
     { ID: Team.BLUE, shortName: "cdv", longName: "Celta de Vigo", country: "España", uniform: [{ angle: 90, mainColor: [0x75AFFA, 0X54A8CC, 0x75AFFA], avatarColor: 0XF5F6FF }] },
@@ -88,7 +85,6 @@ var argTeams = [
     { ID: Team.RED, shortName: "mil", longName: "Milan", country: "Italia", uniform: [{ angle: 0, mainColor: [0xEB0000, 0x000000, 0xEB0000], avatarColor: 0x989C27 }] },
     { ID: Team.RED, shortName: "peñ", longName: "Peñarol", country: "Uruguay", uniform: [{ angle: 0, mainColor: [0xF3FF45, 0x000000, 0XFFFF38], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "nac", longName: "Nacional", country: "Uruguay", uniform: [{ angle: 60, mainColor: [0x190AF0, 0xFFFFFF, 0X190AF0], avatarColor: 0xFF0000 }] },
-    { ID: Team.BLUE, shortName: "juvv", longName: "Juventus Alternativa", country: "Italia", uniform: [{ angle: 50, mainColor: [0x1C1C1C, 0x292929, 0X1C1C1C], avatarColor: 0xFFFFFF }] },
 ];
 
 
@@ -267,6 +263,63 @@ function DiscordLogs(message) {
 
 	request.send(JSON.stringify(params))
 }
+// END WEBHOOK LOG
+
+// Ips baneadas
+var IpBan = [ //IP'S
+	"3138312E32382E3138372E313430", //nismanmode
+	"3230312E3139302E3233312E3835", //ibai llanos
+	"3139302E3234372E3130352E3632", //martu
+	"3139302E3138332E38302E3434", //industrial
+    "3139302E3131342E3130342E3435", //santi sapi
+    "3139302E3132332E38352E313230", //mascarpone
+    "3137372E3232322E3130382E313039", //adrian2005
+    "3136382E3232372E39382E323431", //liberomcd
+    "3137392E36322E3139352E3734", //quiero sexo argentino
+    "3138312E34372E32312E313331", //nickinvisible
+    "3136372E36322E3132312E3234", //franchescoli
+    "3139302E3131332E3138302E3236", //totocaputo
+    "3138392E32382E36382E313236", //jurgen klopp(spam user)
+    "3139302E3234342E31372E323235", //tinomeado
+    "3136372E36322E3132312E3234", //tinomeado2 (lamine yamal)
+    "3139302E3133382E3131362E323034" //spamserver (eric)
+]
+
+var IpBan2 = [ //AUTH
+	"Af3bAHhfsS1dqZhSGITb1chAXRiAIxeImN9sxLRXl3I", //nismanmode
+	"e46mKcMyjARpi-p4PJaGx21Zwie1YC-BvleidQI8vjo", //ibai llanos
+	"cAyFCREmIvrqpH9irF3DxwDR6cfjGt31MySYTL0Afso", //martu
+	"dQYSXm7yNB50n05XjNM4jA7u7IKZxpOuXDgFeyQn58A", //industrial
+    "nWZlAt6a4WgIsv6w9AZ4XfoI7a8-JdGqZZueCyckE0Q", //santi sapi
+    "uRw2WQ_LzwsStcMT2EsF1NHW8rysY3en7qyr6K0I1AY", //mascarpone
+    "I4NxDdw6PBo12IezULOnBoDrsBK8zDkHf2pVHMbCamM", //adrian2005
+    "LaZazluJcSC4OkoARhI7tGZSRiXHK38doqiPu-4sgJE", //liberomcd
+    "yqOj91XThjKvGCMhWKYa0vUrpJuRG60GbePpDrQYhj8", //quiero sexo argentino
+    "Gf_XFCUjmnDManCpZefHg8Jtz0G1Ro4vl5-DjicrezQ", //nickinvisible
+    "sl-EYfcjqPIXjw-2kfLW8P-jMcrGO2ymyxMmTTCgQOo", //franchescoli
+    "0CE2uWVz1dldMnvppGjKCeiK5cFaY03o8SUkNJaID-0", //totocputo
+    "JUHcv_nj-1Mp5ui3s0CF9VKvQ4yNrT1bl7QoLH3FNFY", //jurgen klopp (spamuser)
+    "LjDz8FPQ_jdwEwhMKS3DKdm25waLgp4-RyK1q-7H3fg", //tinomeado
+    "rK833GVKiJH6NMQD69BxJJf0vpd7fxTHi3Jv-00PpOg", //tinomeado2 (lamineyamal)
+    "CtYpuOK1N_y0mWOY1pOzvOBW09XAH9EaAemkJFSY8bY" //spamserver (eric)
+]
+
+IpBan.forEach(p => {
+    if (player.conn === p) {
+        room.kickPlayer(player.id, "Usuario blacklist. Abre ticket en nuestro discord!", true)
+        console.log(`${player.name} ha sido baneado de IP correctamente.`)
+        return;
+    }
+})
+
+IpBan2.forEach(p => {
+    if (player.auth === p) {
+        room.kickPlayer(player.id, "Usuario blacklist. Abre ticket nuestro discord!", true)
+        console.log(`${player.name} ha sido baneado por AUTH correctamente.`)
+        return;
+    }
+})
+
 /* setTimeout(() => {
     roomUpNotification();
 }, 20000); */
@@ -301,7 +354,7 @@ var activePlay = false; // Created to get better track of the possession
 var goldenGoal = false;
 var SMSet = new Set(); // Set created to get slow mode which is useful in chooseMode
 // "\"[\\\"3138362E3139302E3132382E313630\\\",\\\"3135322E3137322E3134342E323132\\\", \\\"3230302E32352E35302E313334\\\", \"3139302E3133382E3133352E36\", \"3139302E3132332E38352E313230 \"]"
-var banList = ["3138312E33312E3138302E313034", "3139302E3132332E38352E313230", "3139302E3133382E3133352E36", "3139302E3132332E38352E313230", "3135322E3137322E3134342E323132", "3139302E332E35302E3939", "3138312E36372E34332E313830", "3138312E36372E34332E313830"];
+var banList = ["3139302E3133382E3131362E323034", "3136372E36322E3132312E3234", "3139302E3234342E31372E323235", "3138392E32382E36382E313236", "3139302E3131332E3138302E3236", "3136372E36322E3132312E3234", "3138312E34372E32312E313331", "3137392E36322E3139352E3734", "3136382E3232372E39382E323431", "3137372E3232322E3130382E313039", "3139302E3132332E38352E313230", "3139302E3131342E3130342E3435", "3139302E3138332E38302E3434", "3139302E3234372E3130352E3632", "3230312E3139302E3233312E3835", "3138312E32382E3138372E313430", "3138312E33312E3138302E313034", "3139302E3132332E38352E313230", "3139302E3133382E3133352E36", "3139302E3132332E38352E313230", "3135322E3137322E3134342E323132", "3139302E332E35302E3939", "3138312E36372E34332E313830", "3138312E36372E34332E313830"];
 
 // map to know what is the current map
 var currentMap = null;
@@ -1481,9 +1534,9 @@ room.onPlayerJoin = function (player) {
     var webhook = "https://discord.com/api/webhooks/1197081529726271579/ABI1IRedsZ529xmvUokoMqhi8fWghJP7LQdf2tKUS107Z0c__JnCHuZ7jrKsqShkRRLx";
 
     room.sendAnnouncement(
-        `♿ ¡Bienvenido ${player.name}, al Sindicato! ♿\n🔸Leé las reglas y juga sin trollear!\n🔹Ingresa a nuestro discord para enterarte nuevas noticias!`,
+        `♿ ¡BIENVENIDO AL SINDICATO! ${player.name} ♿\n⭐ Utiliza !ayuda para ver los comandos!\n🔹Ingresa a nuestro discord para enterarte nuevas noticias!`,
         player.id,
-        0x6BFFB5,
+        0xFFDB3D,
         'bold',
     );
 }
@@ -1746,7 +1799,7 @@ function getPlayerById(id) {
 
 room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
     if (kickedPlayer.admin && byPlayer != null && byPlayer.admin) {
-        return null;
+        return null;ç
     }
 
     if (ban) {
@@ -1894,7 +1947,7 @@ function gkCommand(player) {
 }
 
 let
-    palavras = ["mogolico", "retrasado", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "http", "cp", "cancer", "ips", "10.0.0.0", "10.255.255.255", "172.16.0.0", "172.31.255.255", "192.168.0.11", "192.168.1.177", "192.168.0.177", "255.255.255.0", "192.168.0.1"], //swearing filter
+    palavras = ["ఌ佹砕Ĉ⼈渻䬭॑⬺爂᰾ᜪ䉧ᬯ㍸᜖ᘬ慩㙲Ԑ瀩ञࠣ笋℉⨄㐷紪権ਛൽ㔙怅㬆癕⨴琐ḉ≼崪ᙻḻ⨂㈿爇䕦ᴵ灾㸏眮ቡᄸ܍礂海學㰌⬦ ѫ⼕ย⌑ḷ㠕ፃ㤕㌋␢眢砬ⵯ煾Ⱘ縂㉰匊㤀ह稫ᝈⴾㄫ㤒䉊؈ି㔞帱ॹࠚⰯἯ浸ἱᔞ፭ਮ娮ف㤮〕㱳⬗ᅷд甇ᜯ⩿ᤶⱁ戃 椏缁⼐獾⌱മ㈐ᵲ桨ԷᴑĿᑆ㨤ఴ⑸甈⨘Ѳ∯㘴䁔ح฾،ฌ瘪", "ఌ佹砕Ĉ⼈渻䬭॑⬺爂᰾ᜪ䉧ᬯ㍸᜖ᘬ慩㙲Ԑ瀩ञࠣ笋℉", "mogolico", "retrasado", "qqqqqqqqqqqqqqqqqqq", "enfermo", "enfermito", "down", "matate", "morite", "suicidate", "mueras", "http", "cp", "cancer", "ips", "10.0.0.0", "10.255.255.255", "172.16.0.0", "172.31.255.255", "192.168.0.11", "192.168.1.177", "192.168.0.177", "255.255.255.0", "192.168.0.1"], //swearing filter
 
     regex = new RegExp(palavras.join("|"), 'gi');
 
