@@ -1,25 +1,25 @@
 const Team = { SPECTATORS: 0, RED: 1, BLUE: 2 };
 var argTeams = [
     /*CAMISETAS LIGA ARGENTINA*/
-    { ID: Team.BLUE, shortName: "boca", longName: "Boca Juniors", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x00366B, 0xF7FF00, 0x003352], avatarColor: 0xFFFFFF }] },
-    { ID: Team.BLUE, shortName: "rosario", longName: "Rosario Central", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xD4CD00, 0x000F57, 0xD4CD00], avatarColor: 0xFFFFFF }] },
-    { ID: Team.RED, shortName: "rvp", longName: "River Plate", country: "Argentina", uniform: [{ angle: 40, mainColor: [0xF2F2F2, 0xDE0000, 0xF2F2F2], avatarColor: 0x000000 }] },
-    { ID: Team.RED, shortName: "ind", longName: "Independiente", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "boca", longName: "Boca Juniors", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x0625DF, 0xF7FF00, 0x0625DF], avatarColor: 0xF2F2F2 }] },
+    { ID: Team.BLUE, shortName: "rosario", longName: "Rosario Central", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x000040, 0xFFD700, 0x000040], avatarColor: 0xFAF5F5 }] },
+    { ID: Team.RED, shortName: "rvp", longName: "River Plate", country: "Argentina", uniform: [{ angle: 59, mainColor: [0xF2F2F2, 0xDE0000, 0xF2F2F2], avatarColor: 0x000000 }] },
+    { ID: Team.RED, shortName: "ind", longName: "Independiente", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000], avatarColor: 0xFFF2F2 }] },
     { ID: Team.RED, shortName: "elp", longName: "Estudiantes de La Plata", country: "Argentina", uniform: [{ angle: 180, mainColor: [0xD40B0B, 0xFFFFFF, 0xD40B0B], avatarColor: 0x878787 }] },
-    { ID: Team.BLUE, shortName: "casla", longName: "San Lorenzo de Almagro", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xC20000, 0x151575, 0xA10005], avatarColor: 0x000000 }] },
-    { ID: Team.RED, shortName: "hur", longName: "Huracan", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0xFFFFFF, 0xF2F2F2], avatarColor: 0xFF0000 }] },
-    { ID: Team.RED, shortName: "tall", longName: "Talleres", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x030354, 0xFFFFFF, 0x030354], avatarColor: 0x000000 }] },
+    { ID: Team.RED, shortName: "casla", longName: "San Lorenzo de Almagro", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000, 0x000040, 0xFF0000], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "hur", longName: "Huracan", country: "Argentina", uniform: [{ angle: 60, mainColor: [0xFFFFFF], avatarColor: 0xFF0000 }] },
+    { ID: Team.BLUE, shortName: "tall", longName: "Talleres", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0X000040, 0xFFFFFF], avatarColor: 0xaeafff }] },
     { ID: Team.BLUE, shortName: "bel", longName: "Belgrano", country: "Argentina", uniform: [{ angle: 0, mainColor: [0X335ACA, 0x85A6FF, 0x85A6FF], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "new", longName: "Newell's old boys", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFF0000, 0x000000], avatarColor: 0xF0F0F0 }] },
-    { ID: Team.BLUE, shortName: "col", longName: "Colon", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x9C0000, 0x000000], avatarColor: 0xF0F0F0 }] },
+    { ID: Team.RED, shortName: "col", longName: "Colon", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x9C0000, 0x000000], avatarColor: 0xF0F0F0 }] },
     { ID: Team.RED, shortName: "un", longName: "Union", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0xFF0000, 0xFFFFFF], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "vel", longName: "Club Atletico Velez Sarsfield", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0x1228B8, 0xFFFFFF], avatarColor: 0x080606 }] },
     { ID: Team.BLUE, shortName: "god", longName: "Godoy Cruz", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x0000AB, 0xFFFFFF, 0x0000AB], avatarColor: 0x000000 }] },
-    { ID: Team.RED, shortName: "def", longName: "Defensa y Justicia", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xF7FF00, 0xF7FF00, 0xF7FF00], avatarColor: 0x19F700 }] },
+    { ID: Team.BLUE, shortName: "def", longName: "Defensa y Justicia", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xF7FF00, 0xF7FF00, 0xF7FF00], avatarColor: 0x19F700 }] },
     { ID: Team.RED, shortName: "ajr", longName: "Argentinos Jr", country: "Argentina", uniform: [{ angle: 180, mainColor: [0xBA271C, 0xF03224, 0xBA271C], avatarColor: 0x2121FF }] },
     { ID: Team.RED, shortName: "lan", longName: "Lanus", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x8A0707, 0x8A0707, 0x8A0707], avatarColor: 0xFFFFFF }] },
     { ID: Team.BLUE, shortName: "cc", longName: "Central Cordoba", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x000000, 0xFAF5F5, 0x000000], avatarColor: 0x8A0707 }] },
-    { ID: Team.BLUE, shortName: "rac", longName: "Racing", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x077FE8, 0xE8E8E8, 0x077FE8], avatarColor: 0x000000 }] },
+    { ID: Team.BLUE, shortName: "rac", longName: "Racing Club", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x01BCFF, 0xE8E8E8, 0x01BCFF], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "atl", longName: "Atletico Tucuman", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0x9CFFFC, 0xFFFFFF], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "barr", longName: "Barracas Central", country: "Argentina", uniform: [{ angle: 180, mainColor: [0xD40B0B, 0xFFFFFF], avatarColor: 0x000000 }] },
     { ID: Team.RED, shortName: "inst", longName: "Instituto", country: "Argentina", uniform: [{ angle: 0, mainColor: [0xCC1212, 0xFFFFFF, 0xCC1212], avatarColor: 0x000000 }] },
@@ -28,16 +28,13 @@ var argTeams = [
     { ID: Team.BLUE, shortName: "tig", longName: "Tigre", country: "Argentina", uniform: [{ angle: 90, mainColor: [0x0841FF, 0xFF0000, 0x0841FF], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "ban", longName: "Banfield", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x06300F, 0xFFFFFF, 0x06300F], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "glp", longName: "Gimnasia de la Plata", country: "Argentina", uniform: [{ angle: 90, mainColor: [0xFFFFFF, 0x00253B, 0xFFFFFF], avatarColor: 0xFFFFFF }] },
-    { ID: Team.BLUE, shortName: "ars", longName: "Arsenal", country: "Argentina", uniform: [{ angle: 40, mainColor: [0x006FFF, 0xFF0000, 0x006FFF], avatarColor: 0xFFFFFF }] },
-    { ID: Team.RED, shortName: "rie", longName: "Deportivo Riestra", country: "Argentina", uniform: [{ angle: 45, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0x1C1C1C }] },
-    { ID: Team.RED, shortName: "cha", longName: "Chaco Forever", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x000000, 0xFFFFFF, 0x000000], avatarColor: 0xFF6524 }] },
-    { ID: Team.BLUE, shortName: "alma", longName: "Almagro", country: "Argentina", uniform: [{ angle: 180, mainColor: [0x0841FF, 0x000000, 0x0841FF], avatarColor: 0xFFFFFF }] },
+    { ID: Team.RED, shortName: "rie", longName: "Deportivo Riestra", country: "Argentina", uniform: [{ angle: 0, mainColor: [0x000000], avatarColor: 0xFFFFFF }] },
     /*CAMISETAS LIGA ESPAÑOLA*/
     { ID: Team.RED, shortName: "atm", longName: "Atlético de Madrid", country: "España", uniform: [{ angle: 180, mainColor: [0xFF0F1F, 0XFFFFFF, 0xFF0F1F], avatarColor: 0X150B75 }] },
     { ID: Team.BLUE, shortName: "cdv", longName: "Celta de Vigo", country: "España", uniform: [{ angle: 90, mainColor: [0x75AFFA, 0X54A8CC, 0x75AFFA], avatarColor: 0XF5F6FF }] },
     { ID: Team.RED, shortName: "osa", longName: "Osasuna", country: "España", uniform: [{ angle: 180, mainColor: [0xB5142F, 0X150A7A, 0xB5142F], avatarColor: 0XF5F6FF }] },
     { ID: Team.BLUE, shortName: "bet", longName: "Betis", country: "España", uniform: [{ angle: 180, mainColor: [0x1C8009, 0XFFFFFF, 0x1C8009], avatarColor: 0X000000 }] },
-    { ID: Team.BLUE, shortName: "vill", longName: "Villareal", country: "España", uniform: [{ angle: 0, mainColor: [0xD6EB1C], avatarColor: 0X0D2F8C }] },
+    { ID: Team.RED, shortName: "vill", longName: "Villareal", country: "España", uniform: [{ angle: 0, mainColor: [0xD6EB1C], avatarColor: 0X0D2F8C }] },
     { ID: Team.BLUE, shortName: "rm", longName: "Real Madrid", country: "España", uniform: [{ angle: 0, mainColor: [0xFFFFFF], avatarColor: 0X121D3B }] },
     { ID: Team.BLUE, shortName: "get", longName: "Getafe", country: "España", uniform: [{ angle: 180, mainColor: [0x000BA6, 0X5DFC72, 0x000BA6], avatarColor: 0XFFFFFF }] },
     { ID: Team.RED, shortName: "ath", longName: "Athletic Club", country: "España", uniform: [{ angle: 180, mainColor: [0xFF0022, 0XFCFCFC, 0xFF0022], avatarColor: 0X000000 }] },
@@ -49,24 +46,33 @@ var argTeams = [
     { ID: Team.BLUE, shortName: "che", longName: "Chelsea", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0x3423CC], avatarColor: 0xF2F2F2 }] },
     { ID: Team.BLUE, shortName: "tot", longName: "Tottenham", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0XFFFFFF], avatarColor: 0x0D1069 }] },
     { ID: Team.RED, shortName: "liv", longName: "Liverpool", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xD92531], avatarColor: 0xE8E8E8 }] },
-    { ID: Team.BLUE, shortName: "ars", longName: "Arsenal", country: "Inglaterra", uniform: [{ angle: 180, mainColor: [0xD92531, 0XEBEBEB, 0xD92531], avatarColor: 0xD4D4D4 }] },
+    { ID: Team.RED, shortName: "ars", longName: "Arsenal", country: "Inglaterra", uniform: [{ angle: 180, mainColor: [0xD92531, 0XEBEBEB, 0xD92531], avatarColor: 0xD4D4D4 }] },
     { ID: Team.BLUE, shortName: "brg", longName: "Brighton", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0x1D3EE0, 0XEBEBEB, 0x1D3EE0], avatarColor: 0x321FDB }] },
     { ID: Team.RED, shortName: "ast", longName: "Aston Villa", country: "Inglaterra", uniform: [{ angle: 0, mainColor: [0xA13C4C, 0X2BB5F0, 0xA13C4C], avatarColor: 0xFFFFFF }] },
     /*CAMISETAS SELECCIONES*/
     { ID: Team.RED, shortName: "ale", longName: "Alemania", country: "Alemania", uniform: [{ angle: 0, mainColor: [0xFFFFFF, 0x000000, 0xFFFFFF], avatarColor: 0XD19D0F }] },
-    { ID: Team.RED, shortName: "bra", longName: "Brasil", country: "Brasil", uniform: [{ angle: 180, mainColor: [0xCCCC33, 0X006600, 0xCCCC33], avatarColor: 0XFFFFFF }] },
-    { ID: Team.RED, shortName: "bra2", longName: "Brasil Suplente", country: "Brasil", uniform: [{ angle: 60, mainColor: [0x2930FF, 0X1F24BF, 0x171B91], avatarColor: 0X30FF29 }] },
-    { ID: Team.BLUE, shortName: "arg", longName: "Argentina", country: "Argentina", uniform: [{ angle: 90, mainColor: [0X75AADB, 0XFFFFFF, 0x75AADB], avatarColor: 0X000000 }] },
+    { ID: Team.RED, shortName: "bra", longName: "Brasil", country: "Brasil", uniform: [{ angle: 0, mainColor: [0xFFF352], avatarColor: 0X349E34 }] },
+    { ID: Team.BLUE, shortName: "arg", longName: "Argentina", country: "Argentina", uniform: [{ angle: 0, mainColor: [0X8BC7ED, 0XFFFFFF, 0x8BC7ED], avatarColor: 0XC7B15F }] },
     { ID: Team.RED, shortName: "esp", longName: "España", country: "España", uniform: [{ angle: 90, mainColor: [0XFF0000, 0XEEC900, 0xFF0000], avatarColor: 0X000000 }] },
     { ID: Team.RED, shortName: "por", longName: "Portugal", country: "Portugal", uniform: [{ angle: 300, mainColor: [0x006400, 0X8B0000, 0x8B0000], avatarColor: 0xFFD700 }] },
     { ID: Team.RED, shortName: "hol", longName: "Paises Bajos", country: "Holanda", uniform: [{ angle: 0, mainColor: [0xED6313], avatarColor: 0x000000 }] },
     { ID: Team.BLUE, shortName: "fr", longName: "Francia", country: "Francia", uniform: [{ angle: 45, mainColor: [0x191069, 0X160E5C, 0x130C52], avatarColor: 0x64691C }] },
     { ID: Team.BLUE, shortName: "ing", longName: "Inglaterra", country: "Inglaterra", uniform: [{ angle: 45, mainColor: [0xFFFFFF, 0xFFFFFF, 0x34A1E0], avatarColor: 0x1F1F54 }] },
     { ID: Team.BLUE, shortName: "ita", longName: "Italia", country: "Italia", uniform: [{ angle: 223, mainColor: [0x152ECF, 0x1221A8, 0x0D0DD6], avatarColor: 0xEDEBEB }] },
-    { ID: Team.BLUE, shortName: "uru", longName: "Uruguay", country: "Uruguay", uniform: [{ angle: 45, mainColor: [0x408CE3, 0x3A7ECC, 0x3779C4], avatarColor: 0x000000 }] },
-    { ID: Team.BLUE, shortName: "mex", longName: "México", country: "Mexico", uniform: [{ angle: 0, mainColor: [0x134F07, 0xFFFFFF, 0xD90000], avatarColor: 0x573131 }] },
-    { ID: Team.RED, shortName: "chi", longName: "Chile", country: "Chile", uniform: [{ angle: 0, mainColor: [0XF50000], avatarColor: 0XFFFFFF }] },
-    { ID: Team.RED, shortName: "per", longName: "Perú", country: "peru", uniform: [{ angle: 35, mainColor: [0XFFFFFF, 0XFF0000, 0XFFFFFF], avatarColor: 0X000000 }] },
+    { ID: Team.BLUE, shortName: "uru", longName: "Uruguay", country: "Uruguay", uniform: [{ angle: 0, mainColor: [0X73B4FF], avatarColor: 0x181D2B }] },
+    { ID: Team.RED, shortName: "mex", longName: "México", country: "Mexico", uniform: [{ angle: 45, mainColor: [0x2E0D0D, 0x631D1D, 0x2E0D0D], avatarColor: 0xEEFFBF }] },
+    { ID: Team.RED, shortName: "chi", longName: "Chile", country: "Chile", uniform: [{ angle: 45, mainColor: [0XFC0D22, 0xEC0317, 0XDE0316], avatarColor: 0XFFFFFF }] },
+    { ID: Team.RED, shortName: "per", longName: "Perú", country: "peru", uniform: [{ angle: 0, mainColor: [0XFFFFFF, 0XFC0D22, 0XFFFFFF], avatarColor: 0XDDCA3F }] },
+    { ID: Team.RED, shortName: "can", longName: "Canadá", country: "Canada", uniform: [{ angle: 0, mainColor: [0XC00000, 0XFC0D22, 0XC00000], avatarColor: 0xFFFFFF }] },
+    { ID: Team.BLUE, shortName: "ecu", longName: "Ecuador", country: "Ecuador", uniform: [{ angle: 135, mainColor: [0XFFE438, 0X18256B, 0XFFE438], avatarColor: 0xFFFFFF }] },
+    { ID: Team.RED, shortName: "ven", longName: "Venezuela", country: "Venezuela", uniform: [{ angle: 45, mainColor: [0X792F2F, 0X953939, 0X792F2F], avatarColor: 0xE2B778 }] },
+    { ID: Team.BLUE, shortName: "jam", longName: "Jamaica", country: "Jamaica", uniform: [{ angle: 45, mainColor: [0X53994E, 0XFFDE3B, 0XFFDE3B], avatarColor: 0x292929 }] },
+    { ID: Team.BLUE, shortName: "eeuu", longName: "Estados Unidos", country: "Estados Unidos", uniform: [{ angle: 0, mainColor: [0XFFBFD2, 0XFFFFFF, 0XFFFFFF], avatarColor: 0x1E3882 }] },
+    { ID: Team.BLUE, shortName: "pan", longName: "Panamá", country: "Panama", uniform: [{ angle: 45, mainColor: [0XDE355D, 0XE84A6F, 0XDE355D], avatarColor: 0xFFFFFF }] },
+    { ID: Team.RED, shortName: "bol", longName: "Bolivia", country: "Bolivia", uniform: [{ angle: 0, mainColor: [0X698A77, 0XB5D7C2, 0XB5D7C2], avatarColor: 0x314037 }] },
+    { ID: Team.RED, shortName: "col", longName: "Colombia", country: "Colombia", uniform: [{ angle: 0, mainColor: [0XFFF130], avatarColor: 0xFF6536 }] },
+    { ID: Team.RED, shortName: "par", longName: "Paraguay", country: "Paraguay", uniform: [{ angle: 0, mainColor: [0XFFFFFF, 0XE02929, 0XFFFFFF], avatarColor: 0x2D54C2 }] },
+    { ID: Team.RED, shortName: "cos", longName: "Costa Rica", country: "Costa Rica", uniform: [{ angle: 45, mainColor: [0XC7373A, 0XC7373A, 0X324696], avatarColor: 0xFFFFFF }] },
     /*CAMISETAS CHAMPIONS/GENERALES*/
     { ID: Team.BLUE, shortName: "psg", longName: "París Saint-Germain", country: "Francia", uniform: [{ angle: 180, mainColor: [0x000080, 0XB22222, 0x000080], avatarColor: 0xFFFFFF }] },
     { ID: Team.RED, shortName: "int", longName: "Inter de Miami", country: "Estados Unidos", uniform: [{ angle: 60, mainColor: [0x000000, 0X121212, 0x000000], avatarColor: 0xFF00F7 }] },
@@ -87,6 +93,15 @@ var argTeams = [
 
 
 let currentTeams = [];
+
+    //centerText function probamos
+    function centerText(string) {
+        var space = parseInt((80 - string.length) * 0.8, 10);
+        if (space <= 0) {
+            return '';
+        }
+        return ' '.repeat(space) + string + ' '.repeat(space);
+    };
 
 /* vote system */
 var votingPlayers = new Set();
@@ -114,7 +129,7 @@ var goalDictionary = {};
 /* ROOM */
 const roomNumber = 0;
 //const roomName = "Prueba";
-const roomName = "Yudo´s room";
+const roomName = "⭐♿ SINDICATO DEL HAX | JUEGAN TODOS ♿⭐";
 const maxPlayers = 25;
 const roomPublic = true;
 const geo = [{ "lat": -31.4135, "lon": -64.18105, "code": "ar" }];
@@ -196,7 +211,8 @@ console.log("adminPassword : " + adminPassword);
 
 const UNIFORME_OFICIAL = 0;
 const gravityMode = '"bCoef": 0.8, "damping": 0.994, "gravity": [0,0.04],';
-const normalMode = '"bCoef": 0.4,';
+const normalMode = '"kickStrength": 4.9, "bCoef": 0.4,';
+const powerMode = '"kickStrength": 6.4, "kickingAcceleration": 0.083, "bCoef": 0,';
 
 const powerKickStr = '6.4';
 const normalKickStr = '4.9';
@@ -214,11 +230,11 @@ const physicsMode = {
     },
     power: {
         name: "power",
-        ballMode: normalMode,
+        ballMode: powerMode,
         kickStr: powerKickStr
     }
 };
-var reloadStadium = false;
+var reloadStadium = true;
 var currentPhysicsMode = physicsMode.normal;
 
 const playerRadius = 15;
@@ -609,11 +625,11 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     if (winner == Team.RED) {
         streak++;
         //| Winning streak: " + streak + " 🏆"
-        room.sendAnnouncement(centerText("🙋‍♂️⏰ EL EQUIPO " + currentTeams[0].longName + " GANA EL PARTIDO! [" + scores.red + " - " + scores.blue + "]", null, 0x6ECAFF, 'bold'));
+        room.sendAnnouncement("🙋‍♂️⏰ EL EQUIPO " + currentTeams[0].longName + " GANA EL PARTIDO! [" + scores.red + " - " + scores.blue + "]", null, 0x6ECAFF, 'normal');
     }
     else if (winner == Team.BLUE) {
         streak = 1;
-        room.sendAnnouncement(centerText("🙋‍♂️⏰ EL EQUIPO " + currentTeams[1].longName + " GANA EL PARTIDO! [" + scores.blue + " - " + scores.red + "]", null, 0x6ECAFF, 'bold'));
+        room.sendAnnouncement("🙋‍♂️⏰ EL EQUIPO " + currentTeams[1].longName + " GANA EL PARTIDO! [" + scores.blue + " - " + scores.red + "]", null, 0x6ECAFF, 'normal');
     }
     else {
         streak = 0;
@@ -622,9 +638,9 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     //room.sendAnnouncement("📊 Ball possession: 🔴 " + (Rposs * 100).toPrecision(3).toString() + "% | " + (Bposs * 100).toPrecision(3).toString() + "% 🔵", null, 0xFDC43A);
     if (GKList.length > 1) {
         if (scores.red == 0 && GKList[1]) {
-            room.sendAnnouncement(centerText("🧤 Y VALLA INVICTA PARA " + GKList[1].name + "! 🧤", null, 0x7DFA89, 'bold'));
+            room.sendAnnouncement("🧤 Y VALLA INVICTA PARA " + GKList[1].name + "! 🧤", null, 0x7DFA89, 'normal');
         } else if (scores.blue == 0 && GKList[0]) {
-            room.sendAnnouncement(centerText("🧤 Y VALLA INVICTA PARA " + GKList[0].name + "! 🧤", null, 0x7DFA89, 'bold'));
+            room.sendAnnouncement("🧤 Y VALLA INVICTA PARA " + GKList[0].name + "! 🧤", null, 0x7DFA89, 'normal');
         }
     }
 
@@ -636,12 +652,12 @@ function endGame(winner) { // handles the end of a game : no stopGame call insid
     var topGoalScorer = room.getPlayerList().filter((player) => player.id == topGoalScorerId)[0];
     //⚽
     if (topGoalScorer != undefined && topGoalScorer.name != undefined && scores.red + scores.blue > 0) {
-        room.sendAnnouncement(centerText("⚽🥅 " + topGoalScorer.name + " FUE EL GOLEADOR DEL PARTIDO CON " + topGoals + " GOLES! ⚽", null, 0xFFFF17, 'bold'));
+        room.sendAnnouncement("⚽🥅 " + topGoalScorer.name + " FUE EL GOLEADOR DEL PARTIDO CON " + topGoals + " GOLES! ⚽", null, 0xFFFF17, 'normal');
     }
 
     updateStats();
     sendDiscordWebhook(scores);
-    room.sendAnnouncement(centerText("[🎥] ¡LA REC SE ENVIÓ AL DISCORD! " + `SINDICATOREPLAY-${getDate()}-${roomNumber + 1}.hbr2`, null, Colors.Branco, 'bold'));
+    room.sendAnnouncement("[🎥] ¡LA REC SE ENVIÓ AL DISCORD! " + `SINDICATOREPLAY-${getDate()}-${roomNumber + 1}.hbr2`, null, Colors.Branco, 'normal');
 
 }
 
@@ -1307,10 +1323,10 @@ function randomUniforms() {
             teamData.uniform[UNIFORME_OFICIAL].mainColor);
 
     });
-    room.sendAnnouncement(centerText("♿🔥 ¡COMIENZA LA FINAL PARALÍMPICA Y LOS EQUIPOS SALEN A LA CANCHA! 🔥♿ ", null, 0x6ECAFF, 'bold'));
-    room.sendAnnouncement(centerText(currentTeams[0].longName, null, Colors.Vermelho, 'bold'));
+    room.sendAnnouncement("♿🔥 ¡COMIENZA LA FINAL PARALÍMPICA Y LOS EQUIPOS SALEN A LA CANCHA! 🔥♿ ", null, 0x6ECAFF, 'bold');
+    room.sendAnnouncement(centerText(currentTeams[0].longName, null, 0x00d9ff, 'bold'));
     room.sendAnnouncement(centerText("🆚", null, 0xFF0000, null));
-    room.sendAnnouncement(centerText(currentTeams[1].longName, null, Colors.Azul, 'bold'));
+    room.sendAnnouncement(centerText(currentTeams[1].longName, null, 0x00d9ff, 'bold'));
 
     function chooseRandomColorAmount(color1, color2) {
         randomShirt = generateRandomInteger(0, 100);
@@ -1428,7 +1444,7 @@ room.onPlayerJoin = function (player) {
     //updateRoleOnPlayerIn();
     var webhook = "https://discord.com/api/webhooks/1127114730906079252/vFdbCfnppFnVlQWazM1IoRLCSrYWLjFokP3yFRNS8IgRftIrw9vNUkQfjvUWSqrDi1dE";
     sendAnnouncementToDiscord(
-        "```" + "[📝] Informacion del jugador ⏰" + "\n" +
+        "```" + "[♿] JUEGAN TODOS | INGRESO [♿]" + "\n" +
 
         "El jugador **" + player.name + "** entro a la sala: **" + roomName + "**\n" +
         "IP: " + player.conn + " 🌎" + "\n" +
@@ -1438,7 +1454,7 @@ room.onPlayerJoin = function (player) {
     room.sendAnnouncement(
         `♿ ¡BIENVENIDO AL SINDICATO! ${player.name} ♿\n⭐ Utiliza !ayuda para ver los comandos!\n🔹Ingresa a nuestro discord para enterarte nuevas noticias!`,
         player.id,
-        0x6ECAFF,
+        0x7DFA89,
         'bold',
     );
 }
@@ -1553,7 +1569,7 @@ function afkCommand(player, message) {
                 `Espera un minimo de ${minAFKDuration} segundos para usar nuevamente el comando!`,
                 player.id,
                 Colors.Vermelho,
-                'bold',
+                'normal',
                 null
             );
         } else {
@@ -1562,7 +1578,7 @@ function afkCommand(player, message) {
                 `🌅 ${player.name} no esta mas AFK!`,
                 null,
                 Colors.Laranja,
-                'bold',
+                'normal',
                 null
             );
             //console.log("Sacando de afk " + teamS);
@@ -1578,7 +1594,7 @@ function afkCommand(player, message) {
                 `Podes irte AFK una vez cada ${AFKCooldown} minutos!`,
                 player.id,
                 Colors.Vermelho,
-                'bold',
+                'normal',
                 null
             );
         } else {
@@ -1618,7 +1634,7 @@ function afkCommand(player, message) {
                 `😴 ${player.name} esta AFK!`,
                 null,
                 Colors.Laranja,
-                'bold',
+                'normal',
                 null
             );
             //isAFK(player) ? updateRoleOnPlayerOut() : updateRoleOnPlayerIn();
@@ -1628,7 +1644,7 @@ function afkCommand(player, message) {
 
 function sendMessageToAdminsCommand(player, originalMessage) {
     var dcWebhook = 'https://discord.com/api/webhooks/1126958366770602127/TQNyGf3wanCMgTbzLdYXi4aFubaqpd1ag3RXCcRAlnvRu5xmO9nzv2fTFG_PNzW1Dxcr';
-    sendAnnouncementToDiscord("<@&1122229514735472794> <@&1148011110939762790> \n 🚨 El usuario " + player.name + " pide un staff en la sala numero:  " + (roomNumber + 1) + "\n 📝 Mensaje del reporte: **" + originalMessage + "**", dcWebhook);
+    sendAnnouncementToDiscord("<@&1122229514735472794> <@&1148011110939762790> \n [🚨] EL USUARIO " + player.name + " PIDE STAFF EN EL JUEGAN TODOS! \n [📝] MENSAJE DEL SOS: **" + originalMessage + "**", dcWebhook);
 }
 
 room.onPlayerLeave = function (player) {
@@ -1660,13 +1676,13 @@ function notifyBanToDiscord(player, ep, byPlayer, reason) {
     var name = (player != null && player.name != null) ? player.name : "noname";
     var webhook = "https://discord.com/api/webhooks/1128202273030418493/6OLRtWLHcVGkZHAdRjIy9axIumVldLlrga199AQQeLr2lxVFf0fDMJLNhRohcFCoNSTP";
     sendAnnouncementToDiscord(
-        "```" + "[📝] Informacion del ban ⏰" + "\n" +
+        "```" + "[📝] JUEGAN TODOS | INFO DE BAN " + "\n" +
 
         "El jugador **" + name + "** fue baneado en la sala **" + (roomNumber + 1) + "** por el admin **" + byPlayer?.name + "**\n" +
-        "razon: " + reason + " 📝" +
-        "conn: " + ep[eP.CONN] + " 🌎" +
-        "\n" + "auth: " + ep[eP.AUTH] + " 💻" + "\n" +
-        "Fecha: " + `${getDateInfo()}` + "```", webhook);
+        "Razón: " + reason + " 📝" +
+        "CONN: " + ep[eP.CONN] + " 🌎" +
+        "\n" + "AUTH: " + ep[eP.AUTH] + " 💻" + "\n" +
+        "FECHA: " + `${getDateInfo()}` + "```", webhook);
 }
 
 function getPlayerById(id) {
@@ -1723,6 +1739,48 @@ function printHumiliateCommand(player) {
     }
 }
 
+let mensajesIceberg = [
+    "Lvl1 Iceberg - Hesar falso » Una vez en la sala Juegan Todos entró alguien con el nombre de un Ex-Staff, Hesar, el staff le dió admin y lo que sigue es historia.",
+    "Lvl1 Iceberg - Liga Sindicato » La liga sindicato fué creada por Tino, gracias a ella y la colaboración de varios Staff, llegamos por primera vez a las 1000 personas en Discord.",
+    "Lvl2 Iceberg - Liga Bindicato » La liga Bindicato fué idea de un Ex-CommunityManager, en el pleno auge de la liga sindicato, la historia no fué muy linda ya que se cancelo luego de la primera fecha.",
+    "Lvl1 Iceberg - Nombre viejo » JueganTodosCon♿ era el mítico nombre de la sala principal, esta se cambió luego de unos meses a ⭐ SINDICATO DEL HAX ⭐",
+    "Lvl1 Iceberg - Quemadas » Las quemadas es una de las cosas que mas se ve en el discord, hasta se corre la bola de que alguien tiene Carpetas con Imágenes de estas.",
+    "Lvl1 Iceberg - MaxNarvaes » Maxnarvaes es el fundador del Sindi, se lo ve muy poco jugando y participando, aún asi, es el hombre mas respetado en la comunidad.",
+    "Lvl2 Iceberg - El primer Staff » No se sabe con exactitud quien fué el primer admin de la sala principal, pero gracias a info dada, un chico llamado Juli, fue uno de los primeros en moderar la sala.",
+    "Lvl2 Iceberg - Quiero sex0 argentino » Fué y será el troll mas recordado de esta comunidad y de muchas, es un spammer y troll que entraba a molestar siempre.",
+    "Lvl2 Iceberg - El primer Blacklist » El primer jugador en ser totalmente prohibido en la comunidad es el anterior mencionado, Quiero sex0 argentino.",
+    "Lvl2 Iceberg - El raid fallido » El raid de los discord es algo muy popular en las ligas y comunidades de Haxball, un Ex-Editor llamado Martu, intentó raidear mandando anuncios de everyone a solo unos canales, a día de hoy no se sabe como logró esto, pero es gracioso ya que fué blacklisteado y no pudo lograr nada con esto.",
+    "Lvl3 Iceberg - Strikes » Se le dice asi a una nueva implementación de un manager, llamada Strikes, el primero en recibirlos fue un Ex-Staff llamado bd, debido a su toxicidad y mal uso del cargo.",
+    "Lvl3 Iceberg - La familia de Yudo » Hubo un día en el que la sala principal, estaba llena de jugadores con el nombre del Árbol Genealógico de yudo, tal como; Mamá de Yudo, Abuelo de Yudo y hasta Prima de Yudo. Fué algo muy gracioso en su momento",
+    "Lvl3 Iceberg - yudooraay » Fué el primer miembro en la comunidad en romper el récord de vallas invictas, para luego convertirse en el primer Manager atrás de maxnarvaes.",
+    "Lvl4 Iceberg - Goles en contra de Panceta » Se dice que este actual miembro del staff está maldito, ya que en cada evento que se realiza o en cualquier partido en el que está presente, hace un gol en contra involuntariamente.",
+    "Lvl4 Iceberg - El staff casi en Blacklist » Un presente miembro del staff, estuvo apunto de irse a la blacklist siendo parte de la administración, debido a su cantidad de sanciones tontas.",
+    "Lvl5 Iceberg - Staff desaparecido » Este caso es sobre un staff llamado aña, era de los mas activos de la comunidad, prácticamente se la pasaba en el host. Un día desapareció y cada tanto escribe en el discord diciendo, no tengo conexión a WiFi...",
+    "Lvl3 Iceberg - Magnus y las gordas » Durante una conversación, el staff Magnus mencionaba que en un evento musical, en un pogo cantaba junto a una chica, contando a modo de broma que la mujer era una gorda, todos empezaron a molestarlo y ha día de hoy es un meme en la comunidad.",
+    "Lvl5 Iceberg - Crisis del Host » La comunidad sufría ataques de personas con malas intenciones, en su momento fueron enviadas a la blacklist, pero esto empeoro hasta el punto de que el server esté inactivo unos meses.",
+    "Lvl4 Iceberg - Erizo y Bachira » Erizo era un gran staff de la vieja escuela, un día anuncia su despedida a toda la gente con la razón de que dejaría Haxball por temas escolares. A las pocas semanas ya se decía de que Bachira, persona que había empezado a jugar en el sindicato, era el mismo Erizo.",
+    "Lvl3 Iceberg - Efecto Pork » Movimiento que nace y viene de algunos miembros de la comunidad, se sabe que hasta se ha creado un Equipo de Haxball para competir en distintas ligas.",
+    "Lvl4 Iceberg - ESFC y AXOLOTL » En este caso tan particular, el presidente de Axolotl, llamado ziru, creaba un equipo para ganarle a su PROPIO equipo, así es, El Sindicato FC.",
+    "Lvl5 Iceberg - Max y la colombiana » Esto viene ya que en un chat del discord, max daba a conocer a una Colombiana que iba a entrevistarlo para un trabajo, se dice que hubo un romance, pero no se sabe con exactitud.",
+    "Lvl3 Iceberg - El mod a un random » Un día comun y corriente, un manager sin querer le daba el rango Mod a un random por equivocación, al principio fué inquietante por que no se dió cuenta y no se sabía que haría este usuario. Todo quedó ahi ya que este se porto bien y no realizó nada.",
+    "Lvl4 Iceberg - Santisapi » Se dice que es el usuario con mas bans en la comunidad, debido a esto ya forma parte de los Blacklist.",
+    "Lvl3 Iceberg - El Sindicato Del Hambre » Se le llama asi al evento creado por un miembro del staff, llamado tuwacha, haciendo unos juegos del hambre muy graciosos, en el cual participaban mayoría de la gente y administradores.",
+    "Lvl3 Iceberg - Jefe de la Sindicatobarra » En una votación de todos en el discord, se elegía al Jefe de la Sindicatobarra, el cual iba a tener permisos especiales y un rol que lo distinguía de los demás. Esta fué ganada por el miembro Zapelli.",
+    "Lvl5 Iceberg - Jeneix en pedo y doxxeo a un Staff » En una fiesta el staff mencionó que estaba muy en pedo, diciendo que hasta se había desvirgado con una chica, tras esto, el señor termina diciendo Nombre y Apellido de un Staff, en ese momento nadie llego a verlo, se estima que solo una persona.",
+    "Lvl3 Iceberg - Caco García el BETA-TESTER » El día 05/07 se abría una sala test de esta misma sala, el primer usuario en entrar fué un hombre llamado Caco García, que formó un equipo con el cual no paraba de ganar, para las personas presentes, se volvió una Leyenda Viva.",
+    "Lvl3 Iceberg - Val y Holand » El usuario Holand era un staff de hace mucho tiempo, el cual era conocido por su muy mala ortografía y falta de jugadores a modo chistoso, en aquellos momentos, ingresaba al equipo un staff nuevo llamado Val, el anterior mencionado, no paraba de molestarlo pensando que era una mujer.",
+    "Lvl3 Iceberg - zSyon y sus demotes instantáneos » Era un miembro del staff, pero debido a su mal uso del admin y las quejas constantes de los jugadores, fué hasta dos veces demoteado, algo que nunca antes había ocurrido.",
+    "Lvl4 Iceberg - Roberto Carlos » Un Ex-Staff que llego a un grande cargo pero fué demoteado debido a su mala conducta y expresiones, llevandose el mal gusto de gran parte de la comunidad. A día de hoy nadie sabe su paradero...",
+  ];
+  
+  function getRandomIcebergMessage() {
+    return mensajesIceberg[Math.floor(Math.random() * mensajesIceberg.length)];
+  }
+  
+  setInterval(() => {
+    room.sendAnnouncement(getRandomIcebergMessage(), null, 0xFFE600, "normal", 2);
+  }, 2 * 60 * 1000);
+
 /* PLAYER ACTIVITY */
 function getTeamArray(team, includeAFK = true) {
     if (team == Team.RED) return teamR;
@@ -1745,7 +1803,7 @@ function teamChat(player, message) {
     var message = `[${emoji}] ${player.name}: ${msgArray.join(' ')}`;
     var team = getTeamArray(player.team, true);
     var color = player.team == Team.RED ? Colors.Vermelho : player.team == Team.BLUE ? Colors.Azul : null;
-    var style = 'bold';
+    var style = 'normal';
     var mention = HaxNotification.CHAT;
     sendAnnouncementTeam(message, team, color, style, mention);
 }
@@ -1793,7 +1851,7 @@ function gkCommand(player) {
         if (manualGKList[1] == null) {
             manualGKList[1] = player;
             GKList[1] = player;
-                room.sendAnnouncement(centerText("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[1].longName + "!「🧤」.", null, 0xfcf803, "bold", 1));
+                room.sendAnnouncement(centerText("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[1].longName + "!「🧤」.", null, 0xfcf803, "normal", 1));
         } else if (manualGKList[1].id == player.id) {
             manualGKList[1] = null;
             noGkAnnouncement = true;
@@ -1807,7 +1865,7 @@ function gkCommand(player) {
         if (manualGKList[0] == null) {
             manualGKList[0] = player;
             GKList[0] = player;
-            room.sendAnnouncement(centerText("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[0].longName + "!「🧤」.", null, 0xfcf803, "bold", 1));
+            room.sendAnnouncement(centerText("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[0].longName + "!「🧤」.", null, 0xfcf803, "normal", 1));
         } else if (manualGKList[0].id == player.id) {
             manualGKList[0] = null;
             noGkAnnouncement = true;
@@ -1838,7 +1896,7 @@ room.onPlayerChat = function (player, message) {
     if (message.match(regex) && !isMaster) {
         if (message.match(regex) && player.admin) {
             //cambiar cosito del gk
-            room.sendAnnouncement("「👮」" + player.name + ": " + message + "", player.id, 0xEAC274, 'bold');
+            room.sendAnnouncement("「👮」" + player.name + ": " + message + "", player.id, 0xEAC274, 'normal');
             return false;
         }
         //cambiar cosito del gk
@@ -1858,11 +1916,11 @@ room.onPlayerChat = function (player, message) {
 
     player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
     if (["!ayuda"].includes(message[0].toLowerCase())) {
-        room.sendAnnouncement("[📍] Comandos: !me, !showme, !goles, !asis, !arq, !jugados, !ganados, !redes, !vc, !memide, !hc, !reglas, !afk, !mtm", player.id, 0x366BFF, "bold", 0);
+        room.sendAnnouncement("[📍] Comandos: !me, !showme, !goles, !asis, !arq, !jugados, !ganados, !redes, !vc, !memide, !hc, !reglas, !afk, !mtm", player.id, 0x366BFF, "normal", 0);
     }
     if (["!vote"].includes(message[0].toLowerCase()) && message.length > 1) {
         if (room.getPlayerList().length < 4) {
-            room.sendAnnouncement("No se puede votar si hay menos de 4 personas.", player.id, 0xFF0000, "bold", 2);
+            room.sendAnnouncement("No se puede votar si hay menos de 4 personas.", player.id, 0xFF0000, "normal", 2);
             return false;
         }
         if (["pausa"].includes(message[1].toLowerCase())) {
@@ -1871,7 +1929,7 @@ room.onPlayerChat = function (player, message) {
 
             var votingP = getPlayerById(player.id);
             if (pauseVotingPlayers.has(votingP[eP.AUTH])) {
-                room.sendAnnouncement("「🤖」MAXBOT: No podes votar mas de 1 vez por votacion.", player.id, 0xFF0000, "bold", 2);
+                room.sendAnnouncement("「🤖」MAXBOT: No podes votar mas de 1 vez por votacion.", player.id, 0xFF0000, "normal", 2);
                 return false;
             }
             pauseVoteCount++;
@@ -1879,23 +1937,23 @@ room.onPlayerChat = function (player, message) {
             if (pauseVoteCount == 1) {
                 room.sendAnnouncement("「🤖」MAXBOT: Empezo votacion de " + pauseState ? "despausa " : "pausa \n"
                     + "La votacion dura 60 segundos. \n"
-                    + "Se requieren " + votesRequired + " votos.", null, 0xEAC274, "bold", 1);
+                    + "Se requieren " + votesRequired + " votos.", null, 0xEAC274, "normal", 1);
 
                 setTimeout(() => {
-                    room.sendAnnouncement("「🤖」MAXBOT: Termino la votacion de " + pauseState ? "despausa: " : "pausa: " + pauseVoteCount + "/" + votesRequired + " votos.", null, 0xEAC274, "bold", 1);
+                    room.sendAnnouncement("「🤖」MAXBOT: Termino la votacion de " + pauseState ? "despausa: " : "pausa: " + pauseVoteCount + "/" + votesRequired + " votos.", null, 0xEAC274, "normal", 1);
                     pauseVoteCount = 0;
                     pauseVotingPlayers = new Set();
                 }, votePauseTimeout);
             }
 
             if (pauseVoteCount >= votesRequired) {
-                room.sendAnnouncement("「🤖」MAXBOT: Juego " + pauseState ? "despausado: " : "pausado: " + pauseVoteCount + "/" + votesRequired + " votos.", null, 0xEAC274, "bold", 1);
+                room.sendAnnouncement("「🤖」MAXBOT: Juego " + pauseState ? "despausado: " : "pausado: " + pauseVoteCount + "/" + votesRequired + " votos.", null, 0xEAC274, "normal", 1);
                 pauseState = !pauseState;
                 room.pauseGame(pauseState);
                 pauseVoteCount = 0;
                 pauseVotingPlayers = new Set();
             } else {
-                room.sendAnnouncement("「🤖」MAXBOT: Voto para pausa: Van " + pauseVoteCount + "/" + votesRequired + " votos.", null, 0xEAC274, "bold", 1);
+                room.sendAnnouncement("「🤖」MAXBOT: Voto para pausa: Van " + pauseVoteCount + "/" + votesRequired + " votos.", null, 0xEAC274, "normal", 1);
             }
         }
         if (["ban"].includes(message[1].toLowerCase())) {
@@ -1903,13 +1961,13 @@ room.onPlayerChat = function (player, message) {
             if (message.length >= 2 && message[2][0] == "#") {
                 message[2] = message[2].substring(1, message[2].length);
                 if (message[2] == player.id) {
-                    room.sendAnnouncement("No te podes votar a vos mismo.", player.id, 0xFF0000, "bold", 2);
+                    room.sendAnnouncement("No te podes votar a vos mismo.", player.id, 0xFF0000, "normal", 2);
                     return false;
                 }
                 var votedP = getPlayerById(Number.parseInt(message[2]));
                 var votingP = getPlayerById(player.id);
                 if (votingPlayers.has(votingP[eP.AUTH])) {
-                    room.sendAnnouncement("「🤖」MAXBOT: No podes votar a otro jugador hasta que pase 1 minuto de tu voto anterior.", player.id, 0xFF0000, "bold", 2);
+                    room.sendAnnouncement("「🤖」MAXBOT: No podes votar a otro jugador hasta que pase 1 minuto de tu voto anterior.", player.id, 0xFF0000, "normal", 2);
                     return false;
                 }
 
@@ -1924,11 +1982,11 @@ room.onPlayerChat = function (player, message) {
                     PlayerFound = true;
                     var votesRequired = Math.round((room.getPlayerList().length) * 2 / 3);
                     if (banVotesCount[votedP[eP.AUTH]] == 1) {
-                        room.sendAnnouncement("「🤖」MAXBOT: Se esta votando banear a " + room.getPlayer(votedP[eP.ID])?.name + "\n Si se llega a " + votesRequired + " votos en 1 minuto sera baneado \n Para votar escribi: !vote ban #" + votedP[eP.ID], null, 0xEAC274, "bold", 1);
+                        room.sendAnnouncement("「🤖」MAXBOT: Se esta votando banear a " + room.getPlayer(votedP[eP.ID])?.name + "\n Si se llega a " + votesRequired + " votos en 1 minuto sera baneado \n Para votar escribi: !vote ban #" + votedP[eP.ID], null, 0xEAC274, "normal", 1);
                         console.log("timeout ");
                         setTimeout(function () {
                             console.log("🗳️ Termino la votacion de ban a " + room.getPlayer(votedP[eP.ID])?.name + ": " + banVotesCount[votedP[eP.AUTH]] + "/" + votesRequired + " votos.");
-                            room.sendAnnouncement("「🤖」MAXBOT: Termino la votacion de ban a " + room.getPlayer(votedP[eP.ID])?.name + " : " + banVotesCount[votedP[eP.AUTH]] + "/" + votesRequired + " votos.", null, 0xEAC274, "bold", 1);
+                            room.sendAnnouncement("「🤖」MAXBOT: Termino la votacion de ban a " + room.getPlayer(votedP[eP.ID])?.name + " : " + banVotesCount[votedP[eP.AUTH]] + "/" + votesRequired + " votos.", null, 0xEAC274, "normal", 1);
                             banVotesCount[votedP[eP.AUTH]] = 0;
                             votingPlayers = new Set();
                             console.log(votingPlayers);
@@ -1939,7 +1997,7 @@ room.onPlayerChat = function (player, message) {
                         room.kickPlayer(player.id, "「🤖」MAXBOT: Te fuiste baneado amigo!", true);
                     }
                     else {
-                        room.sendAnnouncement("「🤖」MAXBOT: Voto para banear a " + room.getPlayer(votedP[eP.ID])?.name + ": Van " + banVotesCount[votedP[eP.AUTH]] + "/" + votesRequired + " votos.", null, 0xEAC274, "bold", 1);
+                        room.sendAnnouncement("「🤖」MAXBOT: Voto para banear a " + room.getPlayer(votedP[eP.ID])?.name + ": Van " + banVotesCount[votedP[eP.AUTH]] + "/" + votesRequired + " votos.", null, 0xEAC274, "normal", 1);
                     }
                 } else {
                     players = room.getPlayerList();
@@ -1961,7 +2019,7 @@ room.onPlayerChat = function (player, message) {
     }
 
     else if (["!clean"].includes(message[0].toLowerCase()) && player.admin) {
-        setTimeout(_ => { room.sendAnnouncement(centerText(`${player.name} HA LIMPIADO EL CHAT.`, null, 0xe50029, 'semi-bold')) }, 1000)
+        setTimeout(_ => { room.sendAnnouncement(centerText(`${player.name} HA LIMPIADO EL CHAT.`, null, 0xe50029, 'bold')) }, 1000)
         i = 50
         while (i >= 0) {
             room.sendAnnouncement("", null);
@@ -2076,15 +2134,15 @@ room.onPlayerChat = function (player, message) {
     else if (["!me"].includes(message[0].toLowerCase())) {
         var stats;
         localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
-        room.sendAnnouncement("📊 ¡TUS STATS!", player.id, 0xF7FF00, "bold");
-        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", player.id, 0x73EC59, "bold");
+        room.sendAnnouncement("📊 ¡TUS STATS!", player.id, 0xF7FF00, "normal");
+        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", player.id, 0x73EC59, "normal");
     }
 
     else if (["!showme"].includes(message[0].toLowerCase())) {
         var stats;
         localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
-        room.sendAnnouncement("📊 ESTAS SON LAS STATS DE " + player.name + ": ", null, 0xF7FF00, "bold");
-        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", null, 0x73EC59, "bold");
+        room.sendAnnouncement("📊 ESTAS SON LAS STATS DE " + player.name + ": ", null, 0xF7FF00, "normal");
+        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", null, 0x73EC59, "normal");
     }
 
     else if (["!jugados"].includes(message[0].toLowerCase())) { // mostra o ranking de partidas jogadas
@@ -2203,31 +2261,6 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!slowmode"].includes(message[0].toLowerCase())) {
-        if (player.admin) {
-            if (message.length == 1) {
-                slowMode = 2;
-                room.sendAnnouncement("2 segundos de modo lento en el chat!");
-            }
-            else if (message.length == 3) {
-                if (!Number.isNaN(Number.parseInt(message[1]))) {
-                    if (Number.parseInt(message[1]) > 0) {
-                        slowMode = Number.parseInt(message[1]);
-                        room.sendChat(slowMode + " segundos de modo lento!");
-                        return false;
-                    }
-                }
-                slowMode = 2;
-                room.sendChat("2 segundos de modo lento!");
-            }
-        }
-    }
-    else if (["!endslow"].includes(message[0].toLowerCase())) {
-        if (player.admin) {
-            slowMode != 2 ? room.sendAnnouncement("El modo lento se ha deshabilitado.") : null;
-            slowMode = 2;
-        }
-    }
     else if (["!banlist", "!bans"].includes(message[0].toLowerCase())) {
         if (banList.length == 0) {
             room.sendChat("[PV] There is no one on the ban list!", player.id);
@@ -2320,7 +2353,7 @@ room.onPlayerChat = function (player, message) {
     } else {
         if (message.length > 1 && message[0].toLowerCase() == 't' && message[1] == ' ') {
             if (player.team != 0) {
-                room.getPlayerList().forEach((element) => { if (element.team == player.team) room.sendAnnouncement("〔TEAM〕" + player.name + ": " + message.substr(2), element.id, (player.team == Team.RED ? 16725591 : 3261685), "bold", 0) })
+                room.getPlayerList().forEach((element) => { if (element.team == player.team) room.sendAnnouncement("〔TEAM〕" + player.name + ": " + message.substr(2), element.id, (player.team == Team.RED ? 16725591 : 3261685), "normal", 0) })
                 return false;
             }
             else {
@@ -2642,8 +2675,8 @@ room.onGameStart = function (byPlayer) {
         manualGKList = [null, null];
         allReds = [];
         allBlues = [];
-        room.sendAnnouncement("「📌」Utiliza !gk para ser el arquero de el equipo!", null, 0xFF5E3B, "bold", 1);
-        room.sendAnnouncement("「📌」¡Escribe la 't' al principio de tu mensaje para enviar un mensaje al equipo!", null, 0xFF5E3B, "bold", 1);
+        room.sendAnnouncement("「📌」Utiliza !gk para ser el arquero de el equipo!", null, 0xFF5E3B, "normal", 1);
+        room.sendAnnouncement("「📌」¡Escribe la 't' al principio de tu mensaje para enviar un mensaje al equipo!", null, 0xFF5E3B, "normal", 1);
         /* room.sendAnnouncement("[💬] Use 't' to chat with your team!", null, 0x5EE7FF);
         room.sendAnnouncement("The match is being recorded."); */
         if (teamR.length == maxTeamSize && teamB.length == maxTeamSize) {
@@ -2841,7 +2874,7 @@ room.onTeamGoal = function (team) {
     var goalAssist = lastPlayersTouched[1];
 
     if (goalScorer != null) {
-        //room.sendAnnouncement("👥 TREMENDO GOL de " + (team == Team.RED ? currentTeams[0].longName : currentTeams[1].longName) + " !", null, (team == Team.RED ? Colors.Vermelho : Colors.Azul), 'bold');
+        //room.sendAnnouncement("👥 TREMENDO GOL de " + (team == Team.RED ? currentTeams[0].longName : currentTeams[1].longName) + " !", null, (team == Team.RED ? Colors.Vermelho : Colors.Azul), 'normal');
         if (lastTeamTouched == team && passCombo > 0) {
             room.sendAnnouncement("con " + passCombo + " pases seguidos!", null, (team == Team.RED ? Colors.Azulclaro : Colors.Branco), 'normal');
         }
@@ -2979,7 +3012,7 @@ room.onPositionsReset = function () {
     const scores = room.getScores();
     game.scores = scores;
     if (game.scores.blue == game.scores.red) {
-        room.sendAnnouncement("Max el Relator🎙: ¿Qué equipo marcara la diferencia? ¡Esto se pone lindo!", null, 0x00d9ff, "bold", 1);
+        room.sendAnnouncement("Max el Relator🎙: ¿Qué equipo marcara la diferencia? ¡Esto se pone lindo!", null, 0x00d9ff, "normal", 1);
     }
     if (Math.abs(scores.red - scores.blue) > 1) {//primer gol
         //o un timeout para ver cuando resetear
