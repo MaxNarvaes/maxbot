@@ -94,15 +94,6 @@ var argTeams = [
 
 let currentTeams = [];
 
-    //centerText function probamos
-    function centerText(string) {
-        var space = parseInt((80 - string.length) * 0.8, 10);
-        if (space <= 0) {
-            return '';
-        }
-        return ' '.repeat(space) + string + ' '.repeat(space);
-    };
-
 /* vote system */
 var votingPlayers = new Set();
 var banVotesCount = {}; //dictionary
@@ -124,7 +115,7 @@ var minAFKDuration = 20;
 var maxAFKDuration = 10;
 var AFKCooldown = 5;
 var adminCommandTimeout = true;
-const token = "thr1.AAAAAGZl7HYGNyFtt_2ivQ.kzDy9X_y7i8";
+const token = "thr1.AAAAAGZl7HYGNyFtt_2ivQ.kzDy9X_y7i8"; //cambiar
 var goalDictionary = {};
 /* ROOM */
 const roomNumber = 0;
@@ -133,7 +124,7 @@ const roomName = "⭐♿ SINDICATO DEL HAX | JUEGAN TODOS ♿⭐";
 const maxPlayers = 25;
 const roomPublic = true;
 const geo = [{ "lat": -31.4135, "lon": -64.18105, "code": "ar" }];
-const roomPassword = '789345';
+const roomPassword = '765314';
 
 const excludedRows = ["player_name", "view_mode", "geo", "avatar", "player_auth_key", "extrapolation", "_grecaptcha", "chat_height", "banList", "chat_bg_mode"];
 //const room = HBInit({ roomName: roomName, maxPlayers: maxPlayers, public: roomPublic, geo: geo[0] });
@@ -204,7 +195,7 @@ const Normal = 'normal';
 const resetarAvatarEm = 3;
 
 //var adminPassword = roomArgs['adminPassword'] != null ? roomArgs['adminPassword'] : 10000 + getRandomInt(90000);
-var adminPassword = 789345;
+var adminPassword = 765314;
 console.log("adminPassword : " + adminPassword);
 
 /* STADIUM */
@@ -1324,9 +1315,9 @@ function randomUniforms() {
 
     });
     room.sendAnnouncement("♿🔥 ¡COMIENZA LA FINAL PARALÍMPICA Y LOS EQUIPOS SALEN A LA CANCHA! 🔥♿ ", null, 0x6ECAFF, 'bold');
-    room.sendAnnouncement(centerText(currentTeams[0].longName, null, 0x00d9ff, 'bold'));
-    room.sendAnnouncement(centerText("🆚", null, 0xFF0000, null));
-    room.sendAnnouncement(centerText(currentTeams[1].longName, null, 0x00d9ff, 'bold'));
+    room.sendAnnouncement(currentTeams[0].longName, null, 0x00d9ff, 'bold');
+    room.sendAnnouncement("🆚", null, 0xFF0000, null);
+    room.sendAnnouncement(currentTeams[1].longName, null, 0x00d9ff, 'bold');
 
     function chooseRandomColorAmount(color1, color2) {
         randomShirt = generateRandomInteger(0, 100);
@@ -1407,12 +1398,6 @@ room.onPlayerJoin = function (player) {
 
     if (["master", "head", "admin", "cm", "mod"].includes(playerRole)) {
         room.setPlayerAdmin(player.id, true);
-    } else {
-        var adminCount = room.getPlayerList().filter((player) => player.id != 0 && player.admin).length;
-        slotsAvailable = maxPlayers - (3 - Math.min(3, adminCount));
-        if (players.length >= slotsAvailable) {
-            room.kickPlayer(player.id, "Slot reservado para staffs y vips!", false); eP.ACT
-        }
     }
 
     //const eP = { ID: 0, AUTH: 1, CONN: 2, AFK: 3, ACT: 4, GK: 5, MUTE: 6, GOALS: 7, ROLE: 8 };
@@ -1653,22 +1638,6 @@ room.onPlayerLeave = function (player) {
     function handlePlayerExit() {
         setActivity(player, 0);
         players = room.getPlayerList().filter((player) => player.id != 0 && !isAFK(player));
-
-        var index = Array.prototype.findIndex.call(players, (x) => x.id === player.id);
-        if (player.team == Team.RED) {
-            if (manualGKList[0]?.id == player.id) {
-                manualGKList[0] = null;
-            }
-            teamR.splice(index, 1);
-        } else if (player.team == Team.BLUE) {
-            if (manualGKList[1]?.id == player.id) {
-                manualGKList[1] = null;
-            }
-            teamB.splice(index, 1);
-        } else {
-            teamS.splice(index, 1);
-        }
-        return index;
     }
 };
 
@@ -1739,6 +1708,8 @@ function printHumiliateCommand(player) {
     }
 }
 
+// Array de mensajes Iceberg
+
 let mensajesIceberg = [
     "Lvl1 Iceberg - Hesar falso » Una vez en la sala Juegan Todos entró alguien con el nombre de un Ex-Staff, Hesar, el staff le dió admin y lo que sigue es historia.",
     "Lvl1 Iceberg - Liga Sindicato » La liga sindicato fué creada por Tino, gracias a ella y la colaboración de varios Staff, llegamos por primera vez a las 1000 personas en Discord.",
@@ -1771,15 +1742,13 @@ let mensajesIceberg = [
     "Lvl3 Iceberg - Val y Holand » El usuario Holand era un staff de hace mucho tiempo, el cual era conocido por su muy mala ortografía y falta de jugadores a modo chistoso, en aquellos momentos, ingresaba al equipo un staff nuevo llamado Val, el anterior mencionado, no paraba de molestarlo pensando que era una mujer.",
     "Lvl3 Iceberg - zSyon y sus demotes instantáneos » Era un miembro del staff, pero debido a su mal uso del admin y las quejas constantes de los jugadores, fué hasta dos veces demoteado, algo que nunca antes había ocurrido.",
     "Lvl4 Iceberg - Roberto Carlos » Un Ex-Staff que llego a un grande cargo pero fué demoteado debido a su mala conducta y expresiones, llevandose el mal gusto de gran parte de la comunidad. A día de hoy nadie sabe su paradero...",
-  ];
-  
-  function getRandomIcebergMessage() {
+];
+
+// Función para obtener un mensaje iceberg aleatorio
+function getRandomIcebergMessage() {
     return mensajesIceberg[Math.floor(Math.random() * mensajesIceberg.length)];
-  }
-  
-  setInterval(() => {
-    room.sendAnnouncement(getRandomIcebergMessage(), null, 0xFFE600, "normal", 2);
-  }, 2 * 60 * 1000);
+}
+
 
 /* PLAYER ACTIVITY */
 function getTeamArray(team, includeAFK = true) {
@@ -1851,7 +1820,7 @@ function gkCommand(player) {
         if (manualGKList[1] == null) {
             manualGKList[1] = player;
             GKList[1] = player;
-                room.sendAnnouncement(centerText("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[1].longName + "!「🧤」.", null, 0xfcf803, "normal", 1));
+                room.sendAnnouncement("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[1].longName + "!「🧤」.", null, 0xfcf803, "normal", 1);
         } else if (manualGKList[1].id == player.id) {
             manualGKList[1] = null;
             noGkAnnouncement = true;
@@ -1859,13 +1828,13 @@ function gkCommand(player) {
         } else {
             var gk = room.getPlayer(manualGKList[1].id);
             console.log(ePlayer);
-            room.sendAnnouncement(centerText("「🧤」¡" + gk.name + " ES EL GK DEL EQUIPO! | Para liberar su puesto utiliza !gk nuevamente. 「🧤」", player.id, 0xfcf803, "italic", 1));
+            room.sendAnnouncement("「🧤」¡" + gk.name + " ES EL GK DEL EQUIPO! | Para liberar su puesto utiliza !gk nuevamente. 「🧤」", player.id, 0xfcf803, "italic", 1);
         }
     } else if (player.team == Team.RED) {
         if (manualGKList[0] == null) {
             manualGKList[0] = player;
             GKList[0] = player;
-            room.sendAnnouncement(centerText("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[0].longName + "!「🧤」.", null, 0xfcf803, "normal", 1));
+            room.sendAnnouncement("「🧤」¡" + ePlayer.name + " AHORA ES GK DE " + currentTeams[0].longName + "!「🧤」.", null, 0xfcf803, "normal", 1);
         } else if (manualGKList[0].id == player.id) {
             manualGKList[0] = null;
             noGkAnnouncement = true;
@@ -1873,7 +1842,7 @@ function gkCommand(player) {
         } else {
             var gk = room.getPlayer(manualGKList[0].id);
             console.log(ePlayer);
-            room.sendAnnouncement(centerText("「🧤」¡" + gk.name + " ES EL GK DEL EQUIPO! | Para liberar su puesto utiliza !gk nuevamente. 「🧤」", player.id, 0xfcf803, "italic", 1));
+            room.sendAnnouncement("「🧤」¡" + gk.name + " ES EL GK DEL EQUIPO! | Para liberar su puesto utiliza !gk nuevamente. 「🧤」", player.id, 0xfcf803, "italic", 1);
         }
     }
 }
@@ -1885,7 +1854,6 @@ let
 
 room.onPlayerChat = function (player, message) {
     console.log(player.name + ": " + message);
-	DiscordLogs(player.name + ": " + message);
     message = message.trim();
     if (message == '') {
         return false;
@@ -1916,8 +1884,23 @@ room.onPlayerChat = function (player, message) {
 
     player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
     if (["!ayuda"].includes(message[0].toLowerCase())) {
-        room.sendAnnouncement("[📍] Comandos: !me, !showme, !goles, !asis, !arq, !jugados, !ganados, !redes, !vc, !memide, !hc, !reglas, !afk, !mtm", player.id, 0x366BFF, "normal", 0);
+        room.sendAnnouncement("[📍] Comandos: !me, !goles, !asis, !arq, !jugados, !ganados, !redes, !vc, !memide, !reglas, !afk, !mtm", player.id, 0x366BFF, "bold", 0);
+        room.sendAnnouncement("[💎] Comandos VIP: - !ksk, !hc, !afk, !showme, !iceberg -", player.id, 0x3DA7FF, "bold", 0);
+
     }
+else if (["!iceberg"].includes(message[0].toLowerCase())) {
+    let playerData = JSON.parse(localStorage.getItem(getAuth(player)));
+    if (playerData) {
+        if (["vip", "svip", "head", "sponsor", "mod", "admin", "master", "cm"].includes(playerData[StatColumns.ROLE].toLowerCase())) {
+            let icebergMessage = getRandomIcebergMessage();
+            room.sendAnnouncement(icebergMessage, player.id, 0xFFE600, "normal", 2);
+        } else {
+            room.sendAnnouncement(player.name + ", adquiere VIP para usar esta función!", player.id, Colors.Azul, "bold");
+        }
+    } else {
+        room.sendAnnouncement("No se encontraron datos del jugador.", player.id, 0xFF0000, "normal", 2);
+    }
+}
     if (["!vote"].includes(message[0].toLowerCase()) && message.length > 1) {
         if (room.getPlayerList().length < 4) {
             room.sendAnnouncement("No se puede votar si hay menos de 4 personas.", player.id, 0xFF0000, "normal", 2);
@@ -2014,12 +1997,8 @@ room.onPlayerChat = function (player, message) {
         teamChat(player, originalMessage);
         return false;
     }
-    else if (["!not"].includes(message[0].toLowerCase())) {
-        roomUpNotification();
-    }
-
     else if (["!clean"].includes(message[0].toLowerCase()) && player.admin) {
-        setTimeout(_ => { room.sendAnnouncement(centerText(`${player.name} HA LIMPIADO EL CHAT.`, null, 0xe50029, 'bold')) }, 1000)
+        setTimeout(_ => { room.sendAnnouncement(`${player.name} HA LIMPIADO EL CHAT.`, null, 0xe50029, 'bold') }, 1000)
         i = 50
         while (i >= 0) {
             room.sendAnnouncement("", null);
@@ -2053,14 +2032,36 @@ room.onPlayerChat = function (player, message) {
         printMeMideCommand(player);
     }
     else if (["!hc"].includes(message[0].toLowerCase())) {
-        printHumiliateCommand(player);
-    }
-    else if (["!ksk"].includes(message[0].toLowerCase()) && player.admin) {
-        if (!player.admin && commandTimeout < 121) {
+        let playerData = JSON.parse(localStorage.getItem(getAuth(player)));
+        if (playerData) {
+            if (["vip", "svip", "mod", "sponsor", "master", "admin", "cm", "head"].includes(playerData[StatColumns.ROLE].toLowerCase())) {
+                printHumiliateCommand(player);
+            } else {
+                room.sendAnnouncement(player.name + ", adquiere VIP para usar esta función!", player.id, Colors.Azul, "bold");
+            }
+        } else {
+            room.sendAnnouncement("No se encontraron datos del jugador.");
         }
-        console.log("entra a ksk")
-        randomUniforms();
-        commandTimeout = 0;
+    }
+    
+    else if (["!ksk"].includes(message[0].toLowerCase())) {
+        let playerRole;
+        if (localStorage.getItem(getAuth(player))) {
+            const stats = JSON.parse(localStorage.getItem(getAuth(player)));
+            playerRole = stats[StatColumns.ROLE];
+        } else {
+            playerRole = "player"; 
+        }
+    
+        if (["vip", "svip", "admin", "mod", "sponsor", "master", "cm", "head"].includes(playerRole)) {
+            if (commandTimeout < 121) {
+                console.log("entra a ksk");
+                randomUniforms();
+                commandTimeout = 0;
+            }
+        } else {
+            room.sendAnnouncement(player.name + ", adquiere VIP para cambiar las camisetas!", player.id, Colors.Azul, "bold");
+        }
     }
     else if (["!mtm", "mtm", "meteme"].includes(message[0].toLowerCase())) {
         if (!AFKSet.has(player.id) && player.team == Team.SPECTATORS && activePlay) {
@@ -2074,7 +2075,7 @@ room.onPlayerChat = function (player, message) {
                 adminCommandTimeout = true;
             }, 30000);
         } else {
-            room.sendAnnouncement("No spamees este comando", player.id, Colors.Vermelho)
+            room.sendAnnouncement("SDH | No spamees este comando", player.id, Colors.Vermelho, "bold")
             return false;
         }
 
@@ -2139,39 +2140,49 @@ room.onPlayerChat = function (player, message) {
     }
 
     else if (["!showme"].includes(message[0].toLowerCase())) {
-        var stats;
-        localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
-        room.sendAnnouncement("📊 ESTAS SON LAS STATS DE " + player.name + ": ", null, 0xF7FF00, "normal");
-        room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", null, 0x73EC59, "normal");
+        let playerData = JSON.parse(localStorage.getItem(getAuth(player)));
+        if (playerData) {
+            if (["vip", "svip", "mod", "admin", "cm", "head", "master", "sponsor"].includes(playerData[StatColumns.ROLE].toLowerCase())) {
+                var stats;
+                localStorage.getItem(getAuth(player)) ? stats = JSON.parse(localStorage.getItem(getAuth(player))) : stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00"];
+                room.sendAnnouncement("📊 ESTAS SON LAS STATS DE " + player.name + ": ", null, 0xd733ff, "bold");
+                room.sendAnnouncement("🎮 Partidos: " + stats[StatColumns.GAMES] + "  ✅ Ganados: " + stats[StatColumns.WINS] + "  ❌ Perdidos: " + stats[StatColumns.LOSES] + "  WINRATE: " + stats[StatColumns.WINRATE] + "% \n⚽️ Goles: " + stats[StatColumns.GOALS] + "  👟 Asistencias: " + stats[StatColumns.ASSISTS] + " \n🧤 Atajadas: " + stats[StatColumns.GK] + "  🥅 Vallas Invictas: " + stats[StatColumns.VI] + "  🥅 VI Por Partido: " + stats[StatColumns.CP] + "%", null, 0x3DA7FF, "normal");
+            } else {
+                room.sendAnnouncement(player.name + ", adquiere VIP para usar esto!", player.id, Colors.Azul, "bold");
+            }
+        } else {
+            room.sendChat("No se encontraron datos del jugador.");
+        }
     }
+    
 
     else if (["!jugados"].includes(message[0].toLowerCase())) { // mostra o ranking de partidas jogadas
         var tableau = getTop5ForStat(StatColumns.GAMES);
-        var text = "TOP5️⃣ Mas jugados:";
+        var text = "TOP5️⃣ MAS VICIOS:";
         printTop5(text, tableau);
     }
 
     else if (["!ganados"].includes(message[0].toLowerCase())) { // mostra o ranking de vitórias jogadas
         var tableau = getTop5ForStat(StatColumns.WINS);
-        var text = "TOP5️⃣ Mas ganados:";
+        var text = "TOP5️⃣ WINS:";
         printTop5(text, tableau);
     }
 
     else if (["!goles"].includes(message[0].toLowerCase())) {
         var tableau = getTop5ForStat(StatColumns.GOALS);
-        var text = "TOP5️⃣ Goleadores:";
+        var text = "TOP5️⃣ GOLEADORES:";
         printTop5(text, tableau);
     }
 
     else if (["!asis"].includes(message[0].toLowerCase())) { // mostra o ranking de assistencias
         var tableau = getTop5ForStat(StatColumns.ASSISTS);
-        var text = "TOP5️⃣ Asistidores:";
+        var text = "TOP5️⃣ ASISTIDORES:";
         printTop5(text, tableau);
     }
 
     else if (["!arq"].includes(message[0].toLowerCase())) { // mostra o ranking de defesas [GK]
         var tableau = getTop5ForStat(StatColumns.VI);
-        var text = "TOP5️⃣ Mas VI:";
+        var text = "TOP5️⃣ VALLAS INVICTAS:";
         printTop5(text, tableau);
     }
 
@@ -2193,7 +2204,7 @@ room.onPlayerChat = function (player, message) {
         console.log("player?: " + player);
         if (localStorage.getItem(getAuth(player)) && isMaster) {
             console.log("messa " + message[1] + message[2]);
-            if (message.length >= 3 && ["admin", "mod", "head", "cm", "vip", "svip", "player"].includes(message[1].toLowerCase()) && message[2][0] == "#") {
+            if (message.length >= 3 && ["admin", "mod", "sponsor", "head", "cm", "vip", "svip", "player"].includes(message[1].toLowerCase()) && message[2][0] == "#") {
                 console.log("evaluo bien");
                 let id = message[2].substring(1, message[2].length);
                 let newRole = message[1];
@@ -2223,6 +2234,10 @@ room.onPlayerChat = function (player, message) {
                             stats[StatColumns.ROLE] = "cm";
                             getPlayerById(parseInt(id))[eP.ROLE] = "cm";
                             break;
+                        case "sponsor":
+                            stats[StatColumns.ROLE] = "sponsor";
+                            getPlayerById(parseInt(id))[eP.ROLE] = "sponsor";
+                            break;
                         case "vip":
                             stats[StatColumns.ROLE] = "vip";
                             getPlayerById(parseInt(id))[eP.ROLE] = "vip";
@@ -2237,7 +2252,7 @@ room.onPlayerChat = function (player, message) {
                             break;
                     }
                     localStorage.setItem(getAuth(room.getPlayer(Number.parseInt(id))), JSON.stringify(stats));
-                    room.sendChat(room.getPlayer(Number.parseInt(id)).name + " ahora es " + newRole + " de la sala! 👮");
+                    room.sendAnnouncement(room.getPlayer(Number.parseInt(id)).name + " ahora es " + newRole + " de la sala! 👮", null, Colors.Amrelo);
 
                 }
             }
@@ -2261,28 +2276,11 @@ room.onPlayerChat = function (player, message) {
             }
         }
     }
-    else if (["!banlist", "!bans"].includes(message[0].toLowerCase())) {
-        if (banList.length == 0) {
-            room.sendChat("[PV] There is no one on the ban list!", player.id);
-            return false;
-        }
-        var cstm = "[PV] Ban list ";
-        for (var i = 0; i < banList.length; i++) {
-            if (140 - cstm.length < (banList[i][0] + "[" + (banList[i][1]) + "], ").length) {
-                room.sendChat(cstm, player.id);
-                cstm = "... ";
-            }
-            cstm += banList[i][0] + "[" + (banList[i][1]) + "], ";
-        }
-        cstm = cstm.substring(0, cstm.length - 2);
-        cstm += ".";
-        room.sendChat(cstm, player.id);
-    }
     else if (["!clearbans"].includes(message[0].toLowerCase())) {
         if (player.admin) {
             if (message.length == 1) {
                 room.clearBans();
-                room.sendAnnouncement(centerText("SANCIONES LIMPIADAS POR EL STAFF: " + player.name, null, Colors.Amrelo));
+                room.sendAnnouncement("SANCIONES LIMPIADAS POR EL STAFF: " + player.name, null, Colors.Amrelo);
                 banList = [];
             }
             if (message.length == 2) {
@@ -2291,7 +2289,7 @@ room.onPlayerChat = function (player, message) {
                         ID = Number.parseInt(message[1]);
                         room.clearBan(ID);
                         if (banList.length != banList.filter((array) => array[1] != ID)) {
-                            room.sendChat(banList.filter((array) => array[1] == ID)[0][0] + " AHORA ESTA UNBAN DE LA SALA!");
+                            room.sendAnnouncement(banList.filter((array) => array[1] == ID)[0][0] + " AHORA ESTA UNBAN DE LA SALA!", null, Colors.Amrelo);
                         }
                         setTimeout(() => { banList = banList.filter((array) => array[1] != ID); }, 20);
                     }
@@ -2353,11 +2351,11 @@ room.onPlayerChat = function (player, message) {
     } else {
         if (message.length > 1 && message[0].toLowerCase() == 't' && message[1] == ' ') {
             if (player.team != 0) {
-                room.getPlayerList().forEach((element) => { if (element.team == player.team) room.sendAnnouncement("〔TEAM〕" + player.name + ": " + message.substr(2), element.id, (player.team == Team.RED ? 16725591 : 3261685), "normal", 0) })
+                room.getPlayerList().forEach((element) => { if (element.team == player.team) room.sendAnnouncement("〔TeamChat〕" + player.name + ": " + message.substr(2), element.id, (player.team == Team.RED ? 16725591 : 3261685), "bold", 0) })
                 return false;
             }
             else {
-                room.sendAnnouncement("No estás en un equipo. Entra al partido con !mtm");
+                room.sendAnnouncement("SDH | No estás en un equipo. Entra al partido con !mtm", null, Colors.Amrelo);
                 return false;
             }
         }
@@ -2388,12 +2386,16 @@ room.onPlayerChat = function (player, message) {
             room.sendAnnouncement("「𝐌𝐎𝐃」" + player.name + ": " + msg + "", null, 0x6BFFB5);
             return false;
         }
+        if (role == "sponsor") {
+            room.sendAnnouncement("「💸 𝙎𝙥𝙤𝙣𝙨𝙤𝙧」" + player.name + ": " + msg + "", null, 0xff9436, "bold");
+            return false;
+        }
         if (role == "vip") {
             room.sendAnnouncement(" [💎 𝐕𝐈𝐏] " + player.name + ": " + msg + "", null, 0x3DA7FF);
             return false;
         }
         if (role == "svip") {
-            room.sendAnnouncement(" [👑 𝐕𝐈𝐏-𝐒𝐔𝐏𝐑𝐄𝐌𝐎] " + player.name + ": " + msg + "", null, 0xd733ff);
+            room.sendAnnouncement(" [👑 𝐕𝐈𝐏-𝐒𝐔𝐏𝐑𝐄𝐌𝐎] " + player.name + ": " + msg + "", null, 0xd733ff, "bold");
             return false;
         }
     }
@@ -2409,22 +2411,7 @@ room.onPlayerChat = function (player, message) {
     if (message[0][0] == "!") {
         return false;
     }
-    if (getMute(player)) {
-        room.sendChat("Tu", player.id);
         return false;
-    }
-    if (slowMode > 0) {
-        if (!player.admin) {
-            if (!SMSet.has(player.id)) {
-                SMSet.add(player.id);
-                setTimeout((number) => { SMSet.delete(number); }, slowMode * 1000, player.id);
-            }
-            else {
-                return false;
-            }
-        }
-    }
-    return false;
 }
 
 
